@@ -1,0 +1,235 @@
+/* AVI-Bench project page — Bulma-based, Nerfies-style template
+   Adapted from the AVTrack page (https://fudancvl.github.io/AVTrack/). */
+
+:root {
+  --accent-1: #6a8eff;   /* indigo blue */
+  --accent-2: #b794f6;   /* soft purple */
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+/* Full-bleed hero */
+.avi-hero {
+  position: relative;
+  background: linear-gradient(135deg, #1a1f3a 0%, #2d1b5e 45%, #4a2a7e 100%);
+  color: #fff;
+  overflow: hidden;
+  min-height: 80vh;
+}
+.avi-hero .hero-bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+  z-index: 0;
+}
+.avi-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+              rgba(15, 23, 42, 0.55) 0%,
+              rgba(15, 23, 42, 0.80) 80%,
+              rgba(15, 23, 42, 0.92) 100%);
+  z-index: 1;
+}
+.avi-hero .hero-body {
+  position: relative;
+  z-index: 2;
+  padding: 7vh 1.5rem 9vh;
+}
+.avi-hero .publication-title {
+  color: #ffffff !important;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+  margin-bottom: 1.25rem !important;
+}
+.avi-hero .publication-title .accent {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.avi-hero .publication-authors,
+.avi-hero .publication-authors * {
+  color: #e5e7eb !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+}
+.avi-hero .publication-authors a { color: var(--accent-1) !important; text-decoration: none; }
+.avi-hero .publication-authors a:hover { color: #fff !important; }
+
+/* Venue pill */
+.avi-hero .venue-pill {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: none !important;
+}
+
+/* Hero buttons (dark glass) */
+.avi-hero .button.is-dark {
+  background-color: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 600;
+}
+.avi-hero .button.is-dark:hover {
+  background-color: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.publication-links .link-block { margin: 0.25rem 0.35rem; }
+
+/* Figures and captions */
+.figure-block img,
+.figure-block video {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.figure-block.is-medium img { max-width: 780px; }
+.figure-caption {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section spacing */
+.section {
+  padding: 4.5rem 1.5rem;
+}
+.section .title.is-3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+/* Abstract / large prose */
+.content p {
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: #374151;
+}
+.content p strong, .content p em { color: #1f2937; }
+
+/* Stage / task tiles */
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.stage-card {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 1.25rem 1.4rem;
+  border-left: 4px solid var(--accent-1);
+}
+.stage-card h4 {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+.stage-card .task-list {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 0.4rem;
+}
+.stage-card p {
+  font-size: 0.92rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+.stage-card.perception   { border-color: #6a8eff; }
+.stage-card.understand   { border-color: #06b6d4; }
+.stage-card.reasoning    { border-color: #10b981; }
+.stage-card.sensation    { border-color: #b794f6; }
+
+/* Tables */
+table.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+table.results-table th,
+table.results-table td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: right;
+}
+table.results-table th { background: #f3f4f6; color: #1f2937; font-weight: 600; }
+table.results-table td:first-child,
+table.results-table th:first-child { text-align: left; }
+table.results-table tr.highlight { background: #fef3c7; }
+
+/* Updates list */
+.updates-list { list-style: none; padding-left: 0; }
+.updates-list li {
+  margin-bottom: 0.6rem;
+  font-size: 0.98rem;
+  color: #374151;
+}
+.updates-list .date {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-right: 0.5em;
+  min-width: 7em;
+}
+
+/* Code/bibtex block */
+.bibtex-block {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 1.4rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Footer */
+footer.section {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+footer.section a { color: var(--accent-1); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .avi-hero .publication-title { font-size: 2rem !important; }
+  .avi-hero .hero-body { padding: 5vh 1rem 6vh; }
+  .stage-grid { grid-template-columns: 1fr; }
+}

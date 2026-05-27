@@ -1,385 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs">
+  <meta name="description" content="AVI-Bench is a cognitively-inspired benchmark for evaluating audio-visual intelligence of Omni-Multimodal LLMs. 5,864 samples, 14 tasks, four-level taxonomy. ICML 2026.">
+  <meta name="keywords" content="audio-visual, omni-mllm, multimodal benchmark, perception, reasoning, ICML 2026, AVI-Bench">
+  <meta name="author" content="Yaoting Wang">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs">
+  <meta property="og:description" content="A cognitively-inspired benchmark probing audio-visual intelligence of Omni-MLLMs across Perception, Understanding, Reasoning, and Primitive Sensation.">
+  <meta property="og:image" content="static/images/teaser.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs">
+  <meta name="twitter:image" content="static/images/teaser.png">
+
+  <meta name="citation_title" content="AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs">
+  <meta name="citation_author" content="Wang, Yaoting">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="ICML 2026">
+
+  <meta name="theme-color" content="#1a1f3a">
+
+  <title>AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs (ICML 2026)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 </head>
+
 <body>
 
-<!-- Header -->
-<header class="header">
-    <div class="container">
-        <h1 class="title">AVI-Bench</h1>
-        <p class="subtitle">Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</p>
-        <p class="authors">
-            Yaoting Wang, Ziyi Zhang, Wenming Tu, Shaoxuan Xu, Wenjie Du, Cheng Liang,<br>
-            Weijun Wang, Yuanchao Li, Guangyao Li, Hao Fei, Yuanchun Li, Henghui Ding, Yunxin Liu
-        </p>
-        <p class="venue"><strong>ICML 2026</strong></p>
-        <div class="links">
-            <a href="#" id="link-paper">[Paper]</a>
-            <a href="#" id="link-code">[Code]</a>
-            <a href="#" id="link-dataset">[Dataset]</a>
-        </div>
-    </div>
-</header>
+<!-- ============== HERO ============== -->
+<section class="hero avi-hero">
+  <img class="hero-bg-img" src="static/images/avi.png" alt="AVI-Bench framework background">
+  <div class="hero-overlay"></div>
 
-<!-- Navigation -->
-<nav class="nav">
-    <div class="container">
-        <a href="#abstract">Abstract</a>
-        <a href="#framework">Framework</a>
-        <a href="#evaluation">Evaluation Stages</a>
-        <a href="#metrics">Metrics</a>
-        <a href="#open-source">Open-Source</a>
-        <a href="#citation">Citation</a>
-    </div>
-</nav>
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
 
-<!-- Abstract -->
-<section id="abstract">
-    <div class="container">
-        <h2>Abstract</h2>
-        <div class="abstract-text">
-            <p>Current evaluations of Omni-MLLMs rely on isolated tasks without examining the relationships between them, limiting deeper assessment of audio-visual capabilities. We propose <strong>AVI-Bench</strong>, a comprehensive evaluation framework built around <strong>three cognitively grounded stages</strong>&mdash;Perception, Understanding, and Reasoning&mdash;plus the <strong>Primitive Sensation (PriSe)</strong> extension for unfamiliar-domain evaluation. The benchmark contains <strong>5,864 samples</strong> over <strong>14 tasks</strong>, evaluated with <strong>13 metrics</strong> and summarized through a <strong>four-level AVI taxonomy</strong>.</p>
-            <p>Our findings reveal that <em>reasoning abilities are fundamentally constrained by perception and understanding capacities</em>, and that current systems perform poorly in generalization tasks across different domains.</p>
+          <div style="margin-bottom: 1.25rem;">
+            <span class="venue-pill">ICML&nbsp;2026</span>
+          </div>
+
+          <h1 class="title is-1 publication-title">
+            <span class="accent">AVI-Bench</span>:<br>
+            Toward Human-like Audio-Visual Intelligence of Omni-MLLMs
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://yaotingwangofficial.github.io" target="_blank">Yaoting Wang</a>,</span>
+            <span class="author-block">Ziyi Zhang,</span>
+            <span class="author-block">Wenming Tu,</span>
+            <span class="author-block">Shaoxuan Xu,</span>
+            <span class="author-block">Wenjie Du,</span>
+            <span class="author-block">Cheng Liang,</span>
+            <br>
+            <span class="author-block">Weijun Wang,</span>
+            <span class="author-block">Yuanchao Li,</span>
+            <span class="author-block">Guangyao Li,</span>
+            <span class="author-block">Hao Fei,</span>
+            <span class="author-block">Yuanchun Li,</span>
+            <span class="author-block"><a href="https://henghuiding.com" target="_blank">Henghui Ding</a>,</span>
+            <span class="author-block">Yunxin Liu</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 1.8em;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/yaotingwangofficial/AVIBench_Release" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Framework -->
-<section id="framework">
-    <div class="container">
-        <h2>Benchmark Overview</h2>
-        <figure class="figure">
-            <img src="assets/avi.png" alt="AVI-Bench benchmark overview with perception, understanding, reasoning, and PriSe evaluation components">
-            <figcaption><strong>Figure 1.</strong> AVI-Bench evaluates Omni-MLLMs across Perception, Understanding, Reasoning, and the PriSe extension, covering 14 tasks.</figcaption>
-        </figure>
+
+<!-- ============== ABSTRACT ============== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content">
+          <p>
+            Current evaluations of Omni-MLLMs rely on isolated tasks without examining the
+            relationships between them, limiting deeper assessment of audio-visual
+            capabilities. We propose <strong>AVI-Bench</strong>, a cognitively-inspired
+            evaluation framework built around <strong>three cognitively grounded stages</strong>&mdash;<em>Perception</em>,
+            <em>Understanding</em>, and <em>Reasoning</em>&mdash;plus the
+            <strong>Primitive Sensation (PriSe)</strong> extension for unfamiliar-domain
+            evaluation. The benchmark contains <strong>5,864 samples</strong> over
+            <strong>14 tasks</strong> evaluated with <strong>13 metrics</strong>, and
+            summarised through a <strong>four-level AVI taxonomy</strong>.
+          </p>
+          <p>
+            Our findings reveal that <em>reasoning abilities are fundamentally constrained
+            by perception and understanding capacities</em>, and that current systems
+            perform poorly when generalising across unfamiliar domains.
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Evaluation Stages -->
-<section id="evaluation">
-    <div class="container">
-        <h2>Evaluation Stages</h2>
 
-        <!-- Stage 1: Perception -->
-        <div class="stage">
-            <h3><span class="stage-label perception-label">Perception</span> Identifying and localizing audio-visual elements</h3>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AMIC</span> &mdash; Audio Multi-Instance Classification
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <audio controls><source src="media/perception/AMIC/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Identify the categories of sound-emitting objects and how many instances of each category are making sounds.</p>
-                        <p class="answer"><strong>A:</strong> <code>{"car": "1"}</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">VMIC</span> &mdash; Visual Multi-Instance Classification
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <img src="media/perception/VMIC/00000.jpg" alt="VMIC example">
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Identify the categories of visible objects and how many different instances of each category are visible.</p>
-                        <p class="answer"><strong>A:</strong> <code>{"flower": "5", "tree": "5"}</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVL</span> &mdash; Audio-Visual Localization
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <img src="media/perception/AVL/0001.jpg" alt="AVL example">
-                        <audio controls><source src="media/perception/AVL/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Generate the bounding-box of sound-emitting instances in the given image with the help of the given audio.</p>
-                        <p class="answer"><strong>A:</strong> <code>{"tuba_1": [153, 4, 107, 210], "tuba_2": [323, 57, 73, 155]}</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVM</span> &mdash; Audio-Visual Matching
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/perception/AVM/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/perception/AVM/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Are the contexts of audio and visual content matching?</p>
-                        <p class="answer"><strong>A:</strong> <code>no</code></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stage 2: Understanding -->
-        <div class="stage">
-            <h3><span class="stage-label understand-label">Understanding</span> Cross-modal retrieval and semantic comprehension</h3>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">VAR</span> &mdash; Visual-ref Audio Retrieval
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <img src="media/understand/VAR/00000.png" alt="VAR reference image">
-                        <audio controls><source src="media/understand/VAR/00000_00.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Based on the given image as a reference, identify which sounds in the provided audio list contain the objects corresponding to the image.</p>
-                        <p class="answer"><strong>A:</strong> Index list of matching audio clips</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVR</span> &mdash; Audio-ref Visual Retrieval
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <audio controls><source src="media/understand/AVR/00000.wav" type="audio/wav"></audio>
-                        <img src="media/understand/AVR/00000_00.png" alt="AVR candidate image">
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Based on the given audio as a reference, identify which images in the provided image list contain the objects corresponding to the sound.</p>
-                        <p class="answer"><strong>A:</strong> Index list of matching images</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVC</span> &mdash; Audio-Visual Captioning
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/understand/AVC/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/understand/AVC/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Please describe what you see and hear in a single sentence based on the given audio and video.</p>
-                        <p class="answer"><strong>A:</strong> "A baby is laughing and smiling while her mother is lying down next to her, talking to her."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stage 3: Reasoning -->
-        <div class="stage">
-            <h3><span class="stage-label reasoning-label">Reasoning</span> Complex inference and hallucination detection</h3>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVH</span> &mdash; Audio-ref Visual Hallucination
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/reasoning/AVH/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/reasoning/AVH/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Is the car visible in the video?</p>
-                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">VAH</span> &mdash; Visual-ref Audio Hallucination
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/reasoning/VAH/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/reasoning/VAH/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Is the car making sound in the audio?</p>
-                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVQA</span> &mdash; Audio-Visual Question Answering
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/reasoning/AVQA/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/reasoning/AVQA/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Is there a voiceover?</p>
-                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVLG</span> &mdash; Audio-Visual Language Grounding
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <img src="media/reasoning/AVLG/00.jpg" alt="AVLG frame">
-                        <audio controls><source src="media/reasoning/AVLG/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Segment the object in the given frames based on the given text reference. Reference: <em>The sounding object near the man.</em></p>
-                        <p class="answer"><strong>A:</strong> <code>{"frame_0": [705, 359, 353, 229], ...}</code></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stage 4: Primitive Sensation -->
-        <div class="stage">
-            <h3><span class="stage-label sensation-label">Primitive Sensation</span> Out-of-domain fundamental sensory evaluation</h3>
-            <p>Three PriSe tasks: ASQA, VSQA, and AVSQA — designed to probe primitive sensory abilities on low-semantic, out-of-distribution stimuli.</p>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">ASQA</span> &mdash; Audio Sensation Question Answering
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <audio controls><source src="media/sensation/ASQA/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> How many beats can you hear?</p>
-                        <p class="answer"><strong>A:</strong> <code>3</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">VSQA_I</span> &mdash; Visual Sensation QA (Image)
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <img src="media/sensation/VSQA_I/00000.jpg" alt="VSQA_I example">
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Is the background of the given image clear?</p>
-                        <p class="answer"><strong>A:</strong> <code>no</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">VSQA_V</span> &mdash; Visual Sensation QA (Video)
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/sensation/VSQA_V/00000.mp4" type="video/mp4"></video>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Which object's area in the video has not changed?</p>
-                        <p class="answer"><strong>A:</strong> <code>square</code></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="task-example">
-                <div class="task-header">
-                    <span class="task-name">AVSQA</span> &mdash; Audio-Visual Sensation QA
-                </div>
-                <div class="example-row">
-                    <div class="example-media">
-                        <video controls width="100%"><source src="media/sensation/AVSQA/00000.mp4" type="video/mp4"></video>
-                        <audio controls><source src="media/sensation/AVSQA/00000.wav" type="audio/wav"></audio>
-                    </div>
-                    <div class="example-qa">
-                        <p class="question"><strong>Q:</strong> Which object produces sound first?</p>
-                        <p class="answer"><strong>A:</strong> <code>cube</code></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ============== FRAMEWORK FIGURE ============== -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Benchmark Overview</h2>
+    <div class="figure-block">
+      <img src="static/images/avi.png" alt="AVI-Bench framework: Perception, Understanding, Reasoning, and PriSe stages">
     </div>
+    <p class="figure-caption">
+      <strong>Figure 1.</strong> AVI-Bench evaluates Omni-MLLMs across Perception,
+      Understanding, Reasoning, and the PriSe extension &mdash; 14 tasks total.
+    </p>
+  </div>
 </section>
 
-<!-- Metrics -->
-<section id="metrics">
-    <div class="container">
-        <h2>Evaluation Metrics</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Level</th>
-                    <th>Metric</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>ASQA, VSQA (implemented as VSQA_I + VSQA_V)</td><td>Sensation</td><td>Full Match Accuracy + double-confirm</td></tr>
-                <tr><td>AVSQA</td><td>Sensation</td><td>AVSQA-specific Matching</td></tr>
-                <tr><td>AMIC, VMIC</td><td>Perception</td><td>Semantic score + counting RMSE</td></tr>
-                <tr><td>AVL</td><td>Perception</td><td>mIoU + Instance Score</td></tr>
-                <tr><td>AVM</td><td>Perception</td><td>Full Match Accuracy</td></tr>
-                <tr><td>AVR, VAR</td><td>Understanding</td><td>(R@1 + R@3)/2 with F1-based refinement</td></tr>
-                <tr><td>AVC</td><td>Understanding</td><td>FENSE</td></tr>
-                <tr><td>AVH, VAH</td><td>Reasoning</td><td>Full Match Accuracy</td></tr>
-                <tr><td>AVQA</td><td>Reasoning</td><td>Full Match Accuracy</td></tr>
-                <tr><td>AVLG</td><td>Reasoning</td><td>Per-frame mIoU</td></tr>
-            </tbody>
-        </table>
+
+<!-- ============== STAGES ============== -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Three Stages + Primitive Sensation</h2>
+    <div class="stage-grid">
+      <div class="stage-card perception">
+        <h4>Perception</h4>
+        <div class="task-list">AMIC · VMIC · AVL · AVM</div>
+        <p>Detection and recognition of fundamental audio/visual entities; cross-modal local and global alignment.</p>
+      </div>
+      <div class="stage-card understand">
+        <h4>Understanding</h4>
+        <div class="task-list">VAR · AVR · AVC</div>
+        <p>Integration of multimodal context &mdash; cross-modal retrieval and narrative captioning.</p>
+      </div>
+      <div class="stage-card reasoning">
+        <h4>Reasoning</h4>
+        <div class="task-list">AVH · VAH · AVQA · AVLG</div>
+        <p>Higher-order inference, hallucination robustness, and cross-modal grounding.</p>
+      </div>
+      <div class="stage-card sensation">
+        <h4>Primitive Sensation</h4>
+        <div class="task-list">ASQA · VSQA · AVSQA</div>
+        <p>Sensitivity to low-semantic stimuli (texture / colour / spatial / temporal change) on out-of-distribution inputs.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Open-Source -->
-<section id="open-source">
-    <div class="container">
-        <h2>Toward Human-like Audio-Visual Intelligence</h2>
-        <p>AVI-Bench will be continuously maintained as a long-term, open community resource. We evaluate model capabilities along four adaptive dimensions:</p>
-        <div class="dimensions">
-            <div class="dim">
-                <h4>Task Adaptive</h4>
-                <p>Models demonstrate effective overall performance across a wide range of audio-visual tasks.</p>
-            </div>
-            <div class="dim">
-                <h4>Modal Adaptive</h4>
-                <p>Models demonstrate strong performance on both audio and visual modalities.</p>
-            </div>
-            <div class="dim">
-                <h4>Stage Adaptive</h4>
-                <p>Models show strong performance on both perception and understanding for better audio-visual reasoning.</p>
-            </div>
-            <div class="dim">
-                <h4>Domain Adaptive</h4>
-                <p>Models show human-like domain generalization across diverse scenarios.</p>
-            </div>
-        </div>
 
-        <h3>Getting Started</h3>
-<pre class="code-block"><code># Setup
+<!-- ============== DATA SAMPLES ============== -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Representative Task Samples</h2>
+    <div class="figure-block">
+      <img src="static/images/data_samples.png" alt="Representative AVI-Bench samples across the four cognitive stages">
+    </div>
+    <p class="figure-caption">
+      <strong>Figure 2.</strong> Selected samples spanning Perception, Understanding,
+      Reasoning, and Primitive Sensation tasks.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============== FOUR-LEVEL TAXONOMY ============== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Four-Level AVI Taxonomy</h2>
+    <table class="results-table">
+      <thead>
+        <tr><th>Level</th><th>Name</th><th style="text-align:left;">Definition</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>L1</td><td>Task-Adaptive</td><td style="text-align:left;">Per-task average score across the cognitive stages.</td></tr>
+        <tr><td>L2</td><td>Modality-Adaptive</td><td style="text-align:left;">Balance between audio-dominant and visual-dominant tasks.</td></tr>
+        <tr><td>L3</td><td>Stage-Adaptive</td><td style="text-align:left;">Whether reasoning is grounded in its perceptual / conceptual prerequisites.</td></tr>
+        <tr><td>L4</td><td>Domain-Adaptive</td><td style="text-align:left;">Performance gap between familiar and unfamiliar (Sensation) domains.</td></tr>
+      </tbody>
+    </table>
+    <p class="content has-text-centered" style="color:#6b7280;">
+      L1&ndash;L4 yield interpretable diagnostic axes beyond raw accuracy.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============== HEADLINE RESULTS ============== -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Headline Results</h2>
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Model</th>
+          <th>Params</th>
+          <th>Perception</th>
+          <th>Understand</th>
+          <th>Reasoning</th>
+          <th>Sensation</th>
+          <th>Overall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td><strong>Gemini-2.5-Pro</strong></td><td>&ndash;</td><td>54.58</td><td>68.97</td><td>69.06</td><td>36.22</td><td><strong>57.21</strong></td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>&ndash;</td><td>45.97</td><td>43.79</td><td>63.70</td><td>30.63</td><td>46.02</td></tr>
+        <tr><td>Gemini-2.0-Flash</td><td>&ndash;</td><td>44.27</td><td>42.11</td><td>64.03</td><td>29.48</td><td>44.97</td></tr>
+        <tr><td>Qwen2.5-Omni</td><td>7B</td><td>42.81</td><td>39.68</td><td>58.26</td><td>24.59</td><td>41.33</td></tr>
+        <tr><td>GPT-4o</td><td>&ndash;</td><td>40.45</td><td>48.60</td><td>56.87</td><td>16.81</td><td>40.68</td></tr>
+        <tr class="highlight"><td><strong>Human (subset)</strong></td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>90+</td><td><strong>92.6</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="content">
+      <ul>
+        <li>Even the top model, Gemini-2.5-Pro, reaches only <strong>57.2</strong>, far below the human baseline (~92.6) &mdash; AVI-Bench is a challenging frontier.</li>
+        <li>A consistent <strong>modality imbalance</strong> is observed: models excel on visual-dominant tasks but lag on audio-dominant ones.</li>
+        <li><strong>Primitive Sensation</strong> is the weakest stage across the board, indicating poor generalisation to low-semantic, unfamiliar inputs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== QUICKSTART ============== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quickstart</h2>
+    <pre class="bibtex-block"># Setup
 conda create -n avibench python=3.11 -y
 conda activate avibench
 pip install -r requirements.txt
@@ -389,21 +276,25 @@ export OPENAI_API_KEY=...
 export OPENAI_BASE_URL=...
 export DATA_ROOT=/path/to/AVIBench_data_release/levels
 
-# Quick smoke test (5 samples per task)
+# Quick smoke test
 python test_all_tasks.py
 
-# Full pipeline
-bash run_all.sh                         # inference
-cd auto_format &amp;&amp; python run.py        # refine
-cd ../eval &amp;&amp; python eval.py            # evaluate</code></pre>
-    </div>
+# Full pipeline: inference → refine → eval
+bash run_all.sh
+cd auto_format && python run.py && cd ..
+cd eval && python eval.py --models gemini-2.5-pro</pre>
+    <p class="content has-text-centered" style="color:#6b7280; margin-top:1rem;">
+      See the <a href="https://github.com/yaotingwangofficial/AVIBench_Release">code repository</a> for full details.
+    </p>
+  </div>
 </section>
 
-<!-- Citation -->
-<section id="citation">
-    <div class="container">
-        <h2>Citation</h2>
-<pre class="code-block"><code>@inproceedings{wang2026avibench,
+
+<!-- ============== CITATION ============== -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Citation</h2>
+<pre class="bibtex-block">@inproceedings{wang2026avibench,
   title     = {AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
   author    = {Wang, Yaoting and Zhang, Ziyi and Tu, Wenming and Xu, Shaoxuan and
                Du, Wenjie and Liang, Cheng and Wang, Weijun and Li, Yuanchao and
@@ -411,15 +302,19 @@ cd ../eval &amp;&amp; python eval.py            # evaluate</code></pre>
                Liu, Yunxin},
   booktitle = {Proceedings of ICML},
   year      = {2026}
-}</code></pre>
-    </div>
+}</pre>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <p>AVI-Bench &copy; 2026</p>
-    </div>
+
+<!-- ============== FOOTER ============== -->
+<footer class="section">
+  <p>
+    AVI-Bench &copy; 2026 &middot;
+    template adapted from
+    <a href="https://nerfies.github.io" target="_blank">Nerfies</a>
+    via the <a href="https://fudancvl.github.io/AVTrack/" target="_blank">AVTrack</a> project page.
+  </p>
 </footer>
 
 </body>
