@@ -1,0 +1,419 @@
+/* ========================================
+   AVI-Bench - Academic Project Page
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+}
+
+body {
+    font-family: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========================================
+   Header (Title Block)
+   ======================================== */
+.header {
+    text-align: center;
+    padding: 60px 24px 32px;
+    border-bottom: 1px solid #ddd;
+}
+
+.title {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #444;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.authors {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    color: #1a56db;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Navigation (sticky)
+   ======================================== */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: #444;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    color: #1a56db;
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+section {
+    padding: 48px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h2 {
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+p {
+    margin-bottom: 12px;
+    color: #444;
+}
+
+/* ========================================
+   Abstract
+   ======================================== */
+.abstract-text {
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.abstract-text p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+/* ========================================
+   Figure
+   ======================================== */
+.figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.figure figcaption {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   Stages
+   ======================================== */
+.stage {
+    margin-bottom: 40px;
+}
+
+.stage > h3 {
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8e8e8;
+    margin-bottom: 20px;
+}
+
+.stage-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 10px;
+    border-radius: 3px;
+    color: #fff;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.perception-label { background: #2563EB; }
+.understand-label { background: #059669; }
+.reasoning-label { background: #D97706; }
+.sensation-label { background: #DC2626; }
+
+/* ========================================
+   Task Examples (with media)
+   ======================================== */
+.task-example {
+    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.task-header {
+    background: #f7f7f7;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.92rem;
+}
+
+.task-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: #1a56db;
+    font-size: 0.88rem;
+}
+
+.example-row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 0;
+}
+
+.example-media {
+    padding: 16px;
+    background: #fafafa;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-media img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.example-media video {
+    max-width: 100%;
+    border: 1px solid #ddd;
+}
+
+.example-media audio {
+    width: 100%;
+    max-width: 268px;
+}
+
+.example-qa {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.question {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.answer {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.answer code,
+.question code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #c7254e;
+}
+
+/* ========================================
+   Table
+   ======================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 12px 0;
+}
+
+thead th {
+    background: #f7f7f7;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+}
+
+tbody td {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+tbody tr:hover {
+    background: #fafafa;
+}
+
+/* ========================================
+   Dimensions Grid
+   ======================================== */
+.dimensions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0 32px;
+}
+
+.dim {
+    padding: 16px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.dim h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.dim p {
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* ========================================
+   Code Block
+   ======================================== */
+.code-block {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    margin: 16px 0;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+footer {
+    text-align: center;
+    padding: 24px;
+    color: #888;
+    font-size: 0.85rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .example-row {
+        grid-template-columns: 1fr;
+    }
+
+    .example-media {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .dimensions {
+        grid-template-columns: 1fr;
+    }
+
+    .nav .container {
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 0.82rem;
+    }
+}

@@ -1,0 +1,32 @@
+# Secrets
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Runtime outputs (model predictions, eval logs)
+eval/user_outputs/
+eval/user_outputs_refined/
+eval/user_outputs*/
+eval/eval_outputs/
+*.log
+
+# Snapshot / backup artifacts from interactive eval debugging
+*.bak
+*.bak.json
+*.misaligned*
+*.stale*
+*.realigned*
+*.fresh-rerun-aborted*
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+.claude/

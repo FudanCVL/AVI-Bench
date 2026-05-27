@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <h1 class="title">AVI-Bench</h1>
+        <p class="subtitle">Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</p>
+        <p class="authors"><!-- Author names here --></p>
+        <p class="tagline"><em>Can Omni-MLLMs reason like humans from sight and sound?</em></p>
+        <div class="links">
+            <a href="#">[Paper]</a>
+            <a href="https://github.com/YourRepo/AVI-Bench">[Code]</a>
+            <a href="#">[Dataset]</a>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="container">
+        <a href="#abstract">Abstract</a>
+        <a href="#framework">Framework</a>
+        <a href="#evaluation">Evaluation Stages</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#open-source">Open-Source</a>
+        <a href="#citation">Citation</a>
+    </div>
+</nav>
+
+<!-- Abstract -->
+<section id="abstract">
+    <div class="container">
+        <h2>Abstract</h2>
+        <div class="abstract-text">
+            <p>Current evaluations of Omni-MLLMs rely on isolated tasks without examining the relationships between them, limiting deeper assessment of audio-visual capabilities. We propose <strong>AVI-Bench</strong>, a comprehensive evaluation framework built around <strong>three cognitively grounded stages</strong>&mdash;Perception, Understanding, and Reasoning&mdash;plus the <strong>Primitive Sensation (PriSe)</strong> extension for unfamiliar-domain evaluation. The benchmark contains <strong>5,864 samples</strong> over <strong>14 paper-level tasks</strong>, evaluated with <strong>13 metrics</strong> and summarized through a <strong>four-level AVI taxonomy</strong>.</p>
+            <p>Our findings reveal that <em>reasoning abilities are fundamentally constrained by perception and understanding capacities</em>, and that current systems perform poorly in generalization tasks across different domains.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Framework -->
+<section id="framework">
+    <div class="container">
+        <h2>Benchmark Overview</h2>
+        <figure class="figure">
+            <img src="assets/avi.png" alt="AVI-Bench benchmark overview with perception, understanding, reasoning, and PriSe evaluation components">
+            <figcaption><strong>Figure 1.</strong> AVI-Bench evaluates Omni-MLLMs across Perception, Understanding, Reasoning, and the PriSe extension, covering 14 paper-level tasks. In the released data, VSQA is stored as two runnable subsets: <code>VSQA_I</code> and <code>VSQA_V</code>.</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- Evaluation Stages -->
+<section id="evaluation">
+    <div class="container">
+        <h2>Evaluation Stages</h2>
+
+        <!-- Stage 1: Perception -->
+        <div class="stage">
+            <h3><span class="stage-label perception-label">Perception</span> Identifying and localizing audio-visual elements</h3>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AMIC</span> &mdash; Audio Multi-Instance Classification
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <audio controls><source src="media/perception/AMIC/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Identify the categories of sound-emitting objects and how many instances of each category are making sounds.</p>
+                        <p class="answer"><strong>A:</strong> <code>{"car": "1"}</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">VMIC</span> &mdash; Visual Multi-Instance Classification
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <img src="media/perception/VMIC/00000.jpg" alt="VMIC example">
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Identify the categories of visible objects and how many different instances of each category are visible.</p>
+                        <p class="answer"><strong>A:</strong> <code>{"flower": "5", "tree": "5"}</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVL</span> &mdash; Audio-Visual Localization
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <img src="media/perception/AVL/0001.jpg" alt="AVL example">
+                        <audio controls><source src="media/perception/AVL/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Generate the bounding-box of sound-emitting instances in the given image with the help of the given audio.</p>
+                        <p class="answer"><strong>A:</strong> <code>{"tuba_1": [153, 4, 107, 210], "tuba_2": [323, 57, 73, 155]}</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVM</span> &mdash; Audio-Visual Matching
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/perception/AVM/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/perception/AVM/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Are the contexts of audio and visual content matching?</p>
+                        <p class="answer"><strong>A:</strong> <code>no</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 2: Understanding -->
+        <div class="stage">
+            <h3><span class="stage-label understand-label">Understanding</span> Cross-modal retrieval and semantic comprehension</h3>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">VAR</span> &mdash; Visual-ref Audio Retrieval
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <img src="media/understand/VAR/00000.png" alt="VAR reference image">
+                        <audio controls><source src="media/understand/VAR/00000_00.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Based on the given image as a reference, identify which sounds in the provided audio list contain the objects corresponding to the image.</p>
+                        <p class="answer"><strong>A:</strong> Index list of matching audio clips</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVR</span> &mdash; Audio-ref Visual Retrieval
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <audio controls><source src="media/understand/AVR/00000.wav" type="audio/wav"></audio>
+                        <img src="media/understand/AVR/00000_00.png" alt="AVR candidate image">
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Based on the given audio as a reference, identify which images in the provided image list contain the objects corresponding to the sound.</p>
+                        <p class="answer"><strong>A:</strong> Index list of matching images</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVC</span> &mdash; Audio-Visual Captioning
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/understand/AVC/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/understand/AVC/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Please describe what you see and hear in a single sentence based on the given audio and video.</p>
+                        <p class="answer"><strong>A:</strong> "A baby is laughing and smiling while her mother is lying down next to her, talking to her."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 3: Reasoning -->
+        <div class="stage">
+            <h3><span class="stage-label reasoning-label">Reasoning</span> Complex inference and hallucination detection</h3>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVH</span> &mdash; Audio-ref Visual Hallucination
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/reasoning/AVH/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/reasoning/AVH/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Is the car visible in the video?</p>
+                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">VAH</span> &mdash; Visual-ref Audio Hallucination
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/reasoning/VAH/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/reasoning/VAH/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Is the car making sound in the audio?</p>
+                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVQA</span> &mdash; Audio-Visual Question Answering
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/reasoning/AVQA/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/reasoning/AVQA/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Is there a voiceover?</p>
+                        <p class="answer"><strong>A:</strong> <code>yes</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVLG</span> &mdash; Audio-Visual Language Grounding
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <img src="media/reasoning/AVLG/00.jpg" alt="AVLG frame">
+                        <audio controls><source src="media/reasoning/AVLG/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Segment the object in the given frames based on the given text reference. Reference: <em>The sounding object near the man.</em></p>
+                        <p class="answer"><strong>A:</strong> <code>{"frame_0": [705, 359, 353, 229], ...}</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stage 4: Primitive Sensation -->
+        <div class="stage">
+            <h3><span class="stage-label sensation-label">Primitive Sensation</span> Out-of-domain fundamental sensory evaluation</h3>
+            <p>The paper reports three PriSe tasks: ASQA, VSQA, and AVSQA. In the released dataset, VSQA is implemented as two subsets, <code>VSQA_I</code> and <code>VSQA_V</code>, which are merged into one reported VSQA score during evaluation.</p>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">ASQA</span> &mdash; Audio Sensation Question Answering
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <audio controls><source src="media/sensation/ASQA/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> How many beats can you hear?</p>
+                        <p class="answer"><strong>A:</strong> <code>3</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">VSQA_I</span> &mdash; Visual Sensation QA (Image)
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <img src="media/sensation/VSQA_I/00000.jpg" alt="VSQA_I example">
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Is the background of the given image clear?</p>
+                        <p class="answer"><strong>A:</strong> <code>no</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">VSQA_V</span> &mdash; Visual Sensation QA (Video)
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/sensation/VSQA_V/00000.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Which object's area in the video has not changed?</p>
+                        <p class="answer"><strong>A:</strong> <code>square</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-example">
+                <div class="task-header">
+                    <span class="task-name">AVSQA</span> &mdash; Audio-Visual Sensation QA
+                </div>
+                <div class="example-row">
+                    <div class="example-media">
+                        <video controls width="100%"><source src="media/sensation/AVSQA/00000.mp4" type="video/mp4"></video>
+                        <audio controls><source src="media/sensation/AVSQA/00000.wav" type="audio/wav"></audio>
+                    </div>
+                    <div class="example-qa">
+                        <p class="question"><strong>Q:</strong> Which object produces sound first?</p>
+                        <p class="answer"><strong>A:</strong> <code>cube</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Metrics -->
+<section id="metrics">
+    <div class="container">
+        <h2>Evaluation Metrics</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Level</th>
+                    <th>Metric</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ASQA, VSQA (implemented as VSQA_I + VSQA_V)</td><td>Sensation</td><td>Full Match Accuracy + double-confirm</td></tr>
+                <tr><td>AVSQA</td><td>Sensation</td><td>AVSQA-specific Matching</td></tr>
+                <tr><td>AMIC, VMIC</td><td>Perception</td><td>Semantic score + counting RMSE</td></tr>
+                <tr><td>AVL</td><td>Perception</td><td>mIoU + Instance Score</td></tr>
+                <tr><td>AVM</td><td>Perception</td><td>Full Match Accuracy</td></tr>
+                <tr><td>AVR, VAR</td><td>Understanding</td><td>(R@1 + R@3)/2 with F1-based refinement</td></tr>
+                <tr><td>AVC</td><td>Understanding</td><td>FENSE</td></tr>
+                <tr><td>AVH, VAH</td><td>Reasoning</td><td>Full Match Accuracy</td></tr>
+                <tr><td>AVQA</td><td>Reasoning</td><td>Full Match Accuracy</td></tr>
+                <tr><td>AVLG</td><td>Reasoning</td><td>Per-frame mIoU</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Open-Source -->
+<section id="open-source">
+    <div class="container">
+        <h2>Toward Human-like Audio-Visual Intelligence</h2>
+        <p>AVI-Bench will be continuously maintained as a long-term, open community resource. We evaluate model capabilities along four adaptive dimensions:</p>
+        <div class="dimensions">
+            <div class="dim">
+                <h4>Task Adaptive</h4>
+                <p>Models demonstrate effective overall performance across a wide range of audio-visual tasks.</p>
+            </div>
+            <div class="dim">
+                <h4>Modal Adaptive</h4>
+                <p>Models demonstrate strong performance on both audio and visual modalities.</p>
+            </div>
+            <div class="dim">
+                <h4>Stage Adaptive</h4>
+                <p>Models show strong performance on both perception and understanding for better audio-visual reasoning.</p>
+            </div>
+            <div class="dim">
+                <h4>Domain Adaptive</h4>
+                <p>Models show human-like domain generalization across diverse scenarios.</p>
+            </div>
+        </div>
+
+        <h3>Getting Started</h3>
+<pre class="code-block"><code># Clone the repository
+git clone https://github.com/YourRepo/AVI-Bench.git
+cd AVI-Bench
+
+# Setup environment
+conda activate avibench
+
+# Quick test (5 samples per task)
+CUDA_VISIBLE_DEVICES=0,1 python test_all_tasks.py
+
+# Full inference on all 15 runnable task folders
+bash run_all.sh
+
+# Format answers &amp; evaluate
+cd auto_format &amp;&amp; python run.py
+cd ../eval &amp;&amp; python eval.py</code></pre>
+    </div>
+</section>
+
+<!-- Citation -->
+<section id="citation">
+    <div class="container">
+        <h2>Citation</h2>
+<pre class="code-block"><code>@inproceedings{avibench2026,
+  title={AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
+  author={Anonymous},
+  booktitle={Proceedings of ICML},
+  year={2026}
+}</code></pre>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>AVI-Bench &copy; 2025</p>
+    </div>
+</footer>
+
+</body>
+</html>
