@@ -43,7 +43,7 @@
     <div class="container">
         <h2>Abstract</h2>
         <div class="abstract-text">
-            <p>Current evaluations of Omni-MLLMs rely on isolated tasks without examining the relationships between them, limiting deeper assessment of audio-visual capabilities. We propose <strong>AVI-Bench</strong>, a comprehensive evaluation framework built around <strong>three cognitively grounded stages</strong>&mdash;Perception, Understanding, and Reasoning&mdash;plus the <strong>Primitive Sensation (PriSe)</strong> extension for unfamiliar-domain evaluation. The benchmark contains <strong>5,864 samples</strong> over <strong>14 paper-level tasks</strong>, evaluated with <strong>13 metrics</strong> and summarized through a <strong>four-level AVI taxonomy</strong>.</p>
+            <p>Current evaluations of Omni-MLLMs rely on isolated tasks without examining the relationships between them, limiting deeper assessment of audio-visual capabilities. We propose <strong>AVI-Bench</strong>, a comprehensive evaluation framework built around <strong>three cognitively grounded stages</strong>&mdash;Perception, Understanding, and Reasoning&mdash;plus the <strong>Primitive Sensation (PriSe)</strong> extension for unfamiliar-domain evaluation. The benchmark contains <strong>5,864 samples</strong> over <strong>14 tasks</strong>, evaluated with <strong>13 metrics</strong> and summarized through a <strong>four-level AVI taxonomy</strong>.</p>
             <p>Our findings reveal that <em>reasoning abilities are fundamentally constrained by perception and understanding capacities</em>, and that current systems perform poorly in generalization tasks across different domains.</p>
         </div>
     </div>
@@ -55,7 +55,7 @@
         <h2>Benchmark Overview</h2>
         <figure class="figure">
             <img src="assets/avi.png" alt="AVI-Bench benchmark overview with perception, understanding, reasoning, and PriSe evaluation components">
-            <figcaption><strong>Figure 1.</strong> AVI-Bench evaluates Omni-MLLMs across Perception, Understanding, Reasoning, and the PriSe extension, covering 14 paper-level tasks. In the released data, VSQA is stored as two runnable subsets: <code>VSQA_I</code> and <code>VSQA_V</code>.</figcaption>
+            <figcaption><strong>Figure 1.</strong> AVI-Bench evaluates Omni-MLLMs across Perception, Understanding, Reasoning, and the PriSe extension, covering 14 tasks.</figcaption>
         </figure>
     </div>
 </section>
@@ -257,7 +257,7 @@
         <!-- Stage 4: Primitive Sensation -->
         <div class="stage">
             <h3><span class="stage-label sensation-label">Primitive Sensation</span> Out-of-domain fundamental sensory evaluation</h3>
-            <p>The paper reports three PriSe tasks: ASQA, VSQA, and AVSQA. In the released dataset, VSQA is implemented as two subsets, <code>VSQA_I</code> and <code>VSQA_V</code>, which are merged into one reported VSQA score during evaluation.</p>
+            <p>Three PriSe tasks: ASQA, VSQA, and AVSQA — designed to probe primitive sensory abilities on low-semantic, out-of-distribution stimuli.</p>
 
             <div class="task-example">
                 <div class="task-header">
@@ -386,7 +386,7 @@ conda activate avibench
 # Quick test (5 samples per task)
 CUDA_VISIBLE_DEVICES=0,1 python test_all_tasks.py
 
-# Full inference on all 15 runnable task folders
+# Full inference on all tasks
 bash run_all.sh
 
 # Format answers &amp; evaluate
