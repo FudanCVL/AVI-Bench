@@ -9,9 +9,9 @@
 <p align="center">
   <a href="#">📄 Paper</a>
   &nbsp;·&nbsp;
-  <a href="https://yaotingwangofficial.github.io/AVIBench_Release/">🌐 Project Page</a>
+  <a href="https://fudancvl.github.io/AVI-Bench/">🌐 Project Page</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/yaotingwangofficial/AVIBench_Release">💻 Code</a>
+  <a href="https://github.com/FudanCVL/AVI-Bench">💻 Code</a>
   &nbsp;·&nbsp;
   <a href="https://huggingface.co/datasets/FudanCVL/AVIBench">🤗 Dataset</a>
 </p>
