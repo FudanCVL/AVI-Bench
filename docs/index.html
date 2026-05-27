@@ -201,13 +201,21 @@
     <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Perception</h3>
     <div class="columns is-multiline">
       <div class="column is-half">
-        <p><strong>AVM</strong> &mdash; Audio&ndash;Visual Matching</p>
-        <video controls width="100%"><source src="media/perception/AVM/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVM</strong> &mdash; Audio&ndash;Visual Matching</p>
+          <video controls width="100%"><source src="media/perception/AVM/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Are the contexts of audio and visual content matching?</p>
+          <p class="sample-a"><strong>A:</strong> no</p>
+        </div>
       </div>
       <div class="column is-half">
-        <p><strong>AVL</strong> &mdash; Audio&ndash;Visual Localization</p>
-        <img src="media/perception/AVL/0001.jpg" style="width:100%; border-radius:4px;" alt="AVL example image">
-        <audio controls style="width:100%; margin-top:0.5rem;"><source src="media/perception/AVL/00000.wav" type="audio/wav"></audio>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVL</strong> &mdash; Audio&ndash;Visual Localization</p>
+          <img src="media/perception/AVL/0001.jpg" style="width:100%; border-radius:4px;" alt="AVL example image">
+          <audio controls style="width:100%; margin-top:0.5rem;"><source src="media/perception/AVL/00000.wav" type="audio/wav"></audio>
+          <p class="sample-q"><strong>Q:</strong> Generate the bounding boxes of sound-emitting instances in the image conditioned on the audio.</p>
+          <p class="sample-a"><strong>A:</strong> <code>{"tuba_1": [153, 4, 107, 210], "tuba_2": [323, 57, 73, 155]}</code></p>
+        </div>
       </div>
     </div>
 
@@ -215,13 +223,21 @@
     <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Understanding</h3>
     <div class="columns is-multiline">
       <div class="column is-half">
-        <p><strong>AVC</strong> &mdash; Audio&ndash;Visual Captioning</p>
-        <video controls width="100%"><source src="media/understand/AVC/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVC</strong> &mdash; Audio&ndash;Visual Captioning</p>
+          <video controls width="100%"><source src="media/understand/AVC/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Describe what you see and hear in a single sentence.</p>
+          <p class="sample-a"><strong>A:</strong> <em>A baby is laughing and smiling while her mother is lying down next to her, talking to her.</em></p>
+        </div>
       </div>
       <div class="column is-half">
-        <p><strong>AVR</strong> &mdash; Audio-referenced Visual Retrieval</p>
-        <img src="media/understand/AVR/00000_00.png" style="width:100%; border-radius:4px;" alt="AVR example image">
-        <audio controls style="width:100%; margin-top:0.5rem;"><source src="media/understand/AVR/00000.wav" type="audio/wav"></audio>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVR</strong> &mdash; Audio-referenced Visual Retrieval</p>
+          <img src="media/understand/AVR/00000_00.png" style="width:100%; border-radius:4px;" alt="AVR example image">
+          <audio controls style="width:100%; margin-top:0.5rem;"><source src="media/understand/AVR/00000.wav" type="audio/wav"></audio>
+          <p class="sample-q"><strong>Q:</strong> Given the audio as reference, identify which images in the candidate list contain objects corresponding to the sound.</p>
+          <p class="sample-a"><strong>A:</strong> <code>[]</code> (no match in the candidate set)</p>
+        </div>
       </div>
     </div>
 
@@ -229,12 +245,20 @@
     <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Reasoning</h3>
     <div class="columns is-multiline">
       <div class="column is-half">
-        <p><strong>AVH</strong> &mdash; Audio-reference Visual Hallucination</p>
-        <video controls width="100%"><source src="media/reasoning/AVH/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVH</strong> &mdash; Audio-referenced Visual Hallucination</p>
+          <video controls width="100%"><source src="media/reasoning/AVH/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Is the car visible in the video?</p>
+          <p class="sample-a"><strong>A:</strong> yes</p>
+        </div>
       </div>
       <div class="column is-half">
-        <p><strong>AVQA</strong> &mdash; Audio&ndash;Visual Question Answering</p>
-        <video controls width="100%"><source src="media/reasoning/AVQA/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVQA</strong> &mdash; Audio&ndash;Visual Question Answering</p>
+          <video controls width="100%"><source src="media/reasoning/AVQA/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Is there a voiceover?</p>
+          <p class="sample-a"><strong>A:</strong> yes</p>
+        </div>
       </div>
     </div>
 
@@ -242,12 +266,20 @@
     <h3 class="title is-4 has-text-centered" style="margin-top:2rem;">Primitive Sensation</h3>
     <div class="columns is-multiline">
       <div class="column is-half">
-        <p><strong>AVSQA</strong> &mdash; Audio&ndash;Visual Sensation QA</p>
-        <video controls width="100%"><source src="media/sensation/AVSQA/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>AVSQA</strong> &mdash; Audio&ndash;Visual Sensation QA</p>
+          <video controls width="100%"><source src="media/sensation/AVSQA/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Which object produces sound first?</p>
+          <p class="sample-a"><strong>A:</strong> cube</p>
+        </div>
       </div>
       <div class="column is-half">
-        <p><strong>VSQA</strong> &mdash; Visual Sensation QA (video subset)</p>
-        <video controls width="100%"><source src="media/sensation/VSQA_V/00000.mp4" type="video/mp4"></video>
+        <div class="sample-card">
+          <p class="sample-task"><strong>VSQA</strong> &mdash; Visual Sensation QA (video)</p>
+          <video controls width="100%"><source src="media/sensation/VSQA_V/00000.mp4" type="video/mp4"></video>
+          <p class="sample-q"><strong>Q:</strong> Which object's area in the video has not changed?</p>
+          <p class="sample-a"><strong>A:</strong> square</p>
+        </div>
       </div>
     </div>
   </div>
