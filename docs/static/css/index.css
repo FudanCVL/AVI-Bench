@@ -571,3 +571,71 @@ footer.foot a:hover { color: var(--accent); }
   .hero { padding: 5vh 1.2rem 3vh; }
   .hero h1 { font-size: 2.2rem; }
 }
+
+/* ---------- corresponding author mail icon ---------- */
+.authors .mail {
+  margin-left: 0.15em;
+  color: var(--accent);
+  border-bottom: none !important;
+  display: inline-block;
+  vertical-align: super;
+  font-size: 0.7em;
+  opacity: 0.85;
+  transition: opacity 0.18s;
+}
+.authors .mail:hover { opacity: 1; }
+.authors .mail i { font-size: 0.85em; }
+
+/* ---------- huggingface logo in dataset button ---------- */
+.action .hf-logo {
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.25em;
+  vertical-align: -0.18em;
+}
+
+/* ---------- team section ---------- */
+.team-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  margin-top: 1rem;
+}
+.team-card {
+  text-align: center;
+  border-bottom: none !important;
+  color: inherit;
+  display: block;
+}
+.team-card:hover .team-name { color: var(--accent); }
+.team-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 0.85rem;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.10);
+  filter: grayscale(0.10);
+  transition: filter 0.25s, transform 0.25s;
+}
+.team-card:hover .team-photo {
+  filter: grayscale(0);
+  transform: translateY(-2px);
+}
+.team-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--ink);
+  transition: color 0.18s;
+}
+.team-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-top: 0.25rem;
+}
