@@ -1,12 +1,20 @@
 # AVI-Bench
 
-**Toward Human-like Audio-Visual Intelligence of Omni-MLLMs**
+**Toward Human-like Audio-Visual Intelligence of Omni-MLLMs** &mdash; ICML 2026
 
 <p align="center">
-  <img src="docs/media/teaser.png" alt="AVI-Bench teaser" width="780"/>
+  <img src="docs/static/images/evolution.png" alt="Four progressive levels of audio-visual intelligence" width="820"/>
 </p>
 
-📄 [Paper](#) &nbsp;·&nbsp; 🌐 [Project Page](docs/index.html) &nbsp;·&nbsp; 📦 [Dataset](#)
+<p align="center">
+  <a href="#">📄 Paper</a>
+  &nbsp;·&nbsp;
+  <a href="https://yaotingwangofficial.github.io/AVIBench_Release/">🌐 Project Page</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/yaotingwangofficial/AVIBench_Release">💻 Code</a>
+  &nbsp;·&nbsp;
+  <a href="#">🤗 Dataset</a>
+</p>
 
 AVI-Bench evaluates how well Omni-Multimodal Large Language Models (Omni-MLLMs) such as Gemini, GPT-4o, Qwen-Omni, and Baichuan-Omni handle joint audio-visual reasoning. It organises evaluation around the human cognitive process — *Perception → Understanding → Reasoning* — and adds the **Primitive Sensation (PriSe)** extension to test generalisation to low-semantic, unfamiliar audio-visual inputs.
 
@@ -40,7 +48,7 @@ This repository contains:
 - **Primitive Sensation Extension.** A novel suite probing models' robustness on naive, low-semantic stimuli (synthetic 2D/3D shapes with controlled sounds) — directly tests generalisation beyond common training distributions.
 - **Four-Level Intelligence Taxonomy.** Beyond raw accuracy, scores can be aggregated as Task-, Modality-, Stage-, and Domain-Adaptive intelligence, enabling fine-grained comparison.
 - **Compact but rich.** 5,864 curated samples across 14 tasks — larger than most existing audio-visual benchmarks (WorldSense 3,172; AV-Odyssey 4,555) yet small enough to keep evaluation fast and reasoning-focused.
-- **Production-ready pipeline.** Position-indexed concurrent inference, LLM-based answer refinement, and a metric suite covering full-match accuracy, mIoU, retrieval R@k, FENSE captioning, and counting RMSE.
+- **Reproducible pipeline.** One-command inference, LLM-based answer refinement, and a metric suite covering accuracy, mIoU, retrieval R@k, FENSE captioning, and counting RMSE.
 
 ---
 
@@ -59,10 +67,6 @@ This repository contains:
 | **Reasoning** | AVH, VAH, AVQA, AVLG | 1,472 | Higher-order inference; hallucination robustness; cross-modal grounding |
 | **Primitive Sensation** | ASQA, VSQA, AVSQA | 2,090 | Sensitivity to low-semantic stimuli (texture / colour / spatial / temporal change) |
 | **Total** | **14 tasks** | **5,864** | |
-
-<p align="center">
-  <img src="docs/media/data_samples.png" alt="Representative samples per stage" width="820"/>
-</p>
 
 ### Task glossary
 
@@ -104,7 +108,7 @@ L1–L4 yield interpretable diagnostic axes beyond raw accuracy.
 
 ## Headline Results
 
-Top models on the main benchmark (selected rows). Full table in the paper.
+### Per-stage performance
 
 | Model | Params | Perception | Understand | Reasoning | Sensation | **Overall** |
 |-------|:-----:|---:|---:|---:|---:|---:|
@@ -115,10 +119,23 @@ Top models on the main benchmark (selected rows). Full table in the paper.
 | GPT-4o | – | 40.45 | 48.60 | 56.87 | 16.81 | 40.68 |
 | Human (subset) | – | – | – | – | 90+ | **92.6** |
 
+### Four-level AVI taxonomy
+
+| Model | Params | L1 Task | L2 Modality | L3 Stage | L4 Domain |
+|-------|:-----:|---:|---:|---:|---:|
+| **Gemini-2.5-Pro** | – | 64.20 | 62.80 | 57.08 | **32.97** |
+| Gemini-2.5-Flash | – | 51.15 | 48.58 | 40.47 | 27.72 |
+| Gemini-2.0-Flash | – | 50.14 | 49.21 | 39.79 | 27.12 |
+| Qwen-Omni-Turbo | 7B | 46.50 | 45.15 | 37.70 | 26.13 |
+| Qwen2.5-Omni | 7B | 46.92 | 45.93 | 37.61 | 25.89 |
+| Baichuan-Omni | 7B | 37.35 | 35.80 | 30.18 | 24.10 |
+| GPT-4o | – | 48.64 | 47.19 | 41.93 | 00.55 |
+
 **Key observations:**
-- Even the top model, Gemini-2.5-Pro, reaches only **57.2**, far below the human baseline (~92.6), confirming AVI-Bench is a challenging frontier.
-- A consistent **modality imbalance** is observed: most models excel on visual-dominant tasks but lag on audio-dominant ones, highlighting audio intelligence as a bottleneck.
+- Even the top model, Gemini-2.5-Pro, reaches only **57.2** overall — far below the human baseline (~92.6). AVI-Bench remains an open frontier.
+- A consistent **modality imbalance** is observed: most models excel on visual-dominant tasks but lag on audio-dominant ones.
 - **Primitive Sensation** is the weakest stage across the board, indicating poor generalisation to low-semantic, unfamiliar inputs.
+- The **four-level taxonomy** amplifies failures hidden by raw averages: e.g. GPT-4o (L1 48.64, L3 41.93) collapses to **L4 = 0.55** due to near-zero performance on audio-only sensation tasks (its cascaded audio path fails on out-of-distribution stimuli).
 
 ---
 
