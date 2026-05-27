@@ -639,3 +639,19 @@ footer.foot a:hover { color: var(--accent); }
   color: var(--ink-fade);
   margin-top: 0.25rem;
 }
+
+/* ---------- inline SVG icon sizing in actions ---------- */
+.action .ico {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.18em;
+  fill: currentColor;
+}
+.action .ico text { fill: currentColor; }
+
+/* ---------- envelope SVG next to corresponding author ---------- */
+.authors .mail svg {
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: middle;
+}

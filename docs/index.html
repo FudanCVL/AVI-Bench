@@ -33,7 +33,6 @@
        body = EB Garamond (warm serif), small text = Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 </head>
 
@@ -65,24 +64,34 @@
     <a href="https://yaotingwangofficial.github.io" target="_blank">Yaoting Wang</a>,
     Ziyi Zhang, Wenming Tu, Shaoxuan Xu, Wenjie Du, Cheng Liang,<br>
     Weijun Wang, Yuanchao Li, Guangyao Li, Hao Fei, Yuanchun Li,
-    <a href="https://henghuiding.com" target="_blank">Henghui Ding</a><a href="mailto:henghui.ding@gmail.com" class="mail" title="Corresponding author"><i class="fas fa-envelope"></i></a>,
+    <a href="https://henghuiding.com" target="_blank">Henghui Ding</a><a href="mailto:henghui.ding@gmail.com" class="mail" title="Corresponding author"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg></a>,
     Yunxin Liu
   </p>
 
   <div class="action-row fade-up d4">
     <a href="#" target="_blank" class="action primary">
-      <i class="ai ai-arxiv"></i> Paper
+      <!-- arXiv inline mark -->
+      <svg class="ico" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <text x="0" y="48" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="56" fill="currentColor">arX</text>
+      </svg>
+      Paper
     </a>
     <a href="https://github.com/yaotingwangofficial/AVIBench_Release" target="_blank" class="action">
-      <i class="fab fa-github"></i> Code
+      <!-- GitHub mark -->
+      <svg class="ico" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+      </svg>
+      Code
     </a>
     <a href="#" target="_blank" class="action">
-      <i class="fab fa-huggingface-emoji"></i><svg class="hf-logo" viewBox="0 0 95 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- HuggingFace logo -->
+      <svg class="ico" viewBox="0 0 95 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M47.21 76.5a34.75 34.75 0 1 0 0-69.5 34.75 34.75 0 0 0 0 69.5Z" fill="#FFD21E"/>
         <path d="M81.96 41.75a34.75 34.75 0 1 1-69.5 0 34.75 34.75 0 0 1 69.5 0Zm-71.55 0a36.8 36.8 0 1 0 73.6 0 36.8 36.8 0 0 0-73.6 0Z" fill="#FF9D0B"/>
         <path d="M58.5 32.3c1.28.44 1.78 3.06 3.07 2.38a5 5 0 1 0-6.76-2.07c.61 1.15 2.55-.72 3.7-.32Zm-23.18 0c-1.29.44-1.79 3.06-3.07 2.38a5 5 0 1 1 6.76-2.07c-.61 1.15-2.56-.72-3.7-.32Z" fill="#3A3B45"/>
         <path d="M47.21 67.4c-9.74 0-13.27-8.72-12.85-9.46.84-1.47 12 .35 12.85.35.85 0 12.02-1.82 12.85-.35.42.74-3.1 9.46-12.85 9.46Z" fill="#3A3B45"/>
-      </svg> Dataset
+      </svg>
+      Dataset
     </a>
   </div>
 </section>
