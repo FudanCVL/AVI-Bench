@@ -16,13 +16,14 @@
     <div class="container">
         <h1 class="title">AVI-Bench</h1>
         <p class="subtitle">Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</p>
-        <p class="authors"><!-- Author names here --></p>
+        <p class="venue"><strong>ICML 2026</strong></p>
         <p class="tagline"><em>Can Omni-MLLMs reason like humans from sight and sound?</em></p>
         <div class="links">
-            <a href="#">[Paper]</a>
-            <a href="https://github.com/YourRepo/AVI-Bench">[Code]</a>
-            <a href="#">[Dataset]</a>
+            <a href="#" id="link-paper">[Paper]</a>
+            <a href="#" id="link-code">[Code]</a>
+            <a href="#" id="link-dataset">[Dataset]</a>
         </div>
+        <p class="links-note"><small>Paper / code / dataset links will be populated upon official release.</small></p>
     </div>
 </header>
 
@@ -376,22 +377,23 @@
         </div>
 
         <h3>Getting Started</h3>
-<pre class="code-block"><code># Clone the repository
-git clone https://github.com/YourRepo/AVI-Bench.git
-cd AVI-Bench
-
-# Setup environment
+<pre class="code-block"><code># Setup
+conda create -n avibench python=3.11 -y
 conda activate avibench
+pip install -r requirements.txt
 
-# Quick test (5 samples per task)
-CUDA_VISIBLE_DEVICES=0,1 python test_all_tasks.py
+# Configure your OpenAI-compatible API gateway
+export OPENAI_API_KEY=...
+export OPENAI_BASE_URL=...
+export DATA_ROOT=/path/to/AVIBench_data_release/levels
 
-# Full inference on all tasks
-bash run_all.sh
+# Quick smoke test (5 samples per task)
+python test_all_tasks.py
 
-# Format answers &amp; evaluate
-cd auto_format &amp;&amp; python run.py
-cd ../eval &amp;&amp; python eval.py</code></pre>
+# Full pipeline
+bash run_all.sh                         # inference
+cd auto_format &amp;&amp; python run.py        # refine
+cd ../eval &amp;&amp; python eval.py            # evaluate</code></pre>
     </div>
 </section>
 
@@ -400,10 +402,9 @@ cd ../eval &amp;&amp; python eval.py</code></pre>
     <div class="container">
         <h2>Citation</h2>
 <pre class="code-block"><code>@inproceedings{avibench2026,
-  title={AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
-  author={Anonymous},
-  booktitle={Proceedings of ICML},
-  year={2026}
+  title     = {AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
+  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
+  year      = {2026}
 }</code></pre>
     </div>
 </section>
@@ -411,7 +412,7 @@ cd ../eval &amp;&amp; python eval.py</code></pre>
 <!-- Footer -->
 <footer>
     <div class="container">
-        <p>AVI-Bench &copy; 2025</p>
+        <p>AVI-Bench &copy; 2026</p>
     </div>
 </footer>
 

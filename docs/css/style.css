@@ -417,3 +417,16 @@ footer {
         font-size: 0.82rem;
     }
 }
+
+.venue {
+    color: var(--accent-color, #b85c00);
+    font-size: 1.05em;
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+.links-note {
+    text-align: center;
+    color: var(--muted-color, #888);
+    margin-top: 0.3em;
+}
