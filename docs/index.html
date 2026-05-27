@@ -282,6 +282,8 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Headline Results</h2>
+
+    <h3 class="title is-5" style="margin-top:1rem;">Per-stage performance</h3>
     <table class="results-table">
       <thead>
         <tr>
@@ -303,11 +305,36 @@
         <tr class="highlight"><td><strong>Human (subset)</strong></td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>90+</td><td><strong>92.6</strong></td></tr>
       </tbody>
     </table>
+
+    <h3 class="title is-5" style="margin-top:2.5rem;">Four-level AVI taxonomy</h3>
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Model</th>
+          <th>Params</th>
+          <th>L1 Task-Adaptive</th>
+          <th>L2 Modality-Adaptive</th>
+          <th>L3 Stage-Adaptive</th>
+          <th>L4 Domain-Adaptive</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td><strong>Gemini-2.5-Pro</strong></td><td>&ndash;</td><td>64.20</td><td>62.80</td><td>57.08</td><td><strong>32.97</strong></td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>&ndash;</td><td>51.15</td><td>48.58</td><td>40.47</td><td>27.72</td></tr>
+        <tr><td>Gemini-2.0-Flash</td><td>&ndash;</td><td>50.14</td><td>49.21</td><td>39.79</td><td>27.12</td></tr>
+        <tr><td>Qwen-Omni-Turbo</td><td>7B</td><td>46.50</td><td>45.15</td><td>37.70</td><td>26.13</td></tr>
+        <tr><td>Qwen2.5-Omni</td><td>7B</td><td>46.92</td><td>45.93</td><td>37.61</td><td>25.89</td></tr>
+        <tr><td>Baichuan-Omni</td><td>7B</td><td>37.35</td><td>35.80</td><td>30.18</td><td>24.10</td></tr>
+        <tr><td>GPT-4o</td><td>&ndash;</td><td>48.64</td><td>47.19</td><td>41.93</td><td>00.55</td></tr>
+      </tbody>
+    </table>
+
     <div class="content">
       <ul>
-        <li>Even the top model, Gemini-2.5-Pro, reaches only <strong>57.2</strong>, far below the human baseline (~92.6) &mdash; AVI-Bench is a challenging frontier.</li>
+        <li>Even the top model, Gemini-2.5-Pro, reaches only <strong>57.2</strong> overall, far below the human baseline (~92.6) &mdash; AVI-Bench is a challenging frontier.</li>
         <li>A consistent <strong>modality imbalance</strong> is observed: models excel on visual-dominant tasks but lag on audio-dominant ones.</li>
         <li><strong>Primitive Sensation</strong> is the weakest stage across the board, indicating poor generalisation to low-semantic, unfamiliar inputs.</li>
+        <li>The <strong>four-level taxonomy</strong> amplifies differences hidden by raw averages: GPT-4o (Overall 40.7, L3 41.9) collapses to <strong>L4 = 0.55</strong> due to near-zero performance on audio-only sensation tasks, while balanced models retain meaningful L4 scores.</li>
       </ul>
     </div>
   </div>
