@@ -15,37 +15,29 @@ This repository contains:
 - a reference adapter for any **OpenAI-compatible API** (Gemini / GPT-4o / Claude / self-hosted),
 - a **four-level AVI taxonomy** for principled cross-stage comparison.
 
-Implementation note: the released data and pipeline still use **15 runnable task folders** because the paper-level **VSQA** task is stored as two subsets, `VSQA_I` and `VSQA_V`. Evaluation merges them back into a single reported `VSQA` score.
-
 ---
 
 ## Table of Contents
 
 - [Highlights](#highlights)
 - [Benchmark Overview](#benchmark-overview)
-  - [Three Stages + PriSe](#three-stages--prise)
-  - [Primitive Sensation (PriSe) Extension](#primitive-sensation-prise-extension)
-  - [Four-Level AVI Taxonomy](#four-level-avi-taxonomy)
 - [Headline Results](#headline-results)
 - [Repository Layout](#repository-layout)
 - [Dataset Format](#dataset-format)
 - [Quickstart](#quickstart)
 - [Pipeline Details](#pipeline-details)
-  - [1. Inference](#1-inference)
-  - [2. Answer Formatting (Refine)](#2-answer-formatting-refine)
-  - [3. Evaluation](#3-evaluation)
 - [Adding a New Model](#adding-a-new-model)
-- [Notes & Conventions](#notes--conventions)
 - [Citation](#citation)
+- [License](#license)
 
 ---
 
 ## Highlights
 
-- **Cognitively Inspired Evaluation Framework.** Three cognitively grounded stages (Perception, Understanding, Reasoning) plus the **Primitive Sensation (PriSe)** extension for unified, interpretable evaluation of Omni-MLLMs.
-- **Primitive Sensation Extension (AVI-Bench-PriSe).** A novel suite probing models' robustness on naive, low-semantic stimuli (synthetic 2D/3D shapes with controlled sounds) — directly tests generalisation beyond common training distributions.
+- **Cognitively Inspired Framework.** Three cognitively grounded stages (Perception, Understanding, Reasoning) plus the **Primitive Sensation (PriSe)** extension for unified, interpretable evaluation of Omni-MLLMs.
+- **Primitive Sensation Extension.** A novel suite probing models' robustness on naive, low-semantic stimuli (synthetic 2D/3D shapes with controlled sounds) — directly tests generalisation beyond common training distributions.
 - **Four-Level Intelligence Taxonomy.** Beyond raw accuracy, scores can be aggregated as Task-, Modality-, Stage-, and Domain-Adaptive intelligence, enabling fine-grained comparison.
-- **Compact but rich.** 5,864 curated samples across 14 paper-level tasks (implemented as 15 task folders) — larger than most existing audio-visual benchmarks (WorldSense 3,172; AV-Odyssey 4,555) yet small enough to keep evaluation fast and reasoning-focused.
+- **Compact but rich.** 5,864 curated samples across 14 tasks — larger than most existing audio-visual benchmarks (WorldSense 3,172; AV-Odyssey 4,555) yet small enough to keep evaluation fast and reasoning-focused.
 - **Production-ready pipeline.** Position-indexed concurrent inference, LLM-based answer refinement, and a metric suite covering full-match accuracy, mIoU, retrieval R@k, FENSE captioning, and counting RMSE.
 
 ---
@@ -56,14 +48,14 @@ Implementation note: the released data and pipeline still use **15 runnable task
   <img src="docs/media/avi.png" alt="AVI-Bench overall framework" width="820"/>
 </p>
 
-### Three Stages + PriSe
+### Three Stages + Primitive Sensation
 
 | Stage | Tasks | Samples | What it measures |
 |-------|-------|--------:|------------------|
 | **Perception** | AMIC, VMIC, AVL, AVM | 1,494 | Detection and recognition of fundamental audio/visual entities; cross-modal local + global alignment |
 | **Understanding** | VAR, AVR, AVC | 808 | Integration of multimodal context (cross-modal retrieval, narrative captioning) |
 | **Reasoning** | AVH, VAH, AVQA, AVLG | 1,472 | Higher-order inference; hallucination robustness; cross-modal grounding |
-| **Primitive Sensation** | ASQA, VSQA (img + vid), AVSQA | 2,090 | Sensitivity to low-semantic stimuli (texture / colour / spatial / temporal change) |
+| **Primitive Sensation** | ASQA, VSQA, AVSQA | 2,090 | Sensitivity to low-semantic stimuli (texture / colour / spatial / temporal change) |
 | **Total** | **14 tasks** | **5,864** | |
 
 <p align="center">
@@ -78,7 +70,7 @@ Implementation note: the released data and pipeline still use **15 runnable task
 | **VMIC** | Visual Multi-instance Classification | Perception | Semantic recall + counting RMSE |
 | **AVL** | Audio-Visual Localization | Perception | 0.7·mIoU + 0.3·Instance score |
 | **AVM** | Audio-Visual Matching | Perception | Full-match accuracy |
-| **VAR** | Visual-reference Audio Retrieval | Understanding | (R@1+R@3)/2 + F1 / 2, with confidence + repeat penalty |
+| **VAR** | Visual-reference Audio Retrieval | Understanding | (R@1+R@3)/2 + F1 / 2 |
 | **AVR** | Audio-reference Visual Retrieval | Understanding | same as VAR |
 | **AVC** | Audio-Visual Captioning | Understanding | FENSE (Zhou et al., ICASSP'22) |
 | **AVH** | Audio-reference Visual Hallucination | Reasoning | Full-match accuracy |
@@ -86,25 +78,23 @@ Implementation note: the released data and pipeline still use **15 runnable task
 | **AVQA** | Audio-Visual Question Answering | Reasoning | Full-match accuracy |
 | **AVLG** | Audio-Visual Language Grounding | Reasoning | per-frame mIoU |
 | **ASQA** | Audio Sensation QA | Sensation | Full-match accuracy + double-confirm |
-| **VSQA** | Visual Sensation QA (image + video subsets) | Sensation | Full-match accuracy + double-confirm |
+| **VSQA** | Visual Sensation QA | Sensation | Full-match accuracy + double-confirm |
 | **AVSQA** | Audio-Visual Sensation QA | Sensation | AVSQA-specific matching + double-confirm |
 
-In the released data, `VSQA` is implemented as `VSQA_I` (620 samples) and `VSQA_V` (580 samples). `eval.py` emits a merged `vsqa` score, matching the paper's single `VSQA` task with 1,200 samples.
-
-### Primitive Sensation (PriSe) Extension
+### Primitive Sensation (PriSe)
 
 Most existing benchmarks evaluate semantically rich audio-visual content (music, speech, real-world scenes), which overlaps heavily with model pre-training. AVI-Bench-PriSe instead measures whether Omni-MLLMs exhibit *primitive* sensation: detecting variations in colour, volume, shape, area, or temporal order on **synthetic, low-semantic stimuli** that lie outside the typical training distribution.
 
-Each PriSe task includes paired **pre-question / formal-question** entries (`pre_*` ids) — a *double-confirm* mechanism that zeros the formal score whenever the model fails the basic "Can you hear / see anything?" pre-check, guarding against models that hallucinate confident answers without actually attending to the input.
+Each PriSe task includes paired **pre-question / formal-question** entries — a *double-confirm* mechanism that zeros the formal score whenever the model fails the basic "Can you hear / see anything?" pre-check, guarding against models that hallucinate confident answers without actually attending to the input.
 
 ### Four-Level AVI Taxonomy
 
 | Level | Name | Definition |
 |------:|------|------------|
 | **L1** | Task-Adaptive | Per-task average score |
-| **L2** | Modality-Adaptive | Balance between audio-dominant and visual-dominant tasks, penalising modality bias |
-| **L3** | Stage-Adaptive | Balance across the four cognitive stages |
-| **L4** | Domain-Adaptive | Performance gap between familiar (Perception / Understand / Reasoning) and unfamiliar (Primitive Sensation) domains |
+| **L2** | Modality-Adaptive | Balance between audio-dominant and visual-dominant tasks |
+| **L3** | Stage-Adaptive | Whether reasoning is grounded in its perceptual / conceptual prerequisites |
+| **L4** | Domain-Adaptive | Performance gap between familiar and unfamiliar (Sensation) domains |
 
 L1–L4 yield interpretable diagnostic axes beyond raw accuracy.
 
@@ -112,11 +102,11 @@ L1–L4 yield interpretable diagnostic axes beyond raw accuracy.
 
 ## Headline Results
 
-Top models on the main benchmark (selected rows, sorted by overall average). Full table in the paper.
+Top models on the main benchmark (selected rows). Full table in the paper.
 
 | Model | Params | Perception | Understand | Reasoning | Sensation | **Overall** |
 |-------|:-----:|---:|---:|---:|---:|---:|
-| **Gemini-2.5-Pro** | – | 59.14 | 49.12 | 61.28 | 31.61 | **50.28** |
+| **Gemini-2.5-Pro** | – | 54.58 | 68.97 | 69.06 | 36.22 | **57.21** |
 | Gemini-2.5-Flash | – | 45.97 | 43.79 | 63.70 | 30.63 | 46.02 |
 | Gemini-2.0-Flash | – | 44.27 | 42.11 | 64.03 | 29.48 | 44.97 |
 | Qwen2.5-Omni | 7B | 42.81 | 39.68 | 58.26 | 24.59 | 41.33 |
@@ -124,50 +114,35 @@ Top models on the main benchmark (selected rows, sorted by overall average). Ful
 | Human (subset) | – | – | – | – | 90+ | **92.6** |
 
 **Key observations:**
-- Even the top model, Gemini-2.5-Pro, reaches only **50.3**, far below the human baseline (~92.6), confirming AVI-Bench is a challenging frontier.
-- A consistent **modality imbalance** is observed: most models excel on visual-dominant tasks (VMIC, AVR, VAH) but lag on audio-dominant ones (AMIC, VAR, ASQA), highlighting audio intelligence as a bottleneck.
-- **Primitive Sensation** is the weakest stage across the board — the relative gap between Reasoning and Sensation ranges from 48.4% to 82.7% across evaluated models, indicating poor generalisation to low-semantic, unfamiliar inputs.
+- Even the top model, Gemini-2.5-Pro, reaches only **57.2**, far below the human baseline (~92.6), confirming AVI-Bench is a challenging frontier.
+- A consistent **modality imbalance** is observed: most models excel on visual-dominant tasks but lag on audio-dominant ones, highlighting audio intelligence as a bottleneck.
+- **Primitive Sensation** is the weakest stage across the board, indicating poor generalisation to low-semantic, unfamiliar inputs.
 
 ---
 
 ## Repository Layout
 
 ```
-AVIBench_release/
-├── README.md                       # this file
+AVIBench/
+├── README.md
 ├── run.py                          # unified inference entry
-├── run_all.sh                      # wrapper to run all 15 task folders
+├── run_all.sh                      # wrapper to run all tasks
 ├── test_one_task.py                # smoke test single task
 ├── test_all_tasks.py               # smoke test all tasks (5 samples each)
 │
-├── scripts/                        # data loading and prompt assembly
-│   ├── data_loader.py
-│   ├── definitions.py              # task → category, prompt templates, option lists
-│   └── utils.py                    # input assembly (prompt + options + question)
-│
-├── models/                         # model adapters (set_model + get_response interface)
-│   └── gemini/run.py               # OpenAI-compatible API client (Gemini / GPT / Claude / etc.)
-│
+├── scripts/                        # prompt assembly + dataset loader
+├── models/                         # model adapters
+│   └── gemini/run.py               # OpenAI-compatible API client
 ├── auto_format/                    # LLM-based answer refining
-│   ├── run.py                      # entry: refine all tasks for a model
-│   ├── agent_format.py             # OpenAI-compatible refine API client
-│   ├── definitions.py
-│   ├── clean_refined.py            # post-refine cleanup (residual ```json markers)
-│   └── utils.py
-│
-└── eval/
-    ├── eval.py                     # entry: score refined predictions
-    ├── level_metrics/              # task-specific metric implementations
-    │   ├── level_score.py
-    │   ├── score_bbox.py           # AVL / AVLG IoU
-    │   ├── utils.py
-    │   └── ...
-    ├── user_outputs/{model}/tasks/*.json          # raw predictions
-    ├── user_outputs_refined/{model}/tasks/*.json  # refined predictions
-    └── eval_outputs/{model}.json                  # final scores
+└── eval/                           # FENSE-aware evaluation
+    ├── eval.py
+    ├── level_metrics/
+    ├── user_outputs/{model}/tasks/*.json
+    ├── user_outputs_refined/{model}/tasks/*.json
+    └── eval_outputs/{model}.json
 ```
 
-The actual benchmark data lives separately (e.g. `AVIBench_data_release/levels/`) — see [Dataset Format](#dataset-format).
+The benchmark data lives separately (e.g. `AVIBench_data_release/levels/`) — see [Dataset Format](#dataset-format).
 
 ---
 
@@ -176,56 +151,39 @@ The actual benchmark data lives separately (e.g. `AVIBench_data_release/levels/`
 ```
 levels/
 ├── perception/
-│   ├── AMIC/                # Audio Multi-instance Classification
-│   │   ├── data.json        # 518 entries
-│   │   └── input/wavs/      # 00000.wav .. 00517.wav
-│   ├── VMIC/                # Visual MIC
-│   │   ├── data.json
-│   │   └── input/images/    # 00000.jpg ..
-│   ├── AVL/                 # Audio-Visual Localization
-│   │   ├── data.json
-│   │   └── input/{wavs,images}/
-│   └── AVM/                 # Audio-Visual Matching
-│       ├── data.json
-│       └── input/videos/    # 00000.mp4 ..
+│   ├── AMIC/   ├── VMIC/   ├── AVL/   └── AVM/
 ├── understand/
-│   ├── VAR/  AVR/  AVC/
+│   ├── VAR/    ├── AVR/    └── AVC/
 ├── reasoning/
-│   ├── AVH/  VAH/  AVQA/  AVLG/
+│   ├── AVH/    ├── VAH/    ├── AVQA/  └── AVLG/
 └── sensation/
-    ├── ASQA/  VSQA_I/  VSQA_V/  AVSQA/   # VSQA_I + VSQA_V are reported as VSQA in the paper
+    ├── ASQA/   ├── VSQA_I/ ├── VSQA_V/ └── AVSQA/
 ```
 
-Each `data.json` is a list of sample entries:
+Each task folder contains `data.json` (a list of sample entries) and an `input/` directory with the media files. A typical entry:
 
 ```jsonc
 {
-  "id": "00000",                 // unique within task (some tasks intentionally re-use ids for multi-Q-per-media)
+  "id": "00000",
   "task": "AVQA",
   "subtask": null,
   "input": {
-    "pre_question": null,
     "question": {
-      "prompt": "prompt_avqa",    // pseudo key resolved against scripts/definitions.py
+      "prompt": "prompt_avqa",
       "text": "Answer the question based on the given audio and video. Question: Is there a voiceover?",
       "options": "avqa_options_list_is"
     },
-    "video": "./input/videos/00000.mp4",   // present for video tasks
-    "audio_list": null,                    // independent wav paths (when audio is separate)
-    "image_list": null                     // list of frame paths (AVLG, VMIC)
+    "video": "./input/videos/00000.mp4",
+    "audio_list": null,
+    "image_list": null
   },
   "output": {
-    "pre_answer": null,
-    "question_answer": "yes"      // ground truth (str / dict / list depending on task)
+    "question_answer": "yes"
   }
 }
 ```
 
-**Conventions:**
-
-- `prompt` and `options` are *pseudo keys* (e.g. `"prompt_amic"`, `"avqa_options_list_is"`) resolved at runtime by `scripts/utils.get_real_input()` and `scripts/definitions.havib_constants` to the actual prompt text and option list. This keeps `data.json` compact.
-- Some tasks have **duplicate `id`s on purpose** (AVQA, AVLG, VSQA_V): the same media is queried with multiple questions. Predictions are aligned to data entries **by array position**, not by id — see [Notes & Conventions](#notes--conventions).
-- Sensation tasks (ASQA, VSQA_I, VSQA_V, AVSQA) use a **`pre_<id>` / `<id>` pairing**: pre-questions verify basic perception ("Can you hear / see anything?"); a failed pre-question zeros the corresponding formal score (*double-confirm*).
+`prompt` and `options` are *pseudo keys* (e.g. `"prompt_amic"`) resolved at runtime against `scripts/definitions.py`, so `data.json` stays compact.
 
 ---
 
@@ -236,33 +194,31 @@ Each `data.json` is a list of sample entries:
 ```bash
 conda create -n avibench python=3.11 -y
 conda activate avibench
-pip install -r requirements.txt          # torch, transformers, nltk, openai, aac-metrics, ...
+pip install -r requirements.txt          # openai, nltk, aac-metrics, sentence-transformers, ...
 ```
 
-Set the dataset root (point this at the unpacked `levels/` directory):
+Point at the unpacked dataset and configure your API gateway:
 
 ```bash
 export DATA_ROOT=/path/to/AVIBench_data_release/levels
+export OPENAI_API_KEY=...                # your OpenAI-compatible gateway key
+export OPENAI_BASE_URL=...               # your OpenAI-compatible gateway endpoint
 ```
 
-### 2. Smoke test (5 samples per task)
+### 2. Smoke test
 
 ```bash
-CUDA_VISIBLE_DEVICES=0,1 python test_all_tasks.py
+python test_all_tasks.py                 # 5 samples per task; finishes in minutes
 ```
 
 ### 3. Three-step pipeline
 
 ```bash
 # (a) Inference — produces eval/user_outputs/<model>/tasks/*.json
-export OPENAI_API_KEY=...        # OpenAI-compatible gateway key
-export OPENAI_BASE_URL=...       # your OpenAI-compatible gateway endpoint
 MODEL_PATH=gemini-2.5-pro MODEL_LABEL=gemini-2.5-pro \
 DATA_ROOT=$DATA_ROOT bash run_all.sh
 
 # (b) Refine — produces eval/user_outputs_refined/<model>/tasks/*.json
-export REFINE_MODEL=gemini-2.5-flash   # default
-export REFINE_CONCURRENCY=8            # parallel refine calls
 cd auto_format && python run.py && cd ..
 
 # (c) Evaluate — produces eval/eval_outputs/<model>.json
@@ -275,32 +231,19 @@ cd eval && python eval.py --models gemini-2.5-pro
 
 ### 1. Inference
 
-`run.py` is the unified entry. It iterates over the 15 released task folders (one process per task by default; tasks are independent so they parallelise trivially across processes or GPUs). At the paper level, these correspond to 14 tasks because `VSQA_I` and `VSQA_V` are merged into `VSQA`.
-
-**Key flags:**
+`run.py` is the unified entry. Tasks run as independent processes (one per task) and parallelise trivially across processes.
 
 | Flag | Default | Purpose |
 |------|---------|---------|
 | `--model_path` | `gemini-2.5-pro` | Model identifier passed to the API |
 | `--model_label` | `gemini-2.5-pro` | Logical model name (used in output paths) |
-| `--tasks` | `(all 15 task folders)` | Subset of tasks to run |
+| `--tasks` | all tasks | Subset of tasks to run |
 | `--data_root` | `./data/levels` | Path to dataset root |
 | `--output_dir` | `./eval/user_outputs` | Where to write `<model_label>/tasks/*.json` |
 | `--concurrency` | `1` | Concurrent requests per task |
 | `--n_samples` | None | Cap samples per task (for quick tests) |
 
-**Adapter contract.** Each adapter (`models/<adapter>/run.py`) exposes two functions:
-
-```python
-def set_model(model_path: str) -> tuple[model, processor]:
-    """Configure the API client. Returns (model, processor)."""
-
-def get_response(conversation, processor, model, USE_AUDIO_IN_VIDEO=False) -> list[str]:
-    """Run a single multimodal turn. `conversation` is a chat list with
-    typed content parts: text / image / audio / video."""
-```
-
-`run.py` builds the conversation and calls the adapter; each prediction is **written to its dataset array position immediately** (concurrent-safe), so checkpoint resume is exact even after partial runs.
+Predictions are written at their dataset array position and resumable: re-running the same command skips slots that already have valid predictions.
 
 ### 2. Answer Formatting (Refine)
 
@@ -311,7 +254,7 @@ Raw model outputs are free-form text. A second LLM ("refine") normalises them pe
 | QA (ASQA, VSQA, AVSQA, AVQA) | Stripped final answer (`**option**` or number) |
 | Multi-instance counting (AMIC, VMIC) | `{"class": "count"}` dict |
 | Retrieval (AVR, VAR) | Index list `[0, 3, 7]` |
-| Localization (AVL) | `{"category_id": "[x_min, y_min, x_max, y_max]"}` dict (normalised) |
+| Localization (AVL) | `{"category_id": "[x_min, y_min, x_max, y_max]"}` dict |
 | Video grounding (AVLG) | `{"frame_0": [x,y,w,h], ..., "frame_9": ...}` |
 | No refine needed (AVM, AVC, AVH, VAH) | Passed through |
 
@@ -325,7 +268,7 @@ python eval.py                                # eval all models under user_outpu
 python eval.py --models gemini-2.5-pro        # eval one specific model
 ```
 
-Output: `eval/eval_outputs/<model_label>.json` with per-task and combined (`vsqa`) scores grouped by cognitive stage.
+Output: `eval/eval_outputs/<model_label>.json` with per-task and stage-aggregated scores.
 
 ```jsonc
 {
@@ -336,13 +279,13 @@ Output: `eval/eval_outputs/<model_label>.json` with per-task and combined (`vsqa
 }
 ```
 
-For FENSE (AVC), the eval downloads two HuggingFace models the first time: `sentence-transformers/paraphrase-TinyBERT-L6-v2` and `bert-base-uncased`. Set `HF_HUB_OFFLINE=1` once they are cached.
+For FENSE (AVC), the evaluator downloads two HuggingFace models on first use: `sentence-transformers/paraphrase-TinyBERT-L6-v2` and `bert-base-uncased`. Set `HF_HUB_OFFLINE=1` once they are cached.
 
 ---
 
 ## Adding a New Model
 
-1. Create `models/<your_model>/run.py` exposing `set_model()` and `get_response()` (see `models/gemini/run.py` for an OpenAI-compatible API reference).
+1. Create `models/<your_model>/run.py` exposing `set_model()` and `get_response()` (see `models/gemini/run.py` as a reference).
 2. Select it via `MODEL_BACKEND=<your_model>`:
 
    ```bash
@@ -351,18 +294,7 @@ For FENSE (AVC), the eval downloads two HuggingFace models the first time: `sent
    bash run_all.sh
    ```
 
-The full refine + eval pipeline is model-agnostic — your model's results land at `eval/eval_outputs/your-model.json` without any extra plumbing.
-
----
-
-## Notes & Conventions
-
-- **Position-indexed predictions.** `run.py` writes each prediction at `predictions[dataset_index]`, padding earlier missing slots with `None`. This is essential for tasks where the same `id` appears with different questions (AVQA, AVLG, VSQA_V) — alignment is by *position*, not by id.
-- **Resume.** Re-running the same command skips slots with valid predictions; only `None` / empty predictions are retried.
-- **Double-confirm.** Sensation tasks pair each formal question with a `pre_` verification question. The evaluator zeros a formal score whenever the corresponding `pre_` answer is wrong (see `eval/level_metrics/level_score.py:eval_full_match_acc`).
-- **Case-insensitive matching.** AVSQA labels are lowercase by convention; the evaluator normalises both label and prediction before comparison.
-- **AVL bbox formats.** `eval_avl` accepts predictions in three conventions: normalized `[0,1]`, 0–1000 scaled, or absolute pixel coordinates. The metric detects and adapts automatically.
-- **Video tasks.** When `audio_list` is `None` for a video task, the adapter sends only the mp4. The included audio track is consumed by the model server-side (verified for Gemini via gateway).
+The refine + eval pipeline is model-agnostic — your results land at `eval/eval_outputs/your-model.json` without any extra plumbing.
 
 ---
 
