@@ -1,6 +1,6 @@
 # AVI-Bench
 
-**A Cognitively-Inspired Benchmark for Audio-Visual Intelligence in Omni-MLLMs**
+**Toward Human-like Audio-Visual Intelligence of Omni-MLLMs**
 
 <p align="center">
   <img src="docs/media/teaser.png" alt="AVI-Bench teaser" width="780"/>
@@ -303,9 +303,9 @@ The refine + eval pipeline is model-agnostic — your results land at `eval/eval
 If you use AVI-Bench in your research, please cite:
 
 ```bibtex
-@inproceedings{avibench2026,
-  title     = {AVI-Bench: A Cognitively-Inspired Benchmark for Audio-Visual Intelligence in Omni-MLLMs},
-  author    = {Anonymous},
+@inproceedings{wang2026avibench,
+  title     = {AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
+  author    = {Wang, Yaoting and Zhang, Ziyi and Tu, Wenming and Xu, Shaoxuan and Du, Wenjie and Liang, Cheng and Wang, Weijun and Li, Yuanchao and Li, Guangyao and Fei, Hao and Li, Yuanchun and Ding, Henghui and Liu, Yunxin},
   booktitle = {Proceedings of ICML},
   year      = {2026}
 }
