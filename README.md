@@ -330,8 +330,6 @@ If you use AVI-Bench in your research, please cite:
 }
 ```
 
-For the FENSE captioning metric used in AVC, please also cite Zhou et al., ICASSP 2022.
-
 ---
 
 ## License
