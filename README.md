@@ -13,7 +13,7 @@
   &nbsp;·&nbsp;
   <a href="https://github.com/yaotingwangofficial/AVIBench_Release">💻 Code</a>
   &nbsp;·&nbsp;
-  <a href="#">🤗 Dataset</a>
+  <a href="https://huggingface.co/datasets/FudanCVL/AVIBench">🤗 Dataset</a>
 </p>
 
 AVI-Bench evaluates how well Omni-Multimodal Large Language Models (Omni-MLLMs) such as Gemini, GPT-4o, Qwen-Omni, and Baichuan-Omni handle joint audio-visual reasoning. It organises evaluation around the human cognitive process — *Perception → Understanding → Reasoning* — and adds the **Primitive Sensation (PriSe)** extension to test generalisation to low-semantic, unfamiliar audio-visual inputs.
