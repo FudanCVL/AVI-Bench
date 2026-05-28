@@ -1,0 +1,141 @@
+# AVI-Bench project page -- robots.txt
+#
+# This file complements LICENSE and DATA_USE_POLICY.md.  See
+#   https://github.com/FudanCVL/AVI-Bench/blob/main/DATA_USE_POLICY.md
+#
+# Policy
+# ------
+#   * Conventional search engines (Googlebot, Bingbot, DuckDuckBot,
+#     Yandex, Baidu, ...) -- ALLOWED.  This site is intended to be
+#     discoverable from web search.
+#   * AI-search retrieval agents that fetch pages at query time and do
+#     NOT add the page to a training corpus (OAI-SearchBot,
+#     ChatGPT-User, Claude-SearchBot, Perplexity-User, Google AI
+#     Overviews via Googlebot, ...) -- ALLOWED.  These power AI chat
+#     citations and recommendations.
+#   * Training crawlers operated by AI companies that scrape pages
+#     into training corpora -- BLOCKED below.
+#
+# The AVI-Bench dataset itself is licensed under the AVI-Bench Data
+# Use Policy v1.0, which prohibits using the dataset to train,
+# fine-tune, distill, or align any machine-learning model.  This file
+# is one of three complementary measures (LICENSE, HTML meta directives,
+# robots.txt) and does NOT by itself confer permission to ignore the
+# Data Use Policy.
+
+# --- OpenAI (training corpus) ---
+User-agent: GPTBot
+Disallow: /
+
+# --- Anthropic (training corpus) ---
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# --- Google (Gemini training corpus) ---
+User-agent: Google-Extended
+Disallow: /
+
+# --- Apple (Apple Intelligence training) ---
+User-agent: Applebot-Extended
+Disallow: /
+
+# --- Meta (LLaMA / Meta AI training) ---
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+# --- ByteDance (Doubao / Coze training) ---
+User-agent: Bytespider
+Disallow: /
+
+# --- Amazon (Titan / Olympus training) ---
+User-agent: Amazonbot
+Disallow: /
+
+# --- Common Crawl (broad-purpose training corpus consumed by most LLMs) ---
+User-agent: CCBot
+Disallow: /
+
+# --- Perplexity (training crawler; PerplexityBot is the training
+#                bot, *-User is search-time and remains allowed) ---
+User-agent: PerplexityBot
+Disallow: /
+
+# --- Cohere ---
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# --- Allen AI (Dolma training corpus) ---
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: AI2Bot-Dolma
+Disallow: /
+
+# --- Other known training / AI-mining crawlers ---
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: ICC-Crawler
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: VelenPublicWebCrawler
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: magpie-crawler
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# --- Default: everything else is allowed (search engines, AI search
+#     retrieval agents, archive.org, etc.) ---
+User-agent: *
+Allow: /

@@ -655,3 +655,45 @@ footer.foot a:hover { color: var(--accent); }
   height: 0.85em;
   vertical-align: middle;
 }
+
+/* ---------- Usage Policy banner ---------- */
+.policy-banner {
+  background: #fff8ec;
+  border-top: 1px solid #e4d9c1;
+  border-bottom: 1px solid #e4d9c1;
+}
+.policy-banner .policy-card {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.25rem 0;
+}
+.policy-banner .eyebrow.accent { color: var(--accent, #8a2422); }
+.policy-banner .policy-title {
+  font-family: 'Fraunces', 'EB Garamond', serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  line-height: 1.15;
+  margin: .25rem 0 .75rem;
+  color: #2a1a05;
+}
+.policy-banner .policy-body { line-height: 1.55; margin: .35rem 0; }
+.policy-banner .policy-body.small { font-size: .92em; color: #5a4a30; }
+.policy-banner .policy-actions {
+  margin-top: .9rem;
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.policy-banner .btn {
+  display: inline-block;
+  padding: .45rem .9rem;
+  border-radius: .375rem;
+  background: var(--accent, #8a2422);
+  color: #fffaf0;
+  text-decoration: none;
+  font-weight: 600;
+}
+.policy-banner .btn.ghost {
+  background: transparent;
+  color: var(--accent, #8a2422);
+  border: 1px solid var(--accent, #8a2422);
+}

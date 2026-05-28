@@ -38,6 +38,7 @@ This repository contains:
 - [Pipeline Details](#pipeline-details)
 - [Adding a New Model](#adding-a-new-model)
 - [Citation](#citation)
+- [Usage & Restrictions](#usage--restrictions)
 - [License](#license)
 
 ---
@@ -325,13 +326,42 @@ If you use AVI-Bench in your research, please cite:
 @inproceedings{wang2026avibench,
   title     = {AVI-Bench: Toward Human-like Audio-Visual Intelligence of Omni-MLLMs},
   author    = {Wang, Yaoting and Zhang, Ziyi and Tu, Wenming and Xu, Shaoxuan and Du, Wenjie and Liang, Cheng and Wang, Weijun and Li, Yuanchao and Li, Guangyao and Fei, Hao and Li, Yuanchun and Ding, Henghui and Liu, Yunxin},
-  booktitle = {Proceedings of ICML},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning (ICML)},
   year      = {2026}
 }
 ```
 
 ---
 
+## Usage & Restrictions
+
+> ⚠️  AVI-Bench is released **for academic evaluation only**.
+
+The dataset is provided under the [AVI-Bench Data Use Policy v1.0](DATA_USE_POLICY.md) (CC BY-NC-ND 4.0 with an Anti-Training Addendum). By downloading, accessing, or otherwise using the dataset you accept the full policy.
+
+**Permitted.** Evaluating, benchmarking, probing, or red-teaming pre-existing models; reproducing results from the paper; academic teaching and qualitative analysis; methodology research about evaluation itself.
+
+**Prohibited.**
+
+- Using the dataset, in whole or in part, to **train, fine-tune, distil, align, or otherwise update any machine-learning model**, including LLMs, VLMs, audio-language models, omni-modal foundation models, diffusion models, and any subsequent model class.
+- Constructing training data through paraphrasing, translation, augmentation, synthetic generation, or LLM-assisted relabelling of AVI-Bench content.
+- Bulk redistribution, mirroring, or rehosting outside the official Hugging Face repository.
+- Automated scraping, crawling, or batch downloading of the project page or dataset.
+- Any commercial use.
+
+To support contamination audits, the project page and HF dataset card declare AI-training opt-outs via `robots.txt`, HTML `<meta name="robots" content="noai, noimageai">`, and a gated HF dataset that requires acceptance of the policy before download. Search engines and AI-search retrieval agents remain free to index this page so that researchers can discover and cite the benchmark.
+
+If any bundled source content infringes your rights, please open a GitHub Issue titled **"Removal request"**; we will respond within 14 calendar days.
+
+---
+
 ## License
 
-Code is released under the MIT License. The dataset itself bundles content from several public sources (MusicAVQA, AV-Caps, AVHBench, ...) — see the dataset release for per-source attribution.
+AVI-Bench uses a dual-licence model:
+
+| Component | Licence | File |
+|-----------|---------|------|
+| **Code** (Python / shell / HTML / CSS / LaTeX / config) | MIT | [`LICENSE`](LICENSE) |
+| **Dataset** (annotations, splits, JSON, processed media on HF) | AVI-Bench Data Use Policy v1.0 (CC BY-NC-ND 4.0 + Anti-Training Addendum) | [`DATA_USE_POLICY.md`](DATA_USE_POLICY.md) |
+
+The dataset bundles content from several public sources (MusicAVQA, AV-Caps, AVHBench, …) — each upstream source retains its original licence, which continues to apply to the underlying media. The Anti-Training Addendum governs the AVI-Bench annotations, organisation, and processing layered on top. See [`DATA_USE_POLICY.md`](DATA_USE_POLICY.md) §6 and the HF dataset card for per-source attribution.

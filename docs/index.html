@@ -25,6 +25,16 @@
 
   <meta name="theme-color" content="#f6f1e8">
 
+  <!-- AI-training opt-out: see DATA_USE_POLICY.md and robots.txt -->
+  <meta name="robots" content="noai, noimageai, noml">
+  <meta name="GPTBot" content="noai, noimageai">
+  <meta name="ClaudeBot" content="noai, noimageai">
+  <meta name="anthropic-ai" content="noai, noimageai">
+  <meta name="Google-Extended" content="noai, noimageai">
+  <meta name="Applebot-Extended" content="noai, noimageai">
+  <meta name="CCBot" content="noai, noimageai">
+  <link rel="license" href="https://github.com/FudanCVL/AVI-Bench/blob/main/DATA_USE_POLICY.md">
+
   <title>AVI-Bench — Toward Human-like Audio-Visual Intelligence of Omni-MLLMs (ICML 2026)</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -201,6 +211,41 @@
         <div class="stat"><span class="num">14</span><span class="label">tasks</span></div>
         <div class="stat"><span class="num">9</span><span class="label">metrics</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== USAGE POLICY NOTICE ========== -->
+<section class="section policy-banner" id="usage-policy">
+  <div class="container">
+    <div class="policy-card">
+      <p class="eyebrow accent">Usage Policy</p>
+      <h2 class="policy-title">For evaluation only &mdash; not for training</h2>
+      <p class="policy-body">
+        AVI-Bench is released under a dual licence:
+        <strong>code</strong> under MIT, and the <strong>dataset</strong>
+        under the
+        <a href="https://github.com/FudanCVL/AVI-Bench/blob/main/DATA_USE_POLICY.md">AVI-Bench Data Use Policy&nbsp;v1.0</a>
+        (CC&nbsp;BY-NC-ND&nbsp;4.0 with an Anti-Training Addendum).
+        Using the dataset &mdash; in whole or in part &mdash; to train,
+        fine-tune, distil, align, or otherwise update any
+        machine-learning model is <strong>expressly prohibited</strong>.
+        This includes LLMs, VLMs, audio-language models, omni-modal
+        foundation models, diffusion models, and any subsequent model
+        class. Bulk redistribution and automated scraping are also
+        prohibited.
+      </p>
+      <p class="policy-body small">
+        Conventional and AI-search retrieval are welcome: this page is
+        indexable by Google, Bing, and AI chat retrieval agents so that
+        researchers can discover and cite the work. Training crawlers
+        are blocked via <code>robots.txt</code> and HTML meta directives.
+      </p>
+      <p class="policy-actions">
+        <a class="btn" href="https://github.com/FudanCVL/AVI-Bench/blob/main/DATA_USE_POLICY.md">Read full policy</a>
+        <a class="btn ghost" href="https://github.com/FudanCVL/AVI-Bench/blob/main/LICENSE">Licence file</a>
+      </p>
     </div>
   </div>
 </section>
@@ -453,7 +498,7 @@ bash run_all.sh
                Du, Wenjie and Liang, Cheng and Wang, Weijun and Li, Yuanchao and
                Li, Guangyao and Fei, Hao and Li, Yuanchun and Ding, Henghui and
                Liu, Yunxin},
-  booktitle = {Proceedings of ICML},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning (ICML)},
   year      = {2026}
 }</pre>
   </div>
