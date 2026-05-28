@@ -337,7 +337,7 @@ If you use AVI-Bench in your research, please cite:
 
 > ⚠️  AVI-Bench is released **for academic evaluation only**.
 
-The dataset is provided under the [AVI-Bench Data Use Policy v1.0](DATA_USE_POLICY.md) (CC BY-NC-ND 4.0 with an Anti-Training Addendum). By downloading, accessing, or otherwise using the dataset you accept the full policy.
+The dataset is provided under the [AVI-Bench Data Use Policy v1.0](DATA_USE_POLICY.md) (CC BY-ND 4.0 with an Anti-Training Addendum). By downloading, accessing, or otherwise using the dataset you accept the full policy. Commercial use for evaluation and benchmarking is permitted; training is not.
 
 **Permitted.** Evaluating, benchmarking, probing, or red-teaming pre-existing models; reproducing results from the paper; academic teaching and qualitative analysis; methodology research about evaluation itself.
 
@@ -347,7 +347,6 @@ The dataset is provided under the [AVI-Bench Data Use Policy v1.0](DATA_USE_POLI
 - Constructing training data through paraphrasing, translation, augmentation, synthetic generation, or LLM-assisted relabelling of AVI-Bench content.
 - Bulk redistribution, mirroring, or rehosting outside the official Hugging Face repository.
 - Automated scraping, crawling, or batch downloading of the project page or dataset.
-- Any commercial use.
 
 To support contamination audits, the project page and HF dataset card declare AI-training opt-outs via `robots.txt`, HTML `<meta name="robots" content="noai, noimageai">`, and a gated HF dataset that requires acceptance of the policy before download. Search engines and AI-search retrieval agents remain free to index this page so that researchers can discover and cite the benchmark.
 
@@ -362,6 +361,6 @@ AVI-Bench uses a dual-licence model:
 | Component | Licence | File |
 |-----------|---------|------|
 | **Code** (Python / shell / HTML / CSS / LaTeX / config) | MIT | [`LICENSE`](LICENSE) |
-| **Dataset** (annotations, splits, JSON, processed media on HF) | AVI-Bench Data Use Policy v1.0 (CC BY-NC-ND 4.0 + Anti-Training Addendum) | [`DATA_USE_POLICY.md`](DATA_USE_POLICY.md) |
+| **Dataset** (annotations, splits, JSON, processed media on HF) | AVI-Bench Data Use Policy v1.0 (CC BY-ND 4.0 + Anti-Training Addendum) | [`DATA_USE_POLICY.md`](DATA_USE_POLICY.md) |
 
 The dataset bundles content from several public sources (MusicAVQA, AV-Caps, AVHBench, …) — each upstream source retains its original licence, which continues to apply to the underlying media. The Anti-Training Addendum governs the AVI-Bench annotations, organisation, and processing layered on top. See [`DATA_USE_POLICY.md`](DATA_USE_POLICY.md) §6 and the HF dataset card for per-source attribution.

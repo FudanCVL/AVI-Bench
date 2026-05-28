@@ -30,10 +30,15 @@ released under the MIT License (see `LICENSE`).
 ## 2. Base license
 
 The Dataset is licensed under
-[**Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-International** (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/),
+[**Creative Commons Attribution-NoDerivatives 4.0 International**
+(CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/),
 **with the additional Anti-Training Addendum in Section 3**.
-Where the Addendum and CC BY-NC-ND 4.0 conflict, the Addendum prevails.
+Where the Addendum and CC BY-ND 4.0 conflict, the Addendum prevails.
+
+Commercial use of the Dataset for evaluation, benchmarking, and the
+other purposes enumerated in Section 4 is permitted under CC BY-ND 4.0.
+The Anti-Training Addendum in Section 3 still applies regardless of
+whether the use is commercial or non-commercial.
 
 ## 3. Anti-Training Addendum (binding)
 
@@ -72,11 +77,6 @@ official Hugging Face repository linked in Section 1.
 of the project page or dataset repository in a manner inconsistent
 with the `robots.txt` and HTML meta directives published at
 <https://fudancvl.github.io/AVI-Bench/>.
-
-**(f) Commercial use.** Any commercial use, including but not limited
-to evaluation services sold or offered for a fee, paid API endpoints
-whose correctness is benchmarked on the Dataset, and inclusion of the
-Dataset in any commercial product.
 
 ## 4. Permitted use
 

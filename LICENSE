@@ -58,12 +58,14 @@ Section B -- AVI-Bench Data Use Policy v1.0 (summary; full text in
 
 The AVI-Bench Data Use Policy v1.0 is
 
-    Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-    International (CC BY-NC-ND 4.0)
+    Creative Commons Attribution-NoDerivatives 4.0 International
+    (CC BY-ND 4.0)
 
 with a binding Anti-Training Addendum that prohibits any use of the
 dataset for the training, fine-tuning, distillation, alignment, or
-parameter update of any machine-learning model.
+parameter update of any machine-learning model. Commercial use of
+the dataset for evaluation and benchmarking is permitted, subject to
+the Anti-Training Addendum.
 
 By downloading, accessing, or otherwise using the dataset, you accept
 DATA_USE_POLICY.md in its entirety.
