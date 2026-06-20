@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="#">📄 Paper</a>
+  <a href="https://arxiv.org/abs/2606.07643" target="_blank">📄 Paper</a>
   &nbsp;·&nbsp;
   <a href="https://fudancvl.github.io/AVI-Bench/">🌐 Project Page</a>
   &nbsp;·&nbsp;
