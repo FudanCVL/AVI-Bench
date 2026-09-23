@@ -26,13 +26,12 @@
       columns: [
         { key: "rank", label: "Rank", kind: "rank" },
         { key: "model_name", label: "Model", kind: "model" },
-        { key: "overall", label: "Overall", kind: "score", path: ["scores", "overall"] },
         { key: "l1_task", label: "Task-Adaptive", kind: "score", path: ["scores", "taxonomy", "l1_task"] },
         { key: "l2_modality", label: "Modality-Adaptive", kind: "score", path: ["scores", "taxonomy", "l2_modality"] },
         { key: "l3_stage", label: "Stage-Adaptive", kind: "score", path: ["scores", "taxonomy", "l3_stage"] },
         { key: "l4_domain", label: "Domain-Adaptive", kind: "score", path: ["scores", "taxonomy", "l4_domain"] }
       ],
-      state: { activeKey: "overall", direction: -1 }
+      state: { activeKey: "l4_domain", direction: -1 }
     }
   ];
 
@@ -273,7 +272,7 @@
 
   TABLES.forEach(function (table) {
     table.state.sortColumn = table.columns.find(function (column) {
-      return column.key === "overall";
+      return column.key === table.state.activeKey;
     });
     renderHeader(table);
   });
