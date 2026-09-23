@@ -263,18 +263,10 @@ sup {
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
-  gap: 15px;
-  align-items: start;
-}
-
-.section-index {
-  padding-top: 2px;
-  color: var(--blue);
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .section-heading h2 {
@@ -287,108 +279,12 @@ sup {
   line-height: 1.13;
 }
 
-.about-copy {
-  max-width: 850px;
-  margin: 25px 0 0 53px;
-  color: var(--ink-soft);
-  font-size: 17px;
-  line-height: 1.75;
-}
-
-.about-copy strong {
-  color: var(--ink);
-  font-weight: 800;
-}
-
-.benchmark-section {
-  background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
-}
-
-.benchmark-grid {
-  display: grid;
-  grid-template-columns: minmax(230px, .34fr) minmax(0, 1fr);
-  gap: 34px;
-  align-items: center;
-  margin: 32px 0 0 53px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-}
-
-.benchmark-stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.stat-card {
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 15px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
-
-.stat-card strong {
-  color: var(--blue-dark);
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -.06em;
-  line-height: 1.1;
-}
-
-.stat-card span {
-  margin-top: 6px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
-.stat-card-wide {
-  grid-column: span 2;
-  min-height: 74px;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 12px;
-}
-
-.stat-card-wide span {
-  margin-top: 0;
-}
-
-.framework-figure {
-  min-width: 0;
-  margin: 0;
-  padding: 12px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
-
-.framework-figure img {
-  display: block;
-  width: 100%;
-  max-height: 290px;
-  object-fit: contain;
-  object-position: center;
-}
-
 .leaderboard-section {
   scroll-margin-top: 20px;
 }
 
 .leaderboard-heading {
-  grid-template-columns: 38px minmax(0, 1fr) auto;
-}
-
-.section-note {
-  margin: 11px 0 0;
-  color: var(--muted);
-  font-size: 13px;
+  align-items: end;
 }
 
 .leaderboard-count {
@@ -660,28 +556,14 @@ tbody tr.data-row:hover td {
 }
 
 .evolution-section {
-  padding-top: 70px;
-  padding-bottom: 74px;
+  padding-top: 20px;
+  padding-bottom: 32px;
 }
 
-.evolution-figure {
-  margin: 30px 0 0 53px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
-
-.evolution-figure img {
+.evolution-section img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.evolution-figure figcaption {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
 }
 
 .site-footer {
@@ -741,44 +623,19 @@ tbody tr.data-row:hover td {
     font-size: clamp(34px, 8vw, 54px);
   }
 
-  .benchmark-grid {
-    grid-template-columns: 1fr;
-    margin-left: 0;
-  }
-
-  .benchmark-stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .stat-card-wide {
-    grid-column: auto;
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .stat-card-wide span {
-    margin-top: 6px;
-  }
-
   .table-heading,
   .table-frame,
   .code-block,
-  .cite-shell,
-  .evolution-figure,
-  .about-copy {
+  .cite-shell {
     margin-left: 0;
   }
 
   .leaderboard-heading {
-    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .leaderboard-count {
-    grid-column: 2;
-    justify-self: start;
     margin-top: 10px;
   }
 }
@@ -833,33 +690,8 @@ tbody tr.data-row:hover td {
     padding-bottom: 51px;
   }
 
-  .section-heading {
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 10px;
-  }
-
   .section-heading h2 {
     font-size: 25px;
-  }
-
-  .benchmark-grid {
-    padding: 13px;
-  }
-
-  .benchmark-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .stat-card-wide {
-    grid-column: span 2;
-    min-height: 74px;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 10px;
-  }
-
-  .stat-card-wide span {
-    margin-top: 0;
   }
 
   .table-heading {
@@ -881,10 +713,6 @@ tbody tr.data-row:hover td {
     min-width: 680px;
     padding: 17px;
     font-size: 10px;
-  }
-
-  .evolution-figure {
-    padding: 8px;
   }
 
   .footer-inner {
