@@ -41,6 +41,82 @@
       "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
     },
     {
+      "id": "gemini-2-5-flash-paper-2606-07643",
+      "model_name": "Gemini-2.5-Flash",
+      "provider": "Google",
+      "model_id": "Gemini-2.5-Flash (paper label)",
+      "model_release_date": "2025-04-17",
+      "model_release_source_url": "https://blog.google/products-and-platforms/products/gemini/gemini-2-5-flash-preview/",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 46.02,
+        "stages": {
+          "perception": 45.97,
+          "understanding": 43.79,
+          "reasoning": 63.7,
+          "sensation": 30.63
+        },
+        "taxonomy": {
+          "l1_task": 51.15,
+          "l2_modality": 48.58,
+          "l3_stage": 40.47,
+          "l4_domain": 27.72
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "gemini-2-0-flash-paper-2606-07643",
+      "model_name": "Gemini-2.0-Flash",
+      "provider": "Google",
+      "model_id": "Gemini-2.0-Flash (paper label)",
+      "model_release_date": "2024-12-11",
+      "model_release_source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024/",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 44.97,
+        "stages": {
+          "perception": 44.27,
+          "understanding": 42.11,
+          "reasoning": 64.03,
+          "sensation": 29.48
+        },
+        "taxonomy": {
+          "l1_task": 50.14,
+          "l2_modality": 49.21,
+          "l3_stage": 39.79,
+          "l4_domain": 27.12
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
       "id": "qwen2-5-omni-paper-2606-07643",
       "model_name": "Qwen2.5-Omni",
       "provider": "Qwen",
