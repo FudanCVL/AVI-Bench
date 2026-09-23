@@ -231,44 +231,6 @@
       "notes": "The AVI-Bench paper tables label this model Baichuan-Omni; the paper text identifies it as Baichuan-Omni-1.5. Scores are paper-reported, with no dated API snapshot or sample coverage specified."
     },
     {
-      "id": "phi-4-multimodal-paper-2606-07643",
-      "model_name": "Phi-4-Multimodal",
-      "provider": "Microsoft",
-      "model_id": "Phi-4-Multimodal",
-      "model_release_date": "2025-02-26",
-      "model_release_source_url": "https://azure.microsoft.com/en-us/blog/empowering-innovation-the-next-generation-of-the-phi-family/",
-      "benchmark_version": "paper-2606.07643",
-      "source": {
-        "type": "paper",
-        "url": "https://arxiv.org/abs/2606.07643"
-      },
-      "evaluation_date": null,
-      "coverage": {
-        "status": "full",
-        "tasks_completed": 14,
-        "tasks_total": 14,
-        "samples_completed": null,
-        "samples_total": null
-      },
-      "scores": {
-        "overall": 29.04,
-        "stages": {
-          "perception": 27.39,
-          "understanding": 26.16,
-          "reasoning": 50.8,
-          "sensation": 11.79
-        },
-        "taxonomy": {
-          "l1_task": 34.78,
-          "l2_modality": 30.77,
-          "l3_stage": 22.75,
-          "l4_domain": 2.05
-        },
-        "tasks": {}
-      },
-      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
-    },
-    {
       "id": "qwen2-5-omni-paper-2606-07643",
       "model_name": "Qwen2.5-Omni",
       "provider": "Qwen",
