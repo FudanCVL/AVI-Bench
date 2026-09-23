@@ -285,6 +285,7 @@ sup {
 
 .leaderboard-section {
   scroll-margin-top: 20px;
+  border-top: 0;
 }
 
 .leaderboard-heading {
@@ -304,6 +305,10 @@ sup {
 .citation-heading {
   justify-content: center;
   text-align: center;
+}
+
+.citation-section {
+  border-top: 0;
 }
 
 .leaderboard-count {
