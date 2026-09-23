@@ -107,6 +107,7 @@ button:focus-visible {
   position: relative;
   padding-top: 76px;
   padding-bottom: 66px;
+  text-align: center;
 }
 
 .hero::before {
@@ -131,7 +132,7 @@ button:focus-visible {
 
 .hero h1 {
   max-width: 1000px;
-  margin: 0;
+  margin: 0 auto;
   color: var(--ink);
   font-size: clamp(36px, 5.1vw, 68px);
   font-weight: 800;
@@ -190,12 +191,24 @@ sup {
 }
 
 .affiliations span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   white-space: nowrap;
+}
+
+.affiliation-logo {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 .link-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 9px;
   margin-top: 31px;
 }
@@ -275,11 +288,26 @@ sup {
 }
 
 .leaderboard-heading {
-  align-items: end;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  text-align: center;
+}
+
+.leaderboard-heading h2,
+.citation-heading h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.citation-heading {
+  justify-content: center;
+  text-align: center;
 }
 
 .leaderboard-count {
-  align-self: end;
+  align-self: center;
   color: var(--muted);
   font-family: var(--mono);
   font-size: 11px;
@@ -597,7 +625,7 @@ tbody tr.data-row:hover td {
   }
 
   .leaderboard-heading {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -639,6 +667,7 @@ tbody tr.data-row:hover td {
   }
 
   .affiliations span {
+    justify-self: center;
     white-space: normal;
   }
 
