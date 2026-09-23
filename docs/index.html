@@ -127,6 +127,25 @@
           </div>
         </div>
       </div>
+
+      <section class="avi-index-trend" aria-labelledby="avi-index-trend-title">
+        <div class="trend-heading">
+          <h3 id="avi-index-trend-title">AVI-Index Progress</h3>
+          <p>Domain-Adaptive score · 0–100</p>
+        </div>
+        <p class="trend-status" id="avi-index-chart-status" role="status" aria-live="polite">Loading trend data…</p>
+        <div class="trend-content" id="avi-index-chart-content" hidden>
+          <div class="trend-legend" id="avi-index-chart-legend" aria-label="Model providers"></div>
+          <div class="trend-plot" id="avi-index-chart-plot">
+            <svg class="avi-index-chart" id="avi-index-chart" viewBox="0 0 960 360" role="img" aria-labelledby="avi-index-chart-title-svg avi-index-chart-desc">
+              <title id="avi-index-chart-title-svg">AVI-Index by model release date</title>
+              <desc id="avi-index-chart-desc">One line connects model Domain-Adaptive scores in release-date order. Point color and shape identify the provider.</desc>
+            </svg>
+            <div class="trend-tooltip" id="avi-index-chart-tooltip" role="tooltip" hidden></div>
+          </div>
+          <p class="trend-caption" id="avi-index-chart-caption"></p>
+        </div>
+      </section>
     </section>
 
     <section class="evolution-section shell" aria-label="AVI-Bench robot evolution figure">
@@ -162,7 +181,8 @@
     </div>
   </footer>
 
-  <noscript><div class="noscript-note">Enable JavaScript to view the interactive leaderboard.</div></noscript>
+  <noscript><div class="noscript-note">Enable JavaScript to view the interactive leaderboard and AVI-Index chart.</div></noscript>
+  <script src="static/js/avi-index-chart.js" defer></script>
   <script src="static/js/leaderboard.js" defer></script>
 </body>
 </html>

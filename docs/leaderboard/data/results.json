@@ -1,11 +1,14 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "chart_benchmark_version": "paper-2606.07643",
   "entries": [
     {
       "id": "gemini-2-5-pro-paper-2606-07643",
       "model_name": "Gemini-2.5-Pro",
       "provider": "Google",
       "model_id": "Gemini-2.5-Pro (paper label)",
+      "model_release_date": "2025-03-25",
+      "model_release_source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
       "benchmark_version": "paper-2606.07643",
       "source": {
         "type": "paper",
@@ -42,6 +45,8 @@
       "model_name": "Qwen2.5-Omni",
       "provider": "Qwen",
       "model_id": "Qwen2.5-Omni (paper label)",
+      "model_release_date": "2025-03-26",
+      "model_release_source_url": "https://github.com/QwenLM/Qwen2.5-Omni",
       "benchmark_version": "paper-2606.07643",
       "source": {
         "type": "paper",
@@ -78,6 +83,8 @@
       "model_name": "GPT-4o",
       "provider": "OpenAI",
       "model_id": "GPT-4o (paper label)",
+      "model_release_date": "2024-05-13",
+      "model_release_source_url": "https://openai.com/index/hello-gpt-4o/",
       "benchmark_version": "paper-2606.07643",
       "source": {
         "type": "paper",

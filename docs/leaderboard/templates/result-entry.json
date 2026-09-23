@@ -3,6 +3,8 @@
   "model_name": "Display name",
   "provider": "Provider or research group",
   "model_id": "Exact model identifier or paper name",
+  "model_release_date": "YYYY-MM-DD",
+  "model_release_source_url": "https://official-model-release-source.example/",
   "benchmark_version": "Benchmark release identifier",
   "source": {
     "type": "paper",

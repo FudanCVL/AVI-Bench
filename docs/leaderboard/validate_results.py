@@ -21,6 +21,8 @@ TOP_LEVEL_FIELDS = {
     "model_name",
     "provider",
     "model_id",
+    "model_release_date",
+    "model_release_source_url",
     "benchmark_version",
     "source",
     "evaluation_date",
@@ -73,6 +75,23 @@ def validate_entry(entry, index: int) -> str:
 
     for field in ("model_name", "provider", "model_id", "benchmark_version"):
         require_text(entry, field, path)
+
+    release_date = require_text(entry, "model_release_date", path)
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", release_date):
+        raise ValidationError(f"{path}.model_release_date must be YYYY-MM-DD")
+    try:
+        date.fromisoformat(release_date)
+    except ValueError as exc:
+        raise ValidationError(
+            f"{path}.model_release_date must be YYYY-MM-DD"
+        ) from exc
+
+    release_source_url = require_text(entry, "model_release_source_url", path)
+    parsed_release_url = urlparse(release_source_url)
+    if parsed_release_url.scheme != "https" or not parsed_release_url.netloc:
+        raise ValidationError(
+            f"{path}.model_release_source_url must be an https URL"
+        )
 
     source = entry.get("source")
     if not isinstance(source, dict):
@@ -169,10 +188,15 @@ def validate_file(path: Path) -> int:
     except json.JSONDecodeError as exc:
         raise ValidationError(f"invalid JSON at line {exc.lineno}, column {exc.colno}") from exc
 
-    if not isinstance(data, dict) or set(data) != {"schema_version", "entries"}:
-        raise ValidationError("root must contain exactly schema_version and entries")
-    if type(data["schema_version"]) is not int or data["schema_version"] != 1:
-        raise ValidationError("schema_version must be 1")
+    if not isinstance(data, dict) or set(data) != {
+        "schema_version", "chart_benchmark_version", "entries"
+    }:
+        raise ValidationError(
+            "root must contain exactly schema_version, chart_benchmark_version, and entries"
+        )
+    if type(data["schema_version"]) is not int or data["schema_version"] != 2:
+        raise ValidationError("schema_version must be 2")
+    require_text(data, "chart_benchmark_version", "root")
     entries = data["entries"]
     if not isinstance(entries, list):
         raise ValidationError("entries must be an array")
@@ -183,6 +207,12 @@ def validate_file(path: Path) -> int:
         if record_id in seen:
             raise ValidationError(f"duplicate entry id: {record_id}")
         seen.add(record_id)
+    if entries and data["chart_benchmark_version"] not in {
+        entry["benchmark_version"] for entry in entries
+    }:
+        raise ValidationError(
+            "chart_benchmark_version must match a benchmark_version in entries"
+        )
     return len(entries)
 
 

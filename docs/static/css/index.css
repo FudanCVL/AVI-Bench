@@ -323,6 +323,183 @@ sup {
   margin-top: 42px;
 }
 
+.avi-index-trend {
+  margin: 54px 0 0 53px;
+}
+
+.trend-heading {
+  margin-bottom: 12px;
+}
+
+.trend-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.trend-heading p,
+.trend-caption,
+.trend-status {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.trend-status {
+  padding: 24px 0;
+}
+
+.trend-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 18px;
+  margin: 0 0 4px;
+}
+
+.trend-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.trend-legend-item svg {
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+}
+
+.trend-plot {
+  position: relative;
+  width: 100%;
+}
+
+.avi-index-chart {
+  display: block;
+  width: 100%;
+  height: 360px;
+  overflow: visible;
+  font-family: var(--sans);
+}
+
+.trend-grid-line {
+  stroke: #e8edf4;
+  stroke-width: 1;
+}
+
+.trend-axis-line {
+  stroke: #9aa8ba;
+  stroke-width: 1;
+}
+
+.trend-axis-tick-line {
+  stroke: #9aa8ba;
+  stroke-width: 1;
+}
+
+.trend-axis-tick {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.trend-axis-label {
+  fill: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.trend-line {
+  fill: none;
+  stroke: #8d9aab;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.trend-point {
+  cursor: pointer;
+  outline: none;
+}
+
+.trend-point-hit-area {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.trend-point-marker {
+  pointer-events: none;
+}
+
+.trend-point:focus-visible .trend-point-marker {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.trend-caption {
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.trend-tooltip {
+  position: absolute;
+  z-index: 5;
+  width: max-content;
+  max-width: min(270px, calc(100% - 8px));
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(18, 32, 57, .13);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.trend-tooltip[hidden] {
+  display: none;
+}
+
+.trend-tooltip strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.trend-tooltip dl {
+  display: grid;
+  gap: 2px;
+  margin: 0 0 7px;
+}
+
+.trend-tooltip dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.trend-tooltip dt {
+  color: var(--muted);
+}
+
+.trend-tooltip dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.trend-tooltip a {
+  display: inline-block;
+  margin-right: 12px;
+  color: var(--blue-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .table-heading {
   display: flex;
   align-items: baseline;
@@ -624,7 +801,8 @@ tbody tr.data-row:hover td {
 
   .table-heading,
   .table-frame,
-  .cite-shell {
+  .cite-shell,
+  .avi-index-trend {
     margin-left: 0;
   }
 
@@ -698,6 +876,14 @@ tbody tr.data-row:hover td {
     align-items: flex-start;
     flex-direction: column;
     gap: 5px;
+  }
+
+  .trend-legend {
+    justify-content: flex-start;
+  }
+
+  .trend-axis-tick {
+    font-size: 10px;
   }
 
   .table-frame {

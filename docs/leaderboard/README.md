@@ -7,4 +7,6 @@ This directory is the canonical source for the leaderboard shown on the project 
 - `validate_results.py` checks the public schema and score ranges.
 - `assets/logos/` contains the locally curated provider marks.
 
+The homepage reads schema version 2. `chart_benchmark_version` selects the single benchmark release used by the AVI-Index trend chart. Each entry records the official model release date and the source used to verify it; this is distinct from `evaluation_date`.
+
 The homepage reads `data/results.json` at runtime. Do not edit table rows directly in `docs/index.html`.

@@ -285,16 +285,34 @@
       return response.json();
     })
     .then(function (data) {
-      if (!data || data.schema_version !== 1 || !Array.isArray(data.entries)) {
+      if (
+        !data ||
+        data.schema_version !== 2 ||
+        typeof data.chart_benchmark_version !== "string" ||
+        !Array.isArray(data.entries)
+      ) {
         throw new Error("Leaderboard data does not match the expected schema.");
       }
 
       entries = data.entries;
+      if (window.AVIIndexChart) {
+        try {
+          window.AVIIndexChart.render(data);
+        } catch (chartError) {
+          window.AVIIndexChart.showError("Chart rendering failed.");
+        }
+      } else {
+        document.getElementById("avi-index-chart-status").textContent =
+          "AVI-Index trend unavailable: chart script could not be loaded.";
+      }
       document.getElementById("global-count").textContent =
         entries.length + (entries.length === 1 ? " model result" : " model results");
       TABLES.forEach(renderTable);
     })
     .catch(function (error) {
+      if (window.AVIIndexChart) {
+        window.AVIIndexChart.showError(error.message || "Could not load leaderboard data.");
+      }
       showError(error.message || "Could not load leaderboard data.");
     });
 })();

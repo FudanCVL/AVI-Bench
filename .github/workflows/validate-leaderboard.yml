@@ -4,7 +4,8 @@ on:
   pull_request:
     paths:
       - "docs/leaderboard/**"
-      - "docs/static/js/leaderboard.js"
+      - "docs/static/js/**"
+      - "docs/static/css/**"
       - "docs/index.html"
   push:
     branches:
