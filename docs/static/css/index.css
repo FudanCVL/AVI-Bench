@@ -367,6 +367,7 @@ td:first-child {
 th:nth-child(2),
 td:nth-child(2) {
   min-width: 250px;
+  text-align: left;
 }
 
 tbody tr:last-child td {
@@ -422,7 +423,7 @@ tbody tr.data-row:hover td {
 .model-cell {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -505,31 +506,6 @@ tbody tr.data-row:hover td {
 
 .error-cell {
   color: #9b3d3d;
-}
-
-.quickstart-section {
-  background: var(--surface);
-}
-
-.code-block {
-  margin: 28px 0 0 53px;
-  overflow-x: auto;
-  padding: 24px;
-  border: 1px solid var(--line-strong);
-  border-radius: 7px;
-  background: #111d31;
-  color: #e7eefb;
-  font-family: var(--mono);
-  font-size: 12px;
-  line-height: 1.9;
-}
-
-.code-block .comment {
-  color: #8fa7ca;
-}
-
-.code-block .command {
-  color: #7ec8ff;
 }
 
 .cite-shell {
@@ -625,7 +601,6 @@ tbody tr.data-row:hover td {
 
   .table-heading,
   .table-frame,
-  .code-block,
   .cite-shell {
     margin-left: 0;
   }
@@ -702,11 +677,6 @@ tbody tr.data-row:hover td {
 
   .table-frame {
     border-radius: 5px;
-  }
-
-  .code-block {
-    padding: 17px;
-    font-size: 10px;
   }
 
   .cite-shell pre {

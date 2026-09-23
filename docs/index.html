@@ -125,27 +125,6 @@
       </div>
     </section>
 
-    <section class="section shell quickstart-section" aria-labelledby="quickstart-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Quickstart</p>
-          <h2 id="quickstart-title">Evaluate a model in three steps</h2>
-        </div>
-      </div>
-      <pre class="code-block"><code><span class="comment"># 1. Setup</span>
-conda create -n avibench python=3.11 -y &amp;&amp; conda activate avibench
-<span class="command">pip install</span> -r requirements.txt
-
-<span class="comment"># 2. Configure your OpenAI-compatible gateway</span>
-<span class="command">export</span> OPENAI_API_KEY=... OPENAI_BASE_URL=...
-<span class="command">export</span> DATA_ROOT=/path/to/AVIBench_data_release/levels
-
-<span class="comment"># 3. Inference -&gt; Refine -&gt; Evaluate</span>
-bash run_all.sh
-<span class="command">cd</span> auto_format &amp;&amp; python run.py &amp;&amp; <span class="command">cd</span> ..
-<span class="command">cd</span> eval &amp;&amp; python eval.py --models gemini-2.5-pro</code></pre>
-    </section>
-
     <section class="section shell citation-section" aria-labelledby="citation-title">
       <div class="section-heading">
         <div>
