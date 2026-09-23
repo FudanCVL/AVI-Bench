@@ -509,7 +509,7 @@ tbody tr.data-row:hover td {
 }
 
 .cite-shell {
-  margin: 28px 0 0 53px;
+  margin: 28px 0 0;
   overflow-x: auto;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
