@@ -153,44 +153,6 @@
         "tasks": {}
       },
       "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
-    },
-    {
-      "id": "gpt-4o-paper-2606-07643",
-      "model_name": "GPT-4o",
-      "provider": "OpenAI",
-      "model_id": "GPT-4o (paper label)",
-      "model_release_date": "2024-05-13",
-      "model_release_source_url": "https://openai.com/index/hello-gpt-4o/",
-      "benchmark_version": "paper-2606.07643",
-      "source": {
-        "type": "paper",
-        "url": "https://arxiv.org/abs/2606.07643"
-      },
-      "evaluation_date": null,
-      "coverage": {
-        "status": "full",
-        "tasks_completed": 14,
-        "tasks_total": 14,
-        "samples_completed": null,
-        "samples_total": null
-      },
-      "scores": {
-        "overall": 40.68,
-        "stages": {
-          "perception": 40.45,
-          "understanding": 48.6,
-          "reasoning": 56.87,
-          "sensation": 16.81
-        },
-        "taxonomy": {
-          "l1_task": 48.64,
-          "l2_modality": 47.19,
-          "l3_stage": 41.93,
-          "l4_domain": 0.55
-        },
-        "tasks": {}
-      },
-      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
     }
   ]
 }
