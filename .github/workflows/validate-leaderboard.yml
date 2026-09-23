@@ -1,0 +1,22 @@
+name: Validate leaderboard
+
+on:
+  pull_request:
+    paths:
+      - "docs/leaderboard/**"
+      - "docs/static/js/leaderboard.js"
+      - "docs/index.html"
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/leaderboard/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate leaderboard data
+        run: python3 docs/leaderboard/validate_results.py

@@ -14,6 +14,8 @@
   <a href="https://github.com/FudanCVL/AVI-Bench">💻 Code</a>
   &nbsp;·&nbsp;
   <a href="https://huggingface.co/datasets/FudanCVL/AVIBench">🤗 Dataset</a>
+  &nbsp;·&nbsp;
+  <a href="https://fudancvl.github.io/AVI-Bench/#leaderboard">🏆 Community Leaderboard</a>
 </p>
 
 AVI-Bench evaluates how well Omni-Multimodal Large Language Models (Omni-MLLMs) such as Gemini, GPT-4o, Qwen-Omni, and Baichuan-Omni handle joint audio-visual reasoning. It organises evaluation around the human cognitive process — *Perception → Understanding → Reasoning* — and adds the **Primitive Sensation (PriSe)** extension to test generalisation to low-semantic, unfamiliar audio-visual inputs.
@@ -32,6 +34,7 @@ This repository contains:
 - [Highlights](#highlights)
 - [Benchmark Overview](#benchmark-overview)
 - [Headline Results](#headline-results)
+- [Community Leaderboard](#community-leaderboard)
 - [Repository Layout](#repository-layout)
 - [Dataset Format](#dataset-format)
 - [Quickstart](#quickstart)
@@ -109,6 +112,8 @@ L1–L4 yield interpretable diagnostic axes beyond raw accuracy.
 
 ## Headline Results
 
+The tables below show selected results reported in the paper. For community-submitted evaluations and new model results, see the [AVI-Bench Community Leaderboard](https://fudancvl.github.io/AVI-Bench/#leaderboard). Full evaluations with an overall score are ranked within each benchmark version; partial evaluations and entries without an overall score remain visible without a rank.
+
 ### Per-stage performance
 
 | Model | Params | Perception | Understand | Reasoning | Sensation | **Overall** |
@@ -137,6 +142,10 @@ L1–L4 yield interpretable diagnostic axes beyond raw accuracy.
 - A consistent **modality imbalance** is observed: most models excel on visual-dominant tasks but lag on audio-dominant ones.
 - **Primitive Sensation** is the weakest stage across the board, indicating poor generalisation to low-semantic, unfamiliar inputs.
 - The **four-level taxonomy** amplifies failures hidden by raw averages: e.g. GPT-4o (L1 48.64, L3 41.93) collapses to **L4 = 0.55** due to near-zero performance on audio-only sensation tasks (its cascaded audio path fails on out-of-distribution stimuli).
+
+## Community Leaderboard
+
+Community members can submit a result as a pull request to this repository. A maintainer checks the source and required metadata before merging. Each row identifies its source type; merging a result does not mean the evaluation was independently reproduced. See the [submission guide](https://github.com/FudanCVL/AVI-Bench/blob/main/docs/leaderboard/CONTRIBUTING.md) for the JSON format and review criteria.
 
 ---
 

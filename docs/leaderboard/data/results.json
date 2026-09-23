@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "gemini-2-5-pro-paper-2606-07643",
+      "model_name": "Gemini-2.5-Pro",
+      "provider": "Google",
+      "model_id": "Gemini-2.5-Pro (paper label)",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 57.21,
+        "stages": {
+          "perception": 54.58,
+          "understanding": 68.97,
+          "reasoning": 69.06,
+          "sensation": 36.22
+        },
+        "taxonomy": {
+          "l1_task": 64.2,
+          "l2_modality": 62.8,
+          "l3_stage": 57.08,
+          "l4_domain": 32.97
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "qwen2-5-omni-paper-2606-07643",
+      "model_name": "Qwen2.5-Omni",
+      "provider": "Qwen",
+      "model_id": "Qwen2.5-Omni (paper label)",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 41.33,
+        "stages": {
+          "perception": 42.81,
+          "understanding": 39.68,
+          "reasoning": 58.26,
+          "sensation": 24.59
+        },
+        "taxonomy": {
+          "l1_task": 46.92,
+          "l2_modality": 45.93,
+          "l3_stage": 37.61,
+          "l4_domain": 25.89
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "gpt-4o-paper-2606-07643",
+      "model_name": "GPT-4o",
+      "provider": "OpenAI",
+      "model_id": "GPT-4o (paper label)",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 40.68,
+        "stages": {
+          "perception": 40.45,
+          "understanding": 48.6,
+          "reasoning": 56.87,
+          "sensation": 16.81
+        },
+        "taxonomy": {
+          "l1_task": 48.64,
+          "l2_modality": 47.19,
+          "l3_stage": 41.93,
+          "l4_domain": 0.55
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    }
+  ]
+}

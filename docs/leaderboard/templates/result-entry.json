@@ -1,0 +1,37 @@
+{
+  "id": "replace-with-a-unique-slug",
+  "model_name": "Display name",
+  "provider": "Provider or research group",
+  "model_id": "Exact model identifier or paper name",
+  "benchmark_version": "Benchmark release identifier",
+  "source": {
+    "type": "paper",
+    "url": "https://doi.org/..."
+  },
+  "evaluation_date": null,
+  "coverage": {
+    "status": "full",
+    "tasks_completed": 14,
+    "tasks_total": 14,
+    "samples_completed": null,
+    "samples_total": null
+  },
+  "scores": {
+    "overall": null,
+    "stages": {
+      "perception": null,
+      "understanding": null,
+      "reasoning": null,
+      "sensation": null
+    },
+    "taxonomy": {
+      "l1_task": null,
+      "l2_modality": null,
+      "l3_stage": null,
+      "l4_domain": null
+    },
+    "tasks": {}
+  },
+  "submitter": "HF username",
+  "notes": "Optional concise context. Scores use percentage points from 0 to 100."
+}
