@@ -117,6 +117,158 @@
       "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
     },
     {
+      "id": "gemini-1-5-pro-paper-2606-07643",
+      "model_name": "Gemini-1.5-Pro",
+      "provider": "Google",
+      "model_id": "gemini-1.5-pro",
+      "model_release_date": "2024-02-15",
+      "model_release_source_url": "https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024/",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 40.38,
+        "stages": {
+          "perception": 41.69,
+          "understanding": 35.33,
+          "reasoning": 61.19,
+          "sensation": 23.3
+        },
+        "taxonomy": {
+          "l1_task": 46.07,
+          "l2_modality": 42.84,
+          "l3_stage": 32.67,
+          "l4_domain": 23.28
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "gemini-1-5-flash-paper-2606-07643",
+      "model_name": "Gemini-1.5-Flash",
+      "provider": "Google",
+      "model_id": "gemini-1.5-flash",
+      "model_release_date": "2024-05-14",
+      "model_release_source_url": "https://blog.google/innovation-and-ai/products/google-gemini-update-flash-ai-assistant-io-2024/",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 38.42,
+        "stages": {
+          "perception": 37.02,
+          "understanding": 32.84,
+          "reasoning": 62.82,
+          "sensation": 20.99
+        },
+        "taxonomy": {
+          "l1_task": 44.23,
+          "l2_modality": 39.2,
+          "l3_stage": 28.48,
+          "l4_domain": 23.51
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "baichuan-omni-1-5-paper-2606-07643",
+      "model_name": "Baichuan-Omni-1.5",
+      "provider": "Baichuan",
+      "model_id": "Baichuan-Omni-1.5 (paper tables label it Baichuan-Omni)",
+      "model_release_date": "2025-01-26",
+      "model_release_source_url": "https://arxiv.org/abs/2501.15368",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 33.15,
+        "stages": {
+          "perception": 28.91,
+          "understanding": 36.46,
+          "reasoning": 46.69,
+          "sensation": 20.55
+        },
+        "taxonomy": {
+          "l1_task": 37.35,
+          "l2_modality": 35.8,
+          "l3_stage": 30.18,
+          "l4_domain": 24.1
+        },
+        "tasks": {}
+      },
+      "notes": "The AVI-Bench paper tables label this model Baichuan-Omni; the paper text identifies it as Baichuan-Omni-1.5. Scores are paper-reported, with no dated API snapshot or sample coverage specified."
+    },
+    {
+      "id": "phi-4-multimodal-paper-2606-07643",
+      "model_name": "Phi-4-Multimodal",
+      "provider": "Microsoft",
+      "model_id": "Phi-4-Multimodal",
+      "model_release_date": "2025-02-26",
+      "model_release_source_url": "https://azure.microsoft.com/en-us/blog/empowering-innovation-the-next-generation-of-the-phi-family/",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "paper",
+        "url": "https://arxiv.org/abs/2606.07643"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 29.04,
+        "stages": {
+          "perception": 27.39,
+          "understanding": 26.16,
+          "reasoning": 50.8,
+          "sensation": 11.79
+        },
+        "taxonomy": {
+          "l1_task": 34.78,
+          "l2_modality": 30.77,
+          "l3_stage": 22.75,
+          "l4_domain": 2.05
+        },
+        "tasks": {}
+      },
+      "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
       "id": "qwen2-5-omni-paper-2606-07643",
       "model_name": "Qwen2.5-Omni",
       "provider": "Qwen",

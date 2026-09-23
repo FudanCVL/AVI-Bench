@@ -2,7 +2,9 @@
   "use strict";
 
   var LOGO_BY_PROVIDER = {
+    baichuan: "leaderboard/assets/logos/baichuan.png",
     google: "leaderboard/assets/logos/google.svg",
+    microsoft: "leaderboard/assets/logos/microsoft.svg",
     qwen: "leaderboard/assets/logos/qwen.jpg",
     openai: "leaderboard/assets/logos/openai.svg"
   };
@@ -101,6 +103,9 @@
 
     if (providerKey === "qwen") {
       wrapper.classList.add("provider-logo-qwen");
+    }
+    if (providerKey === "baichuan") {
+      wrapper.classList.add("provider-logo-baichuan");
     }
 
     var image = document.createElement("img");

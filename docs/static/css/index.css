@@ -654,6 +654,11 @@ tbody tr.data-row:hover td {
   object-position: left center;
 }
 
+.provider-logo-baichuan img {
+  object-fit: cover;
+  object-position: left center;
+}
+
 .provider-fallback {
   color: var(--muted);
   font-size: 11px;
