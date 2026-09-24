@@ -56,7 +56,8 @@ button:focus-visible {
   position: fixed;
   z-index: 0;
   inset: 0;
-  opacity: .42;
+  overflow: hidden;
+  opacity: .62;
   pointer-events: none;
 }
 
@@ -64,58 +65,158 @@ button:focus-visible {
   display: block;
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
+
+/* =========================================================
+   Single futuristic orbit
+   ========================================================= */
+
+.star-ring-aura,
 .star-ring-track,
-.star-ring-glint {
+.star-ring-flow,
+.star-ring-scan {
   fill: none;
   vector-effect: non-scaling-stroke;
 }
 
-.star-ring-track {
-  stroke: rgba(49, 98, 167, .6);
-  stroke-width: 1.35;
+/* Very soft outer glow.
+   This is NOT another orbit; it is the glow of the same path. */
+.star-ring-aura {
+  stroke: rgba(55, 121, 207, .13);
+  stroke-width: 13;
+  filter: url(#star-ring-soft-glow);
 }
 
-.star-ring-glint {
-  stroke: rgba(24, 157, 186, .9);
-  stroke-dasharray: 3 58;
+/* Main orbit */
+.star-ring-track {
+  stroke: url(#star-ring-track-gradient);
+  stroke-width: 1.45;
+}
+
+/* Fine flowing energy texture */
+.star-ring-flow {
+  stroke: url(#star-ring-flow-gradient);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 21 10 30;
   stroke-linecap: round;
-  animation: star-ring-flow 12s linear infinite;
+  animation: star-ring-flow 16s linear infinite;
+}
+
+/* One brighter energy segment continuously scanning the orbit */
+.star-ring-scan {
+  stroke: url(#star-ring-flow-gradient);
+  stroke-width: 2.35;
+  stroke-dasharray: 62 938;
+  stroke-linecap: round;
+  filter: url(#star-ring-soft-glow);
+  animation: star-ring-scan 8.5s linear infinite;
+}
+
+/* =========================================================
+   Static energy nodes
+   ========================================================= */
+
+.star-ring-node {
+  fill: #6f98df;
+  opacity: .68;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation: star-ring-node-pulse 4.6s ease-in-out infinite;
+}
+
+.star-ring-node--b {
+  animation-delay: -1.7s;
+}
+
+.star-ring-node--c {
+  fill: #28a8c5;
+  animation-delay: -3.1s;
+}
+
+/* =========================================================
+   Moving stars
+   ========================================================= */
+
+.star-ring-satellite-tail {
+  fill: none;
+  stroke: url(#star-ring-tail-gradient);
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: url(#star-ring-soft-glow);
+}
+
+.star-ring-satellite-halo {
+  fill: rgba(68, 205, 226, .12);
+  filter: url(#star-ring-point-glow);
 }
 
 .star-ring-satellite-glow {
-  fill: #35a5cf;
-  opacity: .36;
+  fill: rgba(65, 189, 219, .34);
+  filter: url(#star-ring-soft-glow);
 }
 
 .star-ring-satellite-core {
-  fill: #327acb;
+  fill: #f7fdff;
+  stroke: rgba(62, 147, 218, .85);
+  stroke-width: .8;
+  filter: url(#star-ring-soft-glow);
 }
 
-.star-ring-star {
-  fill: #6e9ddc;
-  opacity: .84;
+/* Smaller secondary star */
+.star-ring-satellite--secondary {
+  opacity: .72;
 }
 
-.star-ring-star--bright {
-  fill: #4886d1;
+.star-ring-satellite--secondary .star-ring-satellite-halo {
+  fill: rgba(109, 101, 213, .11);
 }
 
-.star-ring-spark {
-  fill: none;
-  stroke: #5b92d4;
-  stroke-linecap: round;
-  stroke-width: 1.4;
+.star-ring-satellite-core--secondary {
+  fill: #dce6ff;
+  stroke: rgba(105, 102, 210, .78);
 }
+
+/* =========================================================
+   Motion
+   ========================================================= */
 
 @keyframes star-ring-flow {
-  to { stroke-dashoffset: -58; }
+  to {
+    stroke-dashoffset: -128;
+  }
+}
+
+@keyframes star-ring-scan {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes star-ring-node-pulse {
+  0%,
+  100% {
+    opacity: .38;
+    transform: scale(.78);
+  }
+
+  50% {
+    opacity: .9;
+    transform: scale(1.25);
+  }
 }
 
 @keyframes star-edge-glimmer {
-  from { opacity: .48; }
-  to { opacity: .9; }
+  from {
+    opacity: .42;
+  }
+
+  to {
+    opacity: .88;
+  }
 }
 
 .site-header,
@@ -1040,10 +1141,33 @@ tbody tr.data-row:hover td {
     inset: 0;
     display: block;
     background:
-      radial-gradient(circle, rgba(67, 125, 197, .88) 0 1px, transparent 1.8px) 1% 18% / 5px 5px no-repeat,
-      radial-gradient(circle, rgba(95, 130, 194, .76) 0 1px, transparent 1.8px) 99% 34% / 5px 5px no-repeat,
-      radial-gradient(circle, rgba(48, 143, 162, .82) 0 1.2px, transparent 2px) 1% 68% / 5px 5px no-repeat,
-      radial-gradient(circle, rgba(96, 116, 189, .74) 0 1px, transparent 1.8px) 99% 86% / 5px 5px no-repeat;
+      radial-gradient(
+        circle,
+        rgba(71, 138, 219, .82) 0 1px,
+        rgba(71, 138, 219, .18) 1.4px,
+        transparent 2.5px
+      ) 1% 18% / 7px 7px no-repeat,
+
+      radial-gradient(
+        circle,
+        rgba(117, 112, 218, .70) 0 1px,
+        rgba(117, 112, 218, .14) 1.4px,
+        transparent 2.5px
+      ) 99% 34% / 7px 7px no-repeat,
+
+      radial-gradient(
+        circle,
+        rgba(38, 166, 193, .78) 0 1.2px,
+        rgba(38, 166, 193, .15) 1.6px,
+        transparent 2.8px
+      ) 1% 68% / 8px 8px no-repeat,
+
+      radial-gradient(
+        circle,
+        rgba(78, 116, 201, .70) 0 1px,
+        rgba(78, 116, 201, .14) 1.4px,
+        transparent 2.5px
+      ) 99% 86% / 7px 7px no-repeat;
     content: "";
     animation: star-edge-glimmer 5s ease-in-out infinite alternate;
   }
@@ -1240,7 +1364,9 @@ tbody tr.data-row:hover td {
     animation: none;
   }
 
-  .star-ring-glint,
+  .star-ring-flow,
+  .star-ring-scan,
+  .star-ring-node,
   .star-ring::before {
     animation: none;
   }

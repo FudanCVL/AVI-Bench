@@ -41,15 +41,172 @@
 <body>
   <div class="star-ring" aria-hidden="true">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="none" focusable="false">
-      <path id="star-ring-orbit" class="star-ring-track" d="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></path>
-      <path class="star-ring-glint" d="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></path>
-      <g class="star-ring-satellite">
-        <circle class="star-ring-satellite-glow" r="10"></circle>
-        <circle class="star-ring-satellite-core" r="3.4"></circle>
-        <animateMotion dur="24s" repeatCount="indefinite" rotate="auto" path="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></animateMotion>
+      <defs>
+        <!-- Main orbit gradient -->
+        <linearGradient
+          id="star-ring-track-gradient"
+          x1="80"
+          y1="210"
+          x2="1360"
+          y2="690"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#2457c5" stop-opacity=".18"></stop>
+          <stop offset=".22" stop-color="#397fd8" stop-opacity=".72"></stop>
+          <stop offset=".50" stop-color="#23a8c4" stop-opacity=".88"></stop>
+          <stop offset=".76" stop-color="#6a63d5" stop-opacity=".66"></stop>
+          <stop offset="1" stop-color="#2457c5" stop-opacity=".16"></stop>
+        </linearGradient>
+
+        <!-- Moving energy highlight -->
+        <linearGradient
+          id="star-ring-flow-gradient"
+          x1="120"
+          y1="180"
+          x2="1320"
+          y2="720"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#4d79da" stop-opacity="0"></stop>
+          <stop offset=".32" stop-color="#53d9e9" stop-opacity=".78"></stop>
+          <stop offset=".50" stop-color="#ffffff" stop-opacity=".96"></stop>
+          <stop offset=".68" stop-color="#8290f2" stop-opacity=".78"></stop>
+          <stop offset="1" stop-color="#4d79da" stop-opacity="0"></stop>
+        </linearGradient>
+
+        <!-- Comet tail -->
+        <linearGradient
+          id="star-ring-tail-gradient"
+          x1="-34"
+          y1="0"
+          x2="0"
+          y2="0"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0" stop-color="#55d9eb" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#55d9eb" stop-opacity=".78"></stop>
+        </linearGradient>
+
+        <!-- Soft orbit glow -->
+        <filter
+          id="star-ring-soft-glow"
+          x="-80%"
+          y="-80%"
+          width="260%"
+          height="260%"
+        >
+          <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
+          <feMerge>
+            <feMergeNode in="blur"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+          </feMerge>
+        </filter>
+
+        <!-- Star point glow -->
+        <filter
+          id="star-ring-point-glow"
+          x="-300%"
+          y="-300%"
+          width="700%"
+          height="700%"
+        >
+          <feGaussianBlur stdDeviation="7" result="blur"></feGaussianBlur>
+          <feMerge>
+            <feMergeNode in="blur"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+          </feMerge>
+        </filter>
+
+        <!-- Only one physical orbit -->
+        <path
+          id="star-ring-orbit"
+          pathLength="1000"
+          d="M 1390 450
+             A 670 300 0 1 1 50 450
+             A 670 300 0 1 1 1390 450"
+        ></path>
+      </defs>
+
+      <!-- Same orbit rendered in several visual layers -->
+      <use class="star-ring-aura" href="#star-ring-orbit"></use>
+      <use class="star-ring-track" href="#star-ring-orbit"></use>
+      <use class="star-ring-flow" href="#star-ring-orbit"></use>
+      <use class="star-ring-scan" href="#star-ring-orbit"></use>
+
+      <!-- Small energy nodes -->
+      <circle
+        class="star-ring-node star-ring-node--a"
+        cx="207"
+        cy="257"
+        r="2.2"
+      ></circle>
+
+      <circle
+        class="star-ring-node star-ring-node--b"
+        cx="720"
+        cy="150"
+        r="1.8"
+      ></circle>
+
+      <circle
+        class="star-ring-node star-ring-node--c"
+        cx="1233"
+        cy="643"
+        r="2.5"
+      ></circle>
+
+      <!-- Main moving star -->
+      <g class="star-ring-satellite star-ring-satellite--main">
+        <path
+          class="star-ring-satellite-tail"
+          d="M -34 0 L -5 0"
+        ></path>
+
+        <circle
+          class="star-ring-satellite-halo"
+          r="12"
+        ></circle>
+
+        <circle
+          class="star-ring-satellite-glow"
+          r="6.2"
+        ></circle>
+
+        <circle
+          class="star-ring-satellite-core"
+          r="2.8"
+        ></circle>
+
+        <animateMotion
+          dur="19s"
+          repeatCount="indefinite"
+          rotate="auto"
+        >
+          <mpath href="#star-ring-orbit"></mpath>
+        </animateMotion>
       </g>
-      <circle class="star-ring-star" cx="150" cy="265" r="2.2"></circle>
-      <circle class="star-ring-star star-ring-star--bright" cx="1280" cy="650" r="2.8"></circle>
+
+      <!-- Secondary moving star, still on the same orbit -->
+      <g class="star-ring-satellite star-ring-satellite--secondary">
+        <circle
+          class="star-ring-satellite-halo"
+          r="7"
+        ></circle>
+
+        <circle
+          class="star-ring-satellite-core star-ring-satellite-core--secondary"
+          r="2.1"
+        ></circle>
+
+        <animateMotion
+          dur="31s"
+          begin="-11s"
+          repeatCount="indefinite"
+          rotate="auto"
+        >
+          <mpath href="#star-ring-orbit"></mpath>
+        </animateMotion>
+      </g>
     </svg>
   </div>
 
