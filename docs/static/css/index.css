@@ -477,6 +477,34 @@ body.side-rail-open {
   line-height: 1.05;
 }
 
+.hero h1::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: transparent;
+  background: repeating-linear-gradient(
+    to bottom,
+    #83c5ff 0 2px,
+    #e0f2ff 2px 3px,
+    transparent 3px 5px
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: inset(0 100% 0 0);
+  content: attr(data-text);
+  pointer-events: none;
+  animation: hero-title-stripe-scan 8s ease-in-out infinite;
+}
+
+@keyframes hero-title-stripe-scan {
+  0% { opacity: 0; clip-path: inset(0 100% 0 0); }
+  4% { opacity: 1; clip-path: inset(0 100% 0 0); }
+  19% { opacity: 1; clip-path: inset(0); }
+  29%, 100% { opacity: 0; clip-path: inset(0); }
+}
+
 .hero-paper-title {
   margin: 10px 0 0;
   color: var(--muted);
@@ -1543,6 +1571,11 @@ tbody tr.data-row:hover td {
 
   .hero-wave-track {
     animation: none;
+  }
+
+  .hero h1::after {
+    animation: none;
+    opacity: 0;
   }
 
   .page-star {
