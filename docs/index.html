@@ -54,6 +54,28 @@
 
   <main class="page-layout">
     <section class="hero shell" id="top" tabindex="-1" aria-labelledby="page-title">
+      <svg class="hero-waveform" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="hero-audio-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2457c5" stop-opacity=".28"></stop>
+            <stop offset=".48" stop-color="#078fc5" stop-opacity=".95"></stop>
+            <stop offset="1" stop-color="#2457c5" stop-opacity=".35"></stop>
+          </linearGradient>
+          <linearGradient id="hero-visual-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#148d9d" stop-opacity=".28"></stop>
+            <stop offset=".52" stop-color="#7255ca" stop-opacity=".92"></stop>
+            <stop offset="1" stop-color="#148d9d" stop-opacity=".35"></stop>
+          </linearGradient>
+        </defs>
+        <g class="hero-wave-track hero-wave-track--audio">
+          <path class="hero-wave-glow" d="M-40 238 C82 238 88 118 214 118 S345 362 472 362 603 144 730 144 862 348 990 348 1126 122 1253 122 1383 254 1480 254" stroke="url(#hero-audio-gradient)"></path>
+          <path class="hero-wave-line" d="M-40 238 C82 238 88 118 214 118 S345 362 472 362 603 144 730 144 862 348 990 348 1126 122 1253 122 1383 254 1480 254" stroke="url(#hero-audio-gradient)"></path>
+        </g>
+        <g class="hero-wave-track hero-wave-track--visual">
+          <path class="hero-wave-glow" d="M-40 438 C88 438 90 552 220 552 S350 332 480 332 610 516 742 516 872 348 1004 348 1134 536 1266 536 1392 420 1480 420" stroke="url(#hero-visual-gradient)"></path>
+          <path class="hero-wave-line" d="M-40 438 C88 438 90 552 220 552 S350 332 480 332 610 516 742 516 872 348 1004 348 1134 536 1266 536 1392 420 1480 420" stroke="url(#hero-visual-gradient)"></path>
+        </g>
+      </svg>
       <h1 id="page-title">AVI-Bench</h1>
       <p class="hero-paper-title">Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</p>
 

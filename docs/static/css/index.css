@@ -223,6 +223,8 @@ body.side-rail-open {
 
 .hero {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-top: 76px;
   padding-bottom: 66px;
   text-align: center;
@@ -230,12 +232,62 @@ body.side-rail-open {
 
 .hero::before {
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   left: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--blue), #76a4f5 55%, transparent);
   content: "";
+}
+
+.hero > :not(.hero-waveform) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-waveform {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: .92;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 72% 74% at 50% 44%, transparent 0%, rgba(0, 0, 0, .2) 44%, #000 100%);
+  mask-image: radial-gradient(ellipse 72% 74% at 50% 44%, transparent 0%, rgba(0, 0, 0, .2) 44%, #000 100%);
+}
+
+.hero-wave-track {
+  fill: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-wave-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-wave-track--visual {
+  animation-duration: 25s;
+  animation-direction: alternate-reverse;
+}
+
+.hero-wave-glow {
+  stroke-linecap: round;
+  stroke-width: 17px;
+  opacity: .16;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-wave-line {
+  stroke-linecap: round;
+  stroke-width: 2.5px;
+  opacity: .82;
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes hero-wave-drift {
+  from { transform: translate(-12px, 10px); }
+  to { transform: translate(12px, -10px); }
 }
 
 .eyebrow {
@@ -957,6 +1009,24 @@ tbody tr.data-row:hover td {
     padding-top: 45px;
   }
 
+  .hero-waveform {
+    opacity: .76;
+    -webkit-mask-image: radial-gradient(ellipse 83% 78% at 50% 45%, transparent 0%, rgba(0, 0, 0, .16) 48%, #000 100%);
+    mask-image: radial-gradient(ellipse 83% 78% at 50% 45%, transparent 0%, rgba(0, 0, 0, .16) 48%, #000 100%);
+  }
+
+  .hero-wave-glow {
+    stroke-width: 12px;
+  }
+
+  .hero-wave-track--audio {
+    animation-duration: 22s;
+  }
+
+  .hero-wave-track--visual {
+    animation-duration: 29s;
+  }
+
   .hero h1 {
     font-size: 35px;
     letter-spacing: -.055em;
@@ -1074,5 +1144,9 @@ tbody tr.data-row:hover td {
 
   .side-rail {
     transition: none;
+  }
+
+  .hero-wave-track {
+    animation: none;
   }
 }
