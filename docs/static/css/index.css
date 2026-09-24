@@ -583,12 +583,13 @@ sup {
 
 .hero-actions .link-row {
   grid-column: 2;
+  align-self: center;
   margin-top: 0;
 }
 
 .hero-qr {
   grid-column: 3;
-  justify-self: end;
+  justify-self: center;
   width: 148px;
   padding: 10px;
   border: 1px solid transparent;
@@ -881,9 +882,18 @@ sup {
   pointer-events: none;
 }
 
+.trend-logo-frame {
+  pointer-events: none;
+}
+
 .trend-point:focus-visible .trend-point-marker {
   stroke: var(--ink);
   stroke-width: 3;
+}
+
+.trend-point:focus-visible .trend-logo-frame {
+  stroke: var(--blue);
+  stroke-width: 2;
 }
 
 .trend-point:focus-visible .trend-provider-logo {
@@ -1244,8 +1254,9 @@ tbody tr.data-row:hover td {
 
 .evolution-section img {
   display: block;
-  width: 100%;
+  width: 75%;
   height: auto;
+  margin: 0 auto;
 }
 
 .site-footer {

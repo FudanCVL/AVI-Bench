@@ -142,10 +142,23 @@
       return addMarker(parent, style.shape, x, y, size * 0.36, style.color, fallbackClass);
     }
 
+    var frameSize = size * 1.12;
+    parent.appendChild(svgElement("rect", {
+      class: "trend-logo-frame",
+      x: x - frameSize / 2,
+      y: y - frameSize / 2,
+      width: frameSize,
+      height: frameSize,
+      rx: frameSize * 0.19,
+      fill: "#fff",
+      stroke: "var(--line)",
+      "stroke-width": "1"
+    }));
+
     var fallback = addMarker(parent, style.shape, x, y, size * 0.34, style.color, fallbackClass);
     fallback.setAttribute("visibility", "hidden");
 
-    var logoSize = size * 0.96;
+    var logoSize = size * 0.78;
     var logo = svgElement("image", {
       class: "trend-provider-logo",
       x: x - logoSize / 2,
