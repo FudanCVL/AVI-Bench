@@ -52,8 +52,8 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero shell" aria-labelledby="page-title">
+  <main class="page-layout">
+    <section class="hero shell" id="top" tabindex="-1" aria-labelledby="page-title">
       <h1 id="page-title">AVI-Bench</h1>
       <p class="hero-paper-title">Toward Human-like Audio-Visual Intelligence of Omni-MLLMs</p>
 
@@ -90,7 +90,7 @@
       </nav>
     </section>
 
-    <section class="section shell leaderboard-section" id="leaderboard" aria-labelledby="leaderboard-title">
+    <section class="section shell leaderboard-section" id="leaderboard" tabindex="-1" aria-labelledby="leaderboard-title">
       <div class="section-heading leaderboard-heading">
         <div>
           <h2 id="leaderboard-title">AVI-Bench Leaderboard</h2>
@@ -128,7 +128,7 @@
         </div>
       </div>
 
-      <section class="avi-index-trend" aria-labelledby="avi-index-trend-title">
+      <section class="avi-index-trend" id="avi-index-trend" tabindex="-1" aria-labelledby="avi-index-trend-title">
         <div class="trend-heading">
           <h3 id="avi-index-trend-title">AVI-Index Progress</h3>
           <p>Domain-Adaptive score · 0–100</p>
@@ -148,11 +148,11 @@
       </section>
     </section>
 
-    <section class="evolution-section shell" aria-label="AVI-Bench robot evolution figure">
+    <section class="evolution-section shell" id="evolution" tabindex="-1" aria-label="AVI-Bench robot evolution figure">
       <img src="static/images/evolution.png" alt="Robot evolution from task-adaptive competence to domain-adaptive human-like audio-visual intelligence" loading="lazy" decoding="async">
     </section>
 
-    <section class="section shell citation-section" aria-labelledby="citation-title">
+    <section class="section shell citation-section" id="citation" tabindex="-1" aria-labelledby="citation-title">
       <div class="section-heading citation-heading">
         <h2 id="citation-title">Citation</h2>
       </div>
@@ -168,7 +168,30 @@
 }</pre>
       </div>
     </section>
+
+    <aside class="side-rail" id="page-sidebar" aria-labelledby="page-sidebar-title" aria-hidden="false">
+      <h2 class="side-rail-title" id="page-sidebar-title">On this page</h2>
+      <nav class="side-rail-nav" aria-label="Page contents">
+        <a href="#top">Top</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#avi-index-trend">AVI-Index</a>
+        <a href="#evolution">Evolution figure</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <div class="side-rail-qr">
+        <h3>WeChat group</h3>
+        <div class="qr-placeholder" role="img" aria-label="WeChat group QR code placeholder; image to be added">
+          QR image<br>coming soon
+        </div>
+      </div>
+    </aside>
   </main>
+
+  <button class="side-rail-toggle" id="side-rail-toggle" type="button" aria-controls="page-sidebar" aria-expanded="false" aria-label="Open page contents">
+    <span aria-hidden="true">☰</span>
+    <span>Contents</span>
+  </button>
+  <button class="side-rail-backdrop" id="side-rail-backdrop" type="button" aria-label="Close page contents" hidden></button>
 
   <footer class="site-footer">
     <div class="shell footer-inner">
@@ -184,5 +207,6 @@
   <noscript><div class="noscript-note">Enable JavaScript to view the interactive leaderboard and AVI-Index chart.</div></noscript>
   <script src="static/js/avi-index-chart.js" defer></script>
   <script src="static/js/leaderboard.js" defer></script>
+  <script src="static/js/sidebar.js" defer></script>
 </body>
 </html>
