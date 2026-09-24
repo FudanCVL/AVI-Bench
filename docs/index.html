@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/index.css?v=hybrid-type-20260924">
+  <link rel="stylesheet" href="static/css/index.css?v=wechat-layout-no-logo-ring-20260924">
 </head>
 
 <body>
@@ -134,13 +134,19 @@
         </p>
       </div>
 
-      <nav class="link-row" aria-label="Project links">
-        <a class="link-button" href="https://arxiv.org/abs/2606.07643" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/arxiv.svg" alt=""> Paper</a>
-        <a class="link-button" href="https://github.com/FudanCVL/AVI-Bench" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/github.svg" alt=""> Project</a>
-        <a class="link-button" href="https://huggingface.co/datasets/FudanCVL/AVIBench" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/huggingface.svg" alt=""> Dataset</a>
-        <a class="link-button" href="#leaderboard"><span class="link-symbol" aria-hidden="true">↕</span> Leaderboard</a>
-        <a class="link-button" href="https://github.com/FudanCVL/AVI-Bench/blob/main/docs/leaderboard/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><span class="link-symbol" aria-hidden="true">＋</span> Submit results</a>
-      </nav>
+      <div class="hero-actions">
+        <nav class="link-row" aria-label="Project links">
+          <a class="link-button" href="https://arxiv.org/abs/2606.07643" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/arxiv.svg" alt=""> Paper</a>
+          <a class="link-button" href="https://github.com/FudanCVL/AVI-Bench" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/github.svg" alt=""> Project</a>
+          <a class="link-button" href="https://huggingface.co/datasets/FudanCVL/AVIBench" target="_blank" rel="noopener noreferrer"><img src="leaderboard/assets/icons/huggingface.svg" alt=""> Dataset</a>
+          <a class="link-button" href="#leaderboard"><span class="link-symbol" aria-hidden="true">↕</span> Leaderboard</a>
+          <a class="link-button" href="https://github.com/FudanCVL/AVI-Bench/blob/main/docs/leaderboard/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"><span class="link-symbol" aria-hidden="true">＋</span> Submit results</a>
+        </nav>
+        <aside class="hero-qr" aria-label="WeChat group QR code">
+          <p class="hero-qr-title">WeChat group</p>
+          <div class="qr-placeholder" role="img" aria-label="QR code placeholder; image to be added">QR code<br>coming soon</div>
+        </aside>
+      </div>
     </section>
 
     <section class="section shell leaderboard-section" id="leaderboard" tabindex="-1" aria-labelledby="leaderboard-title">
@@ -235,19 +241,13 @@
       </div>
     </section>
 
-    <aside class="side-rail" id="page-sidebar" aria-label="Page navigation and WeChat group QR" aria-hidden="false">
+    <aside class="side-rail" id="page-sidebar" aria-label="Page navigation" aria-hidden="false">
       <nav class="side-rail-nav" aria-label="Page sections">
         <a href="#stage-title">Cognition Stage Score</a>
         <a href="#taxonomy-title">Adaptive Intelligence Score</a>
         <a href="#evolution">AVI Definition</a>
         <a href="#citation">Citation</a>
       </nav>
-      <div class="side-rail-qr">
-        <p class="side-rail-qr-title">WeChat group</p>
-        <div class="qr-placeholder" role="img" aria-label="WeChat group QR code placeholder; image to be added">
-          QR image<br>coming soon
-        </div>
-      </div>
     </aside>
   </main>
 
@@ -269,7 +269,7 @@
   </footer>
 
   <noscript><div class="noscript-note">Enable JavaScript to view the interactive leaderboard and AVI-Index chart.</div></noscript>
-  <script src="static/js/avi-index-chart.js" defer></script>
+  <script src="static/js/avi-index-chart.js?v=no-logo-ring-20260924" defer></script>
   <script src="static/js/leaderboard.js" defer></script>
   <script src="static/js/sidebar.js" defer></script>
   <script src="static/js/citation.js" defer></script>

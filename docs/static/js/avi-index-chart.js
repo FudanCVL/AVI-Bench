@@ -142,20 +142,10 @@
       return addMarker(parent, style.shape, x, y, size * 0.36, style.color, fallbackClass);
     }
 
-    parent.appendChild(svgElement("circle", {
-      class: "trend-logo-ring",
-      cx: x,
-      cy: y,
-      r: size * 0.56,
-      fill: "var(--chart-marker-fill)",
-      stroke: style.color,
-      "stroke-width": "1.5"
-    }));
-
     var fallback = addMarker(parent, style.shape, x, y, size * 0.34, style.color, fallbackClass);
     fallback.setAttribute("visibility", "hidden");
 
-    var logoSize = size * 0.78;
+    var logoSize = size * 0.96;
     var logo = svgElement("image", {
       class: "trend-provider-logo",
       x: x - logoSize / 2,
