@@ -52,170 +52,62 @@ button:focus-visible {
   z-index: 1;
 }
 
-.star-ring {
+.page-stars {
   position: fixed;
   z-index: 0;
   inset: 0;
   overflow: hidden;
-  opacity: .62;
   pointer-events: none;
 }
 
-.star-ring svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.page-star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e9fbff;
+  filter: drop-shadow(0 0 5px rgba(71, 171, 224, .95));
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  will-change: transform, opacity;
 }
 
-
-/* =========================================================
-   Single futuristic orbit
-   ========================================================= */
-
-.star-ring-aura,
-.star-ring-track,
-.star-ring-flow,
-.star-ring-scan {
-  fill: none;
-  vector-effect: non-scaling-stroke;
+.page-star--one {
+  top: 22vh;
+  left: 4vw;
+  animation: page-star-drift-one 7.5s ease-in-out infinite;
 }
 
-/* Very soft outer glow.
-   This is NOT another orbit; it is the glow of the same path. */
-.star-ring-aura {
-  stroke: rgba(55, 121, 207, .13);
-  stroke-width: 13;
-  filter: url(#star-ring-soft-glow);
+.page-star--two {
+  top: 70vh;
+  right: 4vw;
+  background: #f0edff;
+  filter: drop-shadow(0 0 5px rgba(122, 117, 226, .9));
+  animation: page-star-drift-two 9s ease-in-out -4.2s infinite;
 }
 
-/* Main orbit */
-.star-ring-track {
-  stroke: url(#star-ring-track-gradient);
-  stroke-width: 1.45;
-}
-
-/* Fine flowing energy texture */
-.star-ring-flow {
-  stroke: url(#star-ring-flow-gradient);
-  stroke-width: 1.25;
-  stroke-dasharray: 3 21 10 30;
-  stroke-linecap: round;
-  animation: star-ring-flow 16s linear infinite;
-}
-
-/* One brighter energy segment continuously scanning the orbit */
-.star-ring-scan {
-  stroke: url(#star-ring-flow-gradient);
-  stroke-width: 2.35;
-  stroke-dasharray: 62 938;
-  stroke-linecap: round;
-  filter: url(#star-ring-soft-glow);
-  animation: star-ring-scan 8.5s linear infinite;
-}
-
-/* =========================================================
-   Static energy nodes
-   ========================================================= */
-
-.star-ring-node {
-  fill: #6f98df;
-  opacity: .68;
-
-  transform-box: fill-box;
-  transform-origin: center;
-
-  animation: star-ring-node-pulse 4.6s ease-in-out infinite;
-}
-
-.star-ring-node--b {
-  animation-delay: -1.7s;
-}
-
-.star-ring-node--c {
-  fill: #28a8c5;
-  animation-delay: -3.1s;
-}
-
-/* =========================================================
-   Moving stars
-   ========================================================= */
-
-.star-ring-satellite-tail {
-  fill: none;
-  stroke: url(#star-ring-tail-gradient);
-  stroke-width: 2;
-  stroke-linecap: round;
-  filter: url(#star-ring-soft-glow);
-}
-
-.star-ring-satellite-halo {
-  fill: rgba(68, 205, 226, .12);
-  filter: url(#star-ring-point-glow);
-}
-
-.star-ring-satellite-glow {
-  fill: rgba(65, 189, 219, .34);
-  filter: url(#star-ring-soft-glow);
-}
-
-.star-ring-satellite-core {
-  fill: #f7fdff;
-  stroke: rgba(62, 147, 218, .85);
-  stroke-width: .8;
-  filter: url(#star-ring-soft-glow);
-}
-
-/* Smaller secondary star */
-.star-ring-satellite--secondary {
-  opacity: .72;
-}
-
-.star-ring-satellite--secondary .star-ring-satellite-halo {
-  fill: rgba(109, 101, 213, .11);
-}
-
-.star-ring-satellite-core--secondary {
-  fill: #dce6ff;
-  stroke: rgba(105, 102, 210, .78);
-}
-
-/* =========================================================
-   Motion
-   ========================================================= */
-
-@keyframes star-ring-flow {
-  to {
-    stroke-dashoffset: -128;
-  }
-}
-
-@keyframes star-ring-scan {
-  to {
-    stroke-dashoffset: -1000;
-  }
-}
-
-@keyframes star-ring-node-pulse {
+@keyframes page-star-drift-one {
   0%,
   100% {
-    opacity: .38;
-    transform: scale(.78);
+    opacity: .58;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(.78);
   }
 
   50% {
-    opacity: .9;
-    transform: scale(1.25);
+    opacity: 1;
+    transform: translate3d(12px, -23px, 0) rotate(45deg) scale(1.18);
   }
 }
 
-@keyframes star-edge-glimmer {
-  from {
-    opacity: .42;
+@keyframes page-star-drift-two {
+  0%,
+  100% {
+    opacity: .48;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(.72);
   }
 
-  to {
-    opacity: .88;
+  50% {
+    opacity: .96;
+    transform: translate3d(-13px, 25px, 0) rotate(-38deg) scale(1.2);
   }
 }
 
@@ -1132,46 +1024,6 @@ tbody tr.data-row:hover td {
 }
 
 @media (max-width: 820px) {
-  .star-ring svg {
-    display: none;
-  }
-
-  .star-ring::before {
-    position: absolute;
-    inset: 0;
-    display: block;
-    background:
-      radial-gradient(
-        circle,
-        rgba(71, 138, 219, .82) 0 1px,
-        rgba(71, 138, 219, .18) 1.4px,
-        transparent 2.5px
-      ) 1% 18% / 7px 7px no-repeat,
-
-      radial-gradient(
-        circle,
-        rgba(117, 112, 218, .70) 0 1px,
-        rgba(117, 112, 218, .14) 1.4px,
-        transparent 2.5px
-      ) 99% 34% / 7px 7px no-repeat,
-
-      radial-gradient(
-        circle,
-        rgba(38, 166, 193, .78) 0 1.2px,
-        rgba(38, 166, 193, .15) 1.6px,
-        transparent 2.8px
-      ) 1% 68% / 8px 8px no-repeat,
-
-      radial-gradient(
-        circle,
-        rgba(78, 116, 201, .70) 0 1px,
-        rgba(78, 116, 201, .14) 1.4px,
-        transparent 2.5px
-      ) 99% 86% / 7px 7px no-repeat;
-    content: "";
-    animation: star-edge-glimmer 5s ease-in-out infinite alternate;
-  }
-
   .shell {
     width: min(100% - 32px, 1440px);
   }
@@ -1364,14 +1216,7 @@ tbody tr.data-row:hover td {
     animation: none;
   }
 
-  .star-ring-flow,
-  .star-ring-scan,
-  .star-ring-node,
-  .star-ring::before {
+  .page-star {
     animation: none;
-  }
-
-  .star-ring-satellite {
-    display: none;
   }
 }
