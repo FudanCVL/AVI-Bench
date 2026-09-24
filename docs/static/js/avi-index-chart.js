@@ -131,7 +131,7 @@
       common.r = size;
       marker = svgElement("circle", common);
     }
-    marker.setAttribute("stroke", "#ffffff");
+    marker.setAttribute("stroke", "var(--chart-marker-outline)");
     marker.setAttribute("stroke-width", "2");
     parent.appendChild(marker);
     return marker;
@@ -147,7 +147,7 @@
       cx: x,
       cy: y,
       r: size * 0.56,
-      fill: "#ffffff",
+      fill: "var(--chart-marker-fill)",
       stroke: style.color,
       "stroke-width": "1.5"
     }));

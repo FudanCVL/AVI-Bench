@@ -32,10 +32,11 @@
   <link rel="license" href="https://github.com/FudanCVL/AVI-Bench/blob/main/DATA_USE_POLICY.md">
 
   <title>AVI-Bench — Human-like Audio-Visual Intelligence</title>
+  <script src="static/js/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/index.css?v=author-email-20260924">
+  <link rel="stylesheet" href="static/css/index.css?v=darkmode-20260924">
 </head>
 
 <body>
@@ -53,7 +54,18 @@
           <span>Audio-Visual Intelligence Benchmark</span>
         </span>
       </a>
-      <span class="header-meta">ICML 2026 · Main Conference</span>
+      <div class="header-tools">
+        <span class="header-meta">ICML 2026 · Main Conference</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8 8.8 8.8 0 1 0 20.2 15.4Z"></path>
+          </svg>
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
