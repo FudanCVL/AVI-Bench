@@ -359,18 +359,6 @@ sup {
   background: var(--surface);
 }
 
-.link-primary {
-  border-color: var(--blue);
-  background: var(--blue);
-  color: #fff;
-}
-
-.link-primary:hover {
-  border-color: var(--blue-dark);
-  background: var(--blue-dark);
-  color: #fff;
-}
-
 .link-symbol {
   color: currentColor;
   font-size: 18px;
