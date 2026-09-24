@@ -2,12 +2,23 @@
   "use strict";
 
   var SVG_NS = "http://www.w3.org/2000/svg";
+  var XLINK_NS = "http://www.w3.org/1999/xlink";
   var DAY_MS = 24 * 60 * 60 * 1000;
   var PROVIDER_STYLES = {
     google: { color: "#4285f4", shape: "circle" },
     qwen: { color: "#7c3aed", shape: "square" },
-    openai: { color: "#11856b", shape: "triangle" }
+    openai: { color: "#11856b", shape: "triangle" },
+    baichuan: { color: "#d04a35", shape: "diamond" },
+    microsoft: { color: "#566b2f", shape: "square" }
   };
+  var PROVIDER_LOGOS = {
+    baichuan: "leaderboard/assets/logos/baichuan.png",
+    google: "leaderboard/assets/logos/google.svg",
+    microsoft: "leaderboard/assets/logos/microsoft.svg",
+    qwen: "leaderboard/assets/logos/qwen.jpg",
+    openai: "leaderboard/assets/logos/openai.svg"
+  };
+  var WIDE_LOGOS = { baichuan: true, qwen: true };
   var EXTRA_COLORS = ["#d04a35", "#167d9a", "#b17a00", "#bd4d8c", "#566b2f"];
   var EXTRA_SHAPES = ["diamond", "circle", "square", "triangle"];
   var chartPoints = [];
@@ -79,13 +90,17 @@
 
     providers.forEach(function (provider) {
       var key = provider.trim().toLowerCase();
-      styles[provider] = PROVIDER_STYLES[key] || {
+      var style = PROVIDER_STYLES[key] || {
         color: EXTRA_COLORS[extraIndex % EXTRA_COLORS.length],
         shape: EXTRA_SHAPES[extraIndex % EXTRA_SHAPES.length]
       };
       if (!PROVIDER_STYLES[key]) {
         extraIndex += 1;
       }
+      styles[provider] = Object.assign({}, style, {
+        logo: PROVIDER_LOGOS[key] || null,
+        logoFit: WIDE_LOGOS[key] ? "xMinYMid slice" : "xMidYMid meet"
+      });
     });
     return styles;
   }
@@ -120,6 +135,43 @@
     marker.setAttribute("stroke-width", "2");
     parent.appendChild(marker);
     return marker;
+  }
+
+  function addProviderIcon(parent, style, x, y, size, fallbackClass) {
+    if (!style.logo) {
+      return addMarker(parent, style.shape, x, y, size * 0.36, style.color, fallbackClass);
+    }
+
+    parent.appendChild(svgElement("circle", {
+      class: "trend-logo-ring",
+      cx: x,
+      cy: y,
+      r: size * 0.56,
+      fill: "#ffffff",
+      stroke: style.color,
+      "stroke-width": "1.5"
+    }));
+
+    var fallback = addMarker(parent, style.shape, x, y, size * 0.34, style.color, fallbackClass);
+    fallback.setAttribute("visibility", "hidden");
+
+    var logoSize = size * 0.78;
+    var logo = svgElement("image", {
+      class: "trend-provider-logo",
+      x: x - logoSize / 2,
+      y: y - logoSize / 2,
+      width: logoSize,
+      height: logoSize,
+      preserveAspectRatio: style.logoFit
+    });
+    logo.setAttribute("href", style.logo);
+    logo.setAttributeNS(XLINK_NS, "xlink:href", style.logo);
+    logo.addEventListener("error", function () {
+      fallback.setAttribute("visibility", "visible");
+      logo.remove();
+    }, { once: true });
+    parent.appendChild(logo);
+    return logo;
   }
 
   function addText(parent, x, y, text, className, attributes) {
@@ -213,7 +265,7 @@
       var symbol = document.createElementNS(SVG_NS, "svg");
       symbol.setAttribute("viewBox", "0 0 16 16");
       symbol.setAttribute("aria-hidden", "true");
-      addMarker(symbol, providerStyles[provider].shape, 8, 8, 5, providerStyles[provider].color, "trend-legend-marker");
+      addProviderIcon(symbol, providerStyles[provider], 8, 8, 14, "trend-legend-marker");
       item.appendChild(symbol);
       var label = document.createElement("span");
       label.textContent = provider;
@@ -303,7 +355,7 @@
       cy: y,
       r: 12
     }));
-    addMarker(group, style.shape, x, y, 6, style.color, "trend-point-marker");
+    addProviderIcon(group, style, x, y, 16, "trend-point-marker");
     group.addEventListener("pointerenter", function () { showTooltip(point, group); });
     group.addEventListener("pointerleave", scheduleTooltipHide);
     group.addEventListener("focus", function () { showTooltip(point, group); });

@@ -434,7 +434,20 @@ sup {
   pointer-events: none;
 }
 
+.trend-provider-logo {
+  pointer-events: none;
+}
+
+.trend-logo-ring {
+  pointer-events: none;
+}
+
 .trend-point:focus-visible .trend-point-marker {
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.trend-point:focus-visible .trend-logo-ring {
   stroke: var(--ink);
   stroke-width: 3;
 }
