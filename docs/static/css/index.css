@@ -429,6 +429,29 @@ body.side-rail-open {
   text-underline-offset: 3px;
 }
 
+.authors .author-email {
+  display: inline-flex;
+  margin-left: 4px;
+  color: var(--blue);
+  vertical-align: -2px;
+  text-decoration: none;
+}
+
+.authors .author-email:hover {
+  color: var(--blue-dark);
+}
+
+.author-email svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+}
+
 sup {
   color: var(--blue);
   font-size: .7em;
