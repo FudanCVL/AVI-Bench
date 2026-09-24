@@ -79,13 +79,15 @@
               C 897.33 322.81 922.67 218 948 218 C 973.33 218 998.67 322.81 1024 438 C 1049.33 553.19 1074.67 658 1100 658 C 1125.33 658 1150.67 553.19 1176 438
               C 1201.33 322.81 1226.67 218 1252 218 C 1277.33 218 1302.67 322.81 1328 438 C 1353.33 553.19 1378.67 658 1404 658 C 1429.33 658 1454.67 553.19 1480 438"></path>
         </defs>
-        <g class="hero-wave-track hero-wave-track--audio">
-          <use class="hero-wave-glow" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
-          <use class="hero-wave-line" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
-        </g>
-        <g class="hero-wave-track hero-wave-track--visual">
-          <use class="hero-wave-glow" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
-          <use class="hero-wave-line" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
+        <g class="hero-wave-field" transform="translate(0 360) scale(1 .666667) translate(0 -360)">
+          <g class="hero-wave-track hero-wave-track--audio">
+            <use class="hero-wave-glow" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
+            <use class="hero-wave-line" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
+          </g>
+          <g class="hero-wave-track hero-wave-track--visual">
+            <use class="hero-wave-glow" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
+            <use class="hero-wave-line" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
+          </g>
         </g>
       </svg>
       <h1 id="page-title">AVI-Bench</h1>
