@@ -286,8 +286,8 @@ body.side-rail-open {
 }
 
 @keyframes hero-wave-drift {
-  from { transform: translate(-12px, 10px); }
-  to { transform: translate(12px, -10px); }
+  from { transform: translate(-24px, 20px); }
+  to { transform: translate(24px, -20px); }
 }
 
 .eyebrow {

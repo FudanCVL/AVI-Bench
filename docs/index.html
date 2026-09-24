@@ -66,14 +66,26 @@
             <stop offset=".52" stop-color="#7255ca" stop-opacity=".92"></stop>
             <stop offset="1" stop-color="#148d9d" stop-opacity=".35"></stop>
           </linearGradient>
+          <path id="hero-audio-wave-shape" d="M -40 238
+              C -14.67 122.81 10.67 18 36 18 C 61.33 18 86.67 122.81 112 238 C 137.33 353.19 162.67 458 188 458 C 213.33 458 238.67 353.19 264 238
+              C 289.33 122.81 314.67 18 340 18 C 365.33 18 390.67 122.81 416 238 C 441.33 353.19 466.67 458 492 458 C 517.33 458 542.67 353.19 568 238
+              C 593.33 122.81 618.67 18 644 18 C 669.33 18 694.67 122.81 720 238 C 745.33 353.19 770.67 458 796 458 C 821.33 458 846.67 353.19 872 238
+              C 897.33 122.81 922.67 18 948 18 C 973.33 18 998.67 122.81 1024 238 C 1049.33 353.19 1074.67 458 1100 458 C 1125.33 458 1150.67 353.19 1176 238
+              C 1201.33 122.81 1226.67 18 1252 18 C 1277.33 18 1302.67 122.81 1328 238 C 1353.33 353.19 1378.67 458 1404 458 C 1429.33 458 1454.67 353.19 1480 238"></path>
+          <path id="hero-visual-wave-shape" d="M -40 438
+              C -14.67 322.81 10.67 218 36 218 C 61.33 218 86.67 322.81 112 438 C 137.33 553.19 162.67 658 188 658 C 213.33 658 238.67 553.19 264 438
+              C 289.33 322.81 314.67 218 340 218 C 365.33 218 390.67 322.81 416 438 C 441.33 553.19 466.67 658 492 658 C 517.33 658 542.67 553.19 568 438
+              C 593.33 322.81 618.67 218 644 218 C 669.33 218 694.67 322.81 720 438 C 745.33 553.19 770.67 658 796 658 C 821.33 658 846.67 553.19 872 438
+              C 897.33 322.81 922.67 218 948 218 C 973.33 218 998.67 322.81 1024 438 C 1049.33 553.19 1074.67 658 1100 658 C 1125.33 658 1150.67 553.19 1176 438
+              C 1201.33 322.81 1226.67 218 1252 218 C 1277.33 218 1302.67 322.81 1328 438 C 1353.33 553.19 1378.67 658 1404 658 C 1429.33 658 1454.67 553.19 1480 438"></path>
         </defs>
         <g class="hero-wave-track hero-wave-track--audio">
-          <path class="hero-wave-glow" d="M-40 238 C82 238 88 118 214 118 S345 362 472 362 603 144 730 144 862 348 990 348 1126 122 1253 122 1383 254 1480 254" stroke="url(#hero-audio-gradient)"></path>
-          <path class="hero-wave-line" d="M-40 238 C82 238 88 118 214 118 S345 362 472 362 603 144 730 144 862 348 990 348 1126 122 1253 122 1383 254 1480 254" stroke="url(#hero-audio-gradient)"></path>
+          <use class="hero-wave-glow" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
+          <use class="hero-wave-line" href="#hero-audio-wave-shape" stroke="url(#hero-audio-gradient)"></use>
         </g>
         <g class="hero-wave-track hero-wave-track--visual">
-          <path class="hero-wave-glow" d="M-40 438 C88 438 90 552 220 552 S350 332 480 332 610 516 742 516 872 348 1004 348 1134 536 1266 536 1392 420 1480 420" stroke="url(#hero-visual-gradient)"></path>
-          <path class="hero-wave-line" d="M-40 438 C88 438 90 552 220 552 S350 332 480 332 610 516 742 516 872 348 1004 348 1134 536 1266 536 1392 420 1480 420" stroke="url(#hero-visual-gradient)"></path>
+          <use class="hero-wave-glow" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
+          <use class="hero-wave-line" href="#hero-visual-wave-shape" stroke="url(#hero-visual-gradient)"></use>
         </g>
       </svg>
       <h1 id="page-title">AVI-Bench</h1>
