@@ -973,16 +973,61 @@ tbody tr.data-row:hover td {
 
 .cite-shell {
   margin: 28px 0 0;
-  overflow-x: auto;
   border: 1px solid var(--line-strong);
   border-radius: 7px;
   background: #f8fbff;
 }
 
+.citation-toolbar {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 9px 14px 0;
+}
+
+.citation-copy-button {
+  min-height: 32px;
+  gap: 7px;
+  padding: 0 11px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+.citation-copy-button svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.citation-copy-status {
+  color: var(--green);
+  font-size: 12px;
+}
+
+.citation-copy-status.is-error {
+  color: #a13f3f;
+}
+
+.citation-code-scroll {
+  overflow-x: auto;
+}
+
+.citation-code-scroll:focus-visible {
+  outline: 3px solid #8eb1f6;
+  outline-offset: -3px;
+}
+
 .cite-shell pre {
   margin: 0;
   min-width: 720px;
-  padding: 23px;
+  padding: 14px 23px 23px;
   color: #31435d;
   font-family: var(--mono);
   font-size: 12px;
@@ -1193,6 +1238,10 @@ tbody tr.data-row:hover td {
     min-width: 680px;
     padding: 17px;
     font-size: 10px;
+  }
+
+  .citation-toolbar {
+    padding-right: 10px;
   }
 
   .footer-inner {
