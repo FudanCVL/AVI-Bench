@@ -485,9 +485,8 @@ body.side-rail-open {
   color: transparent;
   background: repeating-linear-gradient(
     to bottom,
-    #83c5ff 0 2px,
-    #e0f2ff 2px 3px,
-    transparent 3px 5px
+    #000 0 2px,
+    #fff 2px 4px
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -495,7 +494,7 @@ body.side-rail-open {
   clip-path: inset(0 100% 0 0);
   content: attr(data-text);
   pointer-events: none;
-  animation: hero-title-stripe-scan 8s ease-in-out infinite;
+  animation: hero-title-stripe-scan 4s ease-in-out infinite;
 }
 
 @keyframes hero-title-stripe-scan {
