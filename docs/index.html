@@ -40,15 +40,16 @@
 
 <body>
   <div class="star-ring" aria-hidden="true">
-    <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" focusable="false">
-      <ellipse class="star-ring-track" cx="500" cy="500" rx="465" ry="1800"></ellipse>
-      <ellipse class="star-ring-glint" cx="500" cy="500" rx="465" ry="1800"></ellipse>
-      <g class="star-ring-stars">
-        <circle class="star-ring-star star-ring-star--bright" cx="37" cy="280" r="3"></circle>
-        <circle class="star-ring-star" cx="963" cy="720" r="2.2"></circle>
-        <path class="star-ring-spark" d="M38 488v12m-6-6h12"></path>
-        <circle class="star-ring-star star-ring-star--bright" cx="963" cy="365" r="2.8"></circle>
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="none" focusable="false">
+      <path id="star-ring-orbit" class="star-ring-track" d="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></path>
+      <path class="star-ring-glint" d="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></path>
+      <g class="star-ring-satellite">
+        <circle class="star-ring-satellite-glow" r="10"></circle>
+        <circle class="star-ring-satellite-core" r="3.4"></circle>
+        <animateMotion dur="24s" repeatCount="indefinite" rotate="auto" path="M 1390 450 A 670 300 0 1 1 50 450 A 670 300 0 1 1 1390 450"></animateMotion>
       </g>
+      <circle class="star-ring-star" cx="150" cy="265" r="2.2"></circle>
+      <circle class="star-ring-star star-ring-star--bright" cx="1280" cy="650" r="2.8"></circle>
     </svg>
   </div>
 

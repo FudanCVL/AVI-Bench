@@ -56,7 +56,7 @@ button:focus-visible {
   position: fixed;
   z-index: 0;
   inset: 0;
-  opacity: .62;
+  opacity: .42;
   pointer-events: none;
 }
 
@@ -73,24 +73,29 @@ button:focus-visible {
 }
 
 .star-ring-track {
-  stroke: rgba(62, 111, 184, .34);
-  stroke-width: 1.2;
+  stroke: rgba(49, 98, 167, .6);
+  stroke-width: 1.35;
 }
 
 .star-ring-glint {
-  stroke: rgba(54, 130, 183, .58);
-  stroke-dasharray: 2 320;
+  stroke: rgba(24, 157, 186, .9);
+  stroke-dasharray: 3 58;
   stroke-linecap: round;
-  animation: star-ring-flow 96s linear infinite;
+  animation: star-ring-flow 12s linear infinite;
 }
 
-.star-ring-stars {
-  fill: #6e9ddc;
-  opacity: .9;
+.star-ring-satellite-glow {
+  fill: #35a5cf;
+  opacity: .36;
+}
+
+.star-ring-satellite-core {
+  fill: #327acb;
 }
 
 .star-ring-star {
   fill: #6e9ddc;
+  opacity: .84;
 }
 
 .star-ring-star--bright {
@@ -105,7 +110,7 @@ button:focus-visible {
 }
 
 @keyframes star-ring-flow {
-  to { stroke-dashoffset: -480; }
+  to { stroke-dashoffset: -58; }
 }
 
 @keyframes star-edge-glimmer {
@@ -1238,5 +1243,9 @@ tbody tr.data-row:hover td {
   .star-ring-glint,
   .star-ring::before {
     animation: none;
+  }
+
+  .star-ring-satellite {
+    display: none;
   }
 }
