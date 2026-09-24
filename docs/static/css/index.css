@@ -236,6 +236,14 @@ button:focus-visible {
   text-decoration: none;
 }
 
+.side-rail-nav a::before {
+  display: inline-block;
+  margin-right: 8px;
+  color: #58d8a7;
+  content: "$";
+  font-weight: 800;
+}
+
 .side-rail-nav a:hover {
   color: var(--blue);
 }
@@ -500,8 +508,8 @@ body.side-rail-open {
 @keyframes hero-title-stripe-scan {
   0% { opacity: 0; clip-path: inset(0 100% 0 0); }
   4% { opacity: 1; clip-path: inset(0 100% 0 0); }
-  19% { opacity: 1; clip-path: inset(0); }
-  29%, 100% { opacity: 0; clip-path: inset(0); }
+  19%, 43% { opacity: 1; clip-path: inset(0); }
+  55%, 100% { opacity: 0; clip-path: inset(0); }
 }
 
 .hero-paper-title {
