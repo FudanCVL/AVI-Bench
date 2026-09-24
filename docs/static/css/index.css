@@ -53,6 +53,8 @@ button:focus-visible {
 }
 
 .page-stars {
+  --page-star-side-offset: 12px;
+
   position: fixed;
   z-index: 0;
   inset: 0;
@@ -62,26 +64,26 @@ button:focus-visible {
 
 .page-star {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #e9fbff;
-  filter: drop-shadow(0 0 5px rgba(71, 171, 224, .95));
+  background: radial-gradient(circle, #fff 0 12%, #75e2ff 27%, #5b91e3 62%, rgba(91, 145, 227, .22) 82%);
+  filter: drop-shadow(0 0 8px rgba(71, 171, 224, 1));
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   will-change: transform, opacity;
 }
 
 .page-star--one {
   top: 22vh;
-  left: 4vw;
+  left: calc(var(--page-star-side-offset) - 6px);
   animation: page-star-drift-one 7.5s ease-in-out infinite;
 }
 
 .page-star--two {
   top: 70vh;
-  right: 4vw;
-  background: #f0edff;
-  filter: drop-shadow(0 0 5px rgba(122, 117, 226, .9));
+  right: calc(var(--page-star-side-offset) - 6px);
+  background: radial-gradient(circle, #fff 0 12%, #e1ddff 27%, #9186e7 62%, rgba(145, 134, 231, .22) 82%);
+  filter: drop-shadow(0 0 8px rgba(122, 117, 226, 1));
   animation: page-star-drift-two 9s ease-in-out -4.2s infinite;
 }
 
@@ -94,7 +96,7 @@ button:focus-visible {
 
   50% {
     opacity: 1;
-    transform: translate3d(12px, -23px, 0) rotate(45deg) scale(1.18);
+    transform: translate3d(2px, -23px, 0) rotate(45deg) scale(1.18);
   }
 }
 
@@ -107,7 +109,7 @@ button:focus-visible {
 
   50% {
     opacity: .96;
-    transform: translate3d(-13px, 25px, 0) rotate(-38deg) scale(1.2);
+    transform: translate3d(-2px, 25px, 0) rotate(-38deg) scale(1.2);
   }
 }
 
@@ -1024,6 +1026,10 @@ tbody tr.data-row:hover td {
 }
 
 @media (max-width: 820px) {
+  .page-stars {
+    --page-star-side-offset: 8px;
+  }
+
   .shell {
     width: min(100% - 32px, 1440px);
   }
@@ -1059,6 +1065,10 @@ tbody tr.data-row:hover td {
 }
 
 @media (max-width: 560px) {
+  .page-stars {
+    --page-star-side-offset: 6px;
+  }
+
   body {
     font-size: 14px;
   }
@@ -1162,6 +1172,18 @@ tbody tr.data-row:hover td {
     flex-direction: column;
     justify-content: center;
     gap: 8px;
+  }
+}
+
+@media (min-width: 1488px) {
+  .page-stars {
+    --page-star-side-offset: calc(25vw - 360px);
+  }
+}
+
+@media (min-width: 1680px) {
+  .page-stars {
+    --page-star-side-offset: max(108px, calc(25vw - 360px));
   }
 }
 
