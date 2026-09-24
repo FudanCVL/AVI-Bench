@@ -259,6 +259,31 @@
     return ticks;
   }
 
+  function chooseYAxisScale(maxScore) {
+    if (!Number.isFinite(maxScore) || maxScore <= 0) {
+      return { max: 1, step: 0.2, intervals: 5 };
+    }
+
+    var targetStep = maxScore / 6;
+    var magnitude = Math.pow(10, Math.floor(Math.log10(targetStep)));
+    var normalizedStep = targetStep / magnitude;
+    var stepFactor = normalizedStep <= 1 ? 1 : normalizedStep <= 2 ? 2 :
+      normalizedStep <= 5 ? 5 : 10;
+    var step = stepFactor * magnitude;
+    var intervals = Math.ceil(maxScore / step);
+
+    return {
+      max: Number((intervals * step).toPrecision(12)),
+      step: step,
+      intervals: intervals
+    };
+  }
+
+  function formatYAxisTick(value, step) {
+    var decimals = Math.max(0, Math.ceil(-Math.log10(step)));
+    return Number(value.toFixed(decimals)).toString();
+  }
+
   function addLegend() {
     var legend = byId("avi-index-chart-legend");
     legend.replaceChildren();
@@ -388,6 +413,8 @@
     var plotWidth = width - margin.left - margin.right;
     var plotHeight = height - margin.top - margin.bottom;
     var times = chartPoints.map(function (point) { return point.timestamp; });
+    var maxScore = Math.max.apply(null, chartPoints.map(function (point) { return point.score; }));
+    var yAxis = chooseYAxisScale(maxScore);
     var minTime = Math.min.apply(null, times);
     var maxTime = Math.max.apply(null, times);
     var range = maxTime - minTime;
@@ -405,11 +432,12 @@
       return margin.left + ((timestamp - domainStart) / (domainEnd - domainStart)) * plotWidth;
     }
     function yFor(score) {
-      return margin.top + ((100 - score) / 100) * plotHeight;
+      return margin.top + ((yAxis.max - score) / yAxis.max) * plotHeight;
     }
 
     var grid = svgElement("g", { class: "trend-grid" });
-    for (var score = 0; score <= 100; score += 20) {
+    for (var tickIndex = 0; tickIndex <= yAxis.intervals; tickIndex += 1) {
+      var score = Number((tickIndex * yAxis.step).toPrecision(12));
       var y = yFor(score);
       grid.appendChild(svgElement("line", {
         class: "trend-grid-line",
@@ -418,7 +446,7 @@
         y1: y,
         y2: y
       }));
-      addText(grid, margin.left - 10, y + 4, String(score), "trend-axis-tick", {
+      addText(grid, margin.left - 10, y + 4, formatYAxisTick(score, yAxis.step), "trend-axis-tick", {
         "text-anchor": "end"
       });
     }
