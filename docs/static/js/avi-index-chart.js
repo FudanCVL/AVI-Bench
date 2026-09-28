@@ -7,6 +7,7 @@
   var PROVIDER_STYLES = {
     google: { color: "#4285f4", shape: "circle" },
     qwen: { color: "#7c3aed", shape: "square" },
+    xiaomi: { color: "#ff6900", shape: "square" },
     openai: { color: "#11856b", shape: "triangle" },
     baichuan: { color: "#d04a35", shape: "diamond" },
     microsoft: { color: "#566b2f", shape: "square" }
@@ -16,6 +17,7 @@
     google: "leaderboard/assets/logos/google.svg",
     microsoft: "leaderboard/assets/logos/microsoft.svg",
     qwen: "leaderboard/assets/logos/qwen.jpg",
+    xiaomi: "leaderboard/assets/logos/xiaomi.svg",
     openai: "leaderboard/assets/logos/openai.svg"
   };
   var WIDE_LOGOS = { baichuan: true, qwen: true };

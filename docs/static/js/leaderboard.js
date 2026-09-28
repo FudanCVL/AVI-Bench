@@ -6,6 +6,7 @@
     google: "leaderboard/assets/logos/google.svg",
     microsoft: "leaderboard/assets/logos/microsoft.svg",
     qwen: "leaderboard/assets/logos/qwen.jpg",
+    xiaomi: "leaderboard/assets/logos/xiaomi.svg",
     openai: "leaderboard/assets/logos/openai.svg"
   };
 
