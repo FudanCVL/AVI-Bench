@@ -267,6 +267,80 @@
         "tasks": {}
       },
       "notes": "Paper-reported scores. The paper table does not specify a dated API snapshot or sample coverage."
+    },
+    {
+      "id": "mimo-v2-6-pro-avi-bench-2026",
+      "model_name": "MiMo-V2.6-Pro",
+      "provider": "Xiaomi",
+      "model_id": "mimo-v2.6-pro",
+      "model_release_date": "2026-09-22",
+      "model_release_source_url": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "maintainer",
+        "url": "https://github.com/FudanCVL/AVI-Bench"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 52.35,
+        "stages": {
+          "perception": 53.42,
+          "understanding": 53.93,
+          "reasoning": 62.18,
+          "sensation": 39.89
+        },
+        "taxonomy": {
+          "l1_task": 56.51,
+          "l2_modality": 55.79,
+          "l3_stage": 52.46,
+          "l4_domain": 38.32
+        },
+        "tasks": {}
+      }
+    },
+    {
+      "id": "qwen-3-8-omni-flash-avi-bench-2026",
+      "model_name": "Qwen-3.8-Omni-Flash",
+      "provider": "Qwen",
+      "model_id": "qwen3.8-omni-flash",
+      "model_release_date": "2026-09-17",
+      "model_release_source_url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "maintainer",
+        "url": "https://github.com/FudanCVL/AVI-Bench"
+      },
+      "evaluation_date": null,
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": null,
+        "samples_total": null
+      },
+      "scores": {
+        "overall": 62.8,
+        "stages": {
+          "perception": 64.54,
+          "understanding": 69.3,
+          "reasoning": 69.44,
+          "sensation": 47.92
+        },
+        "taxonomy": {
+          "l1_task": 67.76,
+          "l2_modality": 66.15,
+          "l3_stage": 65.17,
+          "l4_domain": 46.49
+        },
+        "tasks": {}
+      }
     }
   ]
 }
