@@ -280,13 +280,13 @@
         "type": "maintainer",
         "url": "https://github.com/FudanCVL/AVI-Bench"
       },
-      "evaluation_date": null,
+      "evaluation_date": "2026-10-04",
       "coverage": {
         "status": "full",
         "tasks_completed": 14,
         "tasks_total": 14,
-        "samples_completed": null,
-        "samples_total": null
+        "samples_completed": 5864,
+        "samples_total": 5864
       },
       "scores": {
         "overall": 52.35,
@@ -303,7 +303,8 @@
           "l4_domain": 38.32
         },
         "tasks": {}
-      }
+      },
+      "notes": "All 5,864 samples were scored; 1 missing or empty prediction was counted as incorrect."
     },
     {
       "id": "qwen-3-8-omni-flash-avi-bench-2026",
@@ -317,13 +318,13 @@
         "type": "maintainer",
         "url": "https://github.com/FudanCVL/AVI-Bench"
       },
-      "evaluation_date": null,
+      "evaluation_date": "2026-10-04",
       "coverage": {
         "status": "full",
         "tasks_completed": 14,
         "tasks_total": 14,
-        "samples_completed": null,
-        "samples_total": null
+        "samples_completed": 5864,
+        "samples_total": 5864
       },
       "scores": {
         "overall": 62.8,
@@ -340,7 +341,46 @@
           "l4_domain": 46.49
         },
         "tasks": {}
-      }
+      },
+      "notes": "All 5,864 samples were scored; 9 missing or empty predictions were counted as incorrect."
+    },
+    {
+      "id": "qwen-3-5-omni-plus-avi-bench-2026",
+      "model_name": "Qwen-3.5-Omni-Plus",
+      "provider": "Qwen",
+      "model_id": "qwen3.5-omni-plus",
+      "model_release_date": "2026-03-30",
+      "model_release_source_url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+      "benchmark_version": "paper-2606.07643",
+      "source": {
+        "type": "maintainer",
+        "url": "https://github.com/FudanCVL/AVI-Bench"
+      },
+      "evaluation_date": "2026-10-04",
+      "coverage": {
+        "status": "full",
+        "tasks_completed": 14,
+        "tasks_total": 14,
+        "samples_completed": 5864,
+        "samples_total": 5864
+      },
+      "scores": {
+        "overall": 55.95,
+        "stages": {
+          "perception": 63.02,
+          "understanding": 51.54,
+          "reasoning": 62.57,
+          "sensation": 46.65
+        },
+        "taxonomy": {
+          "l1_task": 59.04,
+          "l2_modality": 57.85,
+          "l3_stage": 51.85,
+          "l4_domain": 38.23
+        },
+        "tasks": {}
+      },
+      "notes": "All 5,864 samples were scored; 24 missing or empty predictions were counted as incorrect."
     }
   ]
 }
